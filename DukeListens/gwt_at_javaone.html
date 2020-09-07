@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GWT at JavaOne - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="gwt_at_javaone.html#content">content</a>, <a href="gwt_at_javaone.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="gwt_at_javaone">
+
+	<div class="entry-title entry-info">
+			<h2>GWT at JavaOne</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>I was really looking forward to the GWT talk at JavaOne (and 
+apparently so were many others, there seemed to be a thousand in the 
+room during the talk).&nbsp; The talk was presented by two of the core 
+GWT team members.&nbsp; They did a super job giving the talk - they were
+ relaxed, were polished in their presentation, used humor, didn't get 
+fazed by AV glitches.&nbsp; They talked a bit about the philosophy 
+behind GWT. They put some stakes in the ground - 'static typing&nbsp; is
+ good, dynamic typing is not so good', lots of sexy widgets not so 
+important as user experience.&nbsp;&nbsp; They want to bring software 
+engineering to web development.&nbsp; They claim (and I agree) that it 
+is hard to engineer a pile of steaming javascript.&nbsp; Java is much 
+better for all its 'abilities' - maintability, adaptability, etc.&nbsp; </p><p>They
+ had some good metrics about how users react to load time.&nbsp; If your
+ app takes too long, your users will leave.&nbsp; They have a 300ms goal
+ for a load time of a rich GWT application - and they are working hard 
+always to reduce load time.&nbsp; They do this in a number of ways - 
+they use the browser cache to help of course, they make the code they 
+ship over the wire be very compressible, and they reduce the overall 
+number of http requests (compare that to what is typically done with a 
+traditional ajax app, where there may be many trips to the server just 
+to get all of the javascript).&nbsp; GWT build separage JS bundles for 
+the different browsers, so if you are running in firefox, you don't have
+ any IE specific JS.&nbsp; One really neat optimization they are doing 
+is called 'image bundles'.&nbsp; Apps that have lots of static images 
+can take a long time to load since each image is a separate HTTP 
+request.&nbsp; GWT can bundle all of these images into a single image. 
+So your app only has to do a single HTTP request to get the images. They
+ can then use windowing within this larger image to display the various 
+images.&nbsp; A very clever technique.&nbsp; GWT also includes a timing 
+framework so you can easily instrument your app so you can see how long 
+it takes the app to load.</p><p>They showed some demos ... I was a bit 
+disappointed here since they just showed the demos that are available on
+ the GWT site. I was also disappointed that they didn't talk much about 
+where they were going, what new features were on the roadmap.</p><p>During
+ the Q/A one audience member asked about how to write a GWT app that 
+could be crawled by search engines like google.&nbsp; The GWT guys knew 
+about this problem and they are indeed working hard on making GWT sites 
+crawlable.</p><p>&nbsp;All in all, a good session.</p><p>&nbsp;</p><p><br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 10, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: Java</p>
+	<p class="entry-links">
+		<a href="gwt_at_javaone.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1178908318000" id="comment-1178908318000"></a>
+            <div class="comment odd" id="comment1">
+
+                Interesting stuff.  I have always wondered, however, why
+ the majority of the web programming sphere is wed to the idea of 
+building all these applications within the current browser architecture,
+ and on top of HTTP.  To me, it makes much more sense to build rich 
+internet applications outside of the browser, using the full 
+capabilities of the desktop.  And to build them on top of TCP directly, 
+instead of all these hacks atop HTTP.  I mean, look at the name of the 
+protocol itself: Hypertext transfer.  It seems very silly that we are 
+now building all these rich internet applications, everything from 
+Pandora to Zillow, on top of a protocol that was designed for hypertext.
+  
+
+A few weeks ago, I read something about researchers wanting to scrap IP 
+and start over.  Why wouldn't we also scrap HTTP, and start over at that
+ layer, too?
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Jeremy P</b>
+                
+                on May 11, 2007 at 02:31 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/gwt_at_javaone#comment-1178908318000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1179138361000" id="comment-1179138361000"></a>
+            <div class="comment even" id="comment2">
+
+                Jeremy - I think the biggest advantage for doing web 
+apps in the browser is that the browser is already on 100% of the 
+desktops.  There's no install time, no futzing with install scripts, 
+there's a security model that is supposed to protect you from malicious 
+programmers.  The google gwt folks talked about a 300ms window of 
+opportunity.  Take longer than that and your site starts to lose 
+visitors.  If people have to install some software before they can use 
+your site, you've lost many, many potential users.
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on May 14, 2007 at 06:26 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/gwt_at_javaone#comment-1179138361000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1179159179000" id="comment-1179159179000"></a>
+            <div class="comment odd" id="comment3">
+
+                Hrm.. yes.  I have heard that "browser is already 
+installed" reasoning a number of times.  I think that is one of the 
+fundamental pillars of "web" 2.0.   But how many more Myspacian social 
+networking sites can the world create before we say "enough", and clamor
+ for something newer, bigger, more interesting than the software that 
+lives inside a web browser box?  
+
+Maybe I am just in the minority, and the market won't cater to someone 
+like me.  But I have seriously considered puchasing IP media servers so 
+that I can listen to Pandora without a web browser, without a computer 
+on at all.  Just my router, media streamer, and stereo speakers.  To me,
+ that sort of Ubicomp application of Pandora's service is all about 
+"Internet" 2.0, rather than strictly "web" 2.0.  
+
+I think the browser is actually a two-edged sword. Yes, it is already 
+installed on every computer.  But it is such a small box, and it is very
+ difficult to squeeze much interesting into it.  I guess I just don't 
+buy the argument that the only way to get people to use your 
+software/service is to have it inside a browser.  Two big 
+counterexamples are iTunes and Google Earth.  Somehow, lots of people 
+still download and install that software.  And you can do things in that
+ rich application area that you simply cannot do on the web.  There is a
+ reason why Google Earth is not a web app.  
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Jeremy P</b>
+                
+                on May 14, 2007 at 12:12 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/gwt_at_javaone#comment-1179159179000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>GWT at JavaOne</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="javaone_day_one.html">JavaOne Day One</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="freetts_at_javaone.html">FreeTTS at JavaOne</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

@@ -1,0 +1,942 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="verify-v1" content="0c/Cx6NLE4aEaOKo//DNIIJVpWqeq374fNJIL//A2wE=">
+<title>Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="weblog">
+<!-- End of StatCounter Code -->
+
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="page15.html#content">content</a>, <a href="page15.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday Apr 23, 2008</h2>
+	</div>
+
+	<div class="entry" id="mapping_blogs_sun_com">
+
+	<div class="entry-title entry-info">
+			<h3><a href="mapping_blogs_sun_com.html" title="permalink">Mapping blogs.sun.com</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Aardvark, our blog recommender that relies on<a href="recommendation_for_the_rest_of.html"> Project Aura</a>,
+ our web-scale recommender has a crawler that builds a link map so we 
+can derive the authority of a blog based upon the link structure of the 
+blogosphere.    For fun, I built a link map of the top 60 or so most 
+linked blogs at blogs.sun.com.  It is interesting to see all of the 
+connections, and of course <a href="http://blogs.sun.com/jonathan/">Jonathan's</a> is the most linked to blog of all.  Here's an excerpt, the <a href="http://support_files/_feedGraph.jpg">full version is pretty large</a>. There's a <a href="http://blogs.sun.com/plamere/resource/_hardCoreFeedGraph.pdf">totally hardcore PDF</a> as well that shows the link structure for the top 200 blogs.
+<p>
+</p><center><a href="http://support_files/_feedGraph.jpg"><img src="support_files/_feedGraphPreview.png" alt="feedGraphPreview.png" border="0"></a></center>
+<p>
+<a href="http://support_files/_feedGraph.pdf">(60 node PDF version)</a>
+<br>
+<a href="http://support_files/_hardCoreFeedGraph.pdf">(200 node PDF version)</a>
+</p><p>
+Update: <a href="http://blogs.sun.com/bblfish/">Henry Story</a> points 
+out some obvious, missing links - turns out  we haven't crawled all of 
+blogs.sun.com yet, so if your well connected blog is not in the map, it 
+will be soon. 
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 23, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="mapping_blogs_sun_com.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/mapping_blogs_sun_com#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="abusing_a_search_engine">
+
+	<div class="entry-title entry-info">
+			<h3><a href="abusing_a_search_engine.html" title="permalink">Abusing a search engine</a></h3>
+		</div>
+
+	<div class="entry-content">
+				I've been writing a specialized web crawler for Aardvark, our blog 
+recommender.  The crawler is fairly straightforward -  pull blog feeds, 
+add them the the Aura DataStore, and look for URLs to other blogs. When 
+the crawler finds a new URL it has to decide whether or not it should 
+crawl that URL to look for blogs.  The first part of this decision is to
+ check whether or not we've already crawled the URL.  This is simple 
+enough for a small crawler - when a URL is crawled, toss the URL into a 
+HashSet, and whenever it is time to crawl a new URL, first check  the 
+HashSet - if the URL is already there, it has already been crawled, so  
+it can be skipped.  However, this gets to be a bit trickier when the 
+crawler wants to keep track of millions of URLs.  The HashSet will no 
+longer comfortably fit in memory.  So what to do? We could keep the URLs
+ in a sorted file that we could quickly search through, or we could use a
+ database to store the URLs and construct a query to see if a URL is 
+already in the database.   Or we can just use our search engine. As the 
+old saying goes, when you have a hammer, every problem looks like a nail
+ - and since we have <a href="http://blogs.sun.com/searchguy/entry/minion_an_open_source_search1">a search engine</a>,
+ to us, everything looks like a search problem.  And so with our trusty 
+search engine in hand, we created a persistent hashset that can easily 
+deal with millions and millions of members.  And the code was 
+surprisingly easy to write.  Here are the core functions:
+
+<pre>    /** adds a string to the persistent set */
+    public void add(String s) {
+        if (!contains(s)) {
+            inMemoryCache.add(s);
+            if (inMemoryCache.size() &gt; MAX_MEMORY_CACHE_SIZE) {
+                SimpleIndexer indexer = searchEngine.getSimpleIndexer();
+                for (String cachedString : inMemoryCache) {
+                    indexer.startDocument(cachedString);
+                    indexer.endDocument();
+                }
+                indexer.finish();
+                inMemoryCache.clear();
+            }
+        }
+
+    /** tests to see if in item is in the set */
+    public  boolean contains(String s) {
+        if (inMemoryCache.contains(s)) {
+            return true;
+        } else {
+            return searchEngine.isIndexed(s);
+        }
+    }
+</pre>
+
+The code was surprising fast too.  With a million items in the set, a 
+'contains' operation took a couple of hundred microseconds to execute.
+<p>
+So, this is one way you can abuse a search engine, (the other way is to make it crawl ;)
+</p><p>
+Update: Steve has blogged<a href="http://blogs.sun.com/searchguy/entry/the_rest_of_the_story"> about the rest of the story</a>.
+
+    
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 23, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: Java</p>
+	<p class="entry-links">
+		<a href="abusing_a_search_engine.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/abusing_a_search_engine#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday Apr 22, 2008</h2>
+	</div>
+
+	<div class="entry" id="this_is_awsome">
+
+	<div class="entry-title entry-info">
+			<h3><a href="this_is_awsome.html" title="permalink">This is awsome</a></h3>
+		</div>
+
+	<div class="entry-content">
+				A music visualization based on <a href="http://www.flight404.com/blog/?p=111">Processing</a> - Just watch. <a href="https://www.vimeo.com/658158">Solar, with lyrics. on Vimeo</a>
+<p>
+
+<object type="application/x-shockwave-flash" data="https://kiserai.net/DukeListens/page15_files/moogaloop.swf" height="225" width="400">	<param name="quality" value="best">	<param name="allowfullscreen" value="true">	<param name="scale" value="showAll">	<param name="movie" value="http://www.vimeo.com/moogaloop.swf?clip_id=658158&amp;server=www.vimeo.com&amp;fullscreen=1&amp;show_title=1&amp;show_byline=1&amp;show_portrait=0&amp;color="></object><br><a href="https://www.vimeo.com/658158/l:embed_658158">Solar, with lyrics.</a> from <a href="https://www.vimeo.com/flight404/l:embed_658158">flight404</a> on <a href="https://vimeo.com/l:embed_658158">Vimeo</a>.
+</p><p>
+<a href="http://www.flight404.com/blog/?p=111">Read how this was made</a>.
+
+</p><p>(Via the aardvark blog recommender)</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 22, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="this_is_awsome.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="the_project_aura_dashboard">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_project_aura_dashboard.html" title="permalink">The Project Aura Dashboard</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Over the past few months, the Project Aura team has been building a 
+web-scale recommender.  As an example of what one can do with Project 
+Aura, we've implemented a blog recommender called Aardvark that uses 
+Project Aura.  Aardvark crawls the webs looking for blogs and recommends
+ stories to you based upon your interests.  We've found that blog 
+recommender is an excellent example for recommendation - there's lots of
+ things to recommend (we crawl millions of new stories in a week), 
+there's high churn on the content (a post that is 5 days old is ancient 
+history) and people seem to be genuinely frustrated with blog reading - 
+either there are too many posts to slog through in a day, or it is hard 
+to find where to start reading about a particular topic.  
+<p>
+To demonstrate some of the under-the-hood technologies of the 
+recommender (document similarity, classification and autotagging), and 
+to add a bit of sizzle to what can be a bit of a boring demo ("now let 
+me show you 10 blog posts that you might (yawn) find interesting"), 
+we've built a dashboard for Aardvark.  The dashboard is a 3D app that 
+shows the status of the live running system.  Blog headlines scroll 
+through the space as they are crawled from the web. 
+</p><p>
+</p><center><a href="http://support_files/_aura_dashboard_headlines.png"><img src="support_files/_aura_dashboard_headlines.png" alt="aura_dashboard_headlines.png" border="0" height="400" width="500">
+</a></center>
+<p>
+Clicking on any headline brings up the story. We can look at the manual 
+tags and autotags for the story, find similar stories, get 
+recommendations and explore the topic space of the blogosphere through 
+this interface.   Of course, this isn't the type of interface that 
+anyone would use to read blogs on a daily basis, but it is a great way 
+to show off what is going on behind the scenes in the recommender. 
+</p><p>
+</p><center><a href="http://support_files/_aura_dashboard.png" alt="aura_dashboard.png"><img src="support_files/_aura_dashboard.png" alt="aura_dashboard.png" border="0" height="400" width="500"></a>
+</center>
+<p>
+If you are interested in learning more about Project Aura, and Aardvark,
+ and if you'd like to see the dashboard in action, be sure to come to 
+our session at JavaOne.  The session is <a href="https://www28.cplan.com/cc191/session_details.jsp?isid=295841&amp;ilocation_id=191-1&amp;ilanguage=english">TS-5841</a>: Project Aura: Recommendation for the Rest of Us (Next Generation Web / Cool Stuff), and is at 12:10 PM on Tuesday, May 6.   
+</p><p>
+<img src="support_files/_87B1B914-B7C7-4B1A-847B-C58DA207FADE.jpg" alt="87B1B914-B7C7-4B1A-847B-C58DA207FADE.jpg" border="0" height="93" width="170">
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 22, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="the_project_aura_dashboard.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/the_project_aura_dashboard#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Monday Apr 21, 2008</h2>
+	</div>
+
+	<div class="entry" id="spotify_says_goodbye_to_the">
+
+	<div class="entry-title entry-info">
+			<h3><a href="spotify_says_goodbye_to_the.html" title="permalink">Spotify says goodbye to the music (sniff)</a></h3>
+		</div>
+
+	<div class="entry-content">
+				It looks like <a href="https://www.spotify.com/">Spotify</a> got a 
+little taste of reality.  In today's blog post Andreas  reports "As part
+ of our ongoing negotiations with rights holders, we have pruned the 
+catalog. We’re sorry if this means your favorite artist is missing. Our 
+long-term goal is to have all the music."  Sure enough, a search for <a href="https://open.spotify.com/search/beatles">The Beatles</a>
+ results in just Beatles' covers, no real Beatles. It is hard to tell 
+how deep the pruning is, but I really hope it wasn't too deep - one of 
+Spotify's biggest value has been their  bottomless cup of music. I'm 
+sure Spotify will be working hard to get the music back. (And don't tell
+ anyone, but the Beatles still seem to be there, they've just been 
+removed from the Spotify search index. All my old <a href="https://open.spotify.com/user/plamere/playlist/5UeYUj6jwyVwzLbt4Z5mac">playlists that had Beatles songs</a> still play just fine.)
+
+<p>Via <a href="http://blog.spotify.com/archives/2008/04/21/content-and-metadata-changes">Spoitfy Blog</a></p>
+<em>Update: Well, it looks like the Beatles are completely gone now. The Beatles are now MIA from all my playslist too. Sigh.</em>
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 21, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="spotify_says_goodbye_to_the.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="minion_the_open_source_search">
+
+	<div class="entry-title entry-info">
+			<h3><a href="minion_the_open_source_search.html" title="permalink">Minion: The Open source search engine from Sun Labs.</a></h3>
+		</div>
+
+	<div class="entry-content">
+				This is big.   One of the secret weapons underlying the <a href="http://research.sun.com/spotlight/2006/2006-06-28_search_inside_music.html">Search Inside the Music</a> project and<a href="recommendation_for_the_rest_of.html"> Project Aura</a>
+ is a high quality search engine called Minion.  Minion handles 
+everything that has to do with Text for these projects.  In addition to 
+traditional search, we use Minion for document similarity (the core 
+technique used for  <a href="tagomendations_making_recommedations_transparent.html">Tagomendations</a>),
+ item clustering, sense disambiguation, classification and autotagging. 
+ Minion is a research-oriented search engine - meaning that it is 
+designed to allow for all sorts of variations.  It is ultra-configurable
+ and has a simple API.  The big news is that the process to open source 
+the Minion engine is underway.  Steve Green (aka the search guy) has 
+created a Minion project on Java.net - and soon, the Minion search 
+engine will be available for all.
+<p>
+Steve promises to start posting regularly about the engine, so check out the Search Guy blog: <a href="http://blogs.sun.com/searchguy/entry/minion_an_open_source_search1">The Search Guy</a></p>
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 21, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="minion_the_open_source_search.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/minion_the_open_source_search#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="mystrands_looking_to_invest_100k">
+
+	<div class="entry-title entry-info">
+			<h3><a href="mystrands_looking_to_invest_100k.html" title="permalink">MyStrands looking to invest $100k in your recommender startup</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<i>In my extreme busy-ness of last month, I missed this item.</i> In the spirit of the <a href="http://www.netflixprize.com/">NetFlix prize</a>, <a href="http://www.mystrands.com/">MyStrands</a> has issued a '<a href="http://recommender-startups.strands.com/">call for recommender startups</a>'.
+ They are  looking for teams with an original, creative, viable and 
+relevant recommender idea. Five finalists will travel to Lausanne 
+Switzerland for <a href="http://recsys.acm.org/">RecSys08</a> where the 
+final selection will be announced.  The winner will receive an offer of a
+ $100,000 investment in their idea/company.
+Unlike the NetFlix prize, the MyStrands prize is loan/investment whose  
+terms are 'determined by Strands in its sole discretion.'  
+<p>
+I'm not in any position to participate since I don't meet the 
+eligibility requirements (individuals or sole proprietors and privately 
+held businesses), but if I did, I'd be a little cautious about 
+responding to this call, since my cool recommender idea would be 
+published in a public forum - where anyone could see it and copy it. On 
+the other hand, if I had a good idea, that was hard to duplicate or had 
+some secret sauce - this might be just the thing to give me a year or 
+two to turn it into the next Google. 
+</p><p>
+</p><center><a href="http://blog.strands.com/2008/03/12/recommender-start-ups/"><img src="support_files/steps.jpg">
+</a></center><p>
+</p><p>Via <a href="http://blog.strands.com/2008/03/12/recommender-start-ups/">MyStrands Blog » Looking for the best early-stage recommender start-ups</a></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 21, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="mystrands_looking_to_invest_100k.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Friday Apr 18, 2008</h2>
+	</div>
+
+	<div class="entry" id="the_most_unwanted_song">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_most_unwanted_song.html" title="permalink">The most unwanted song</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<ol>
+<li>Take a poll to find out what music people like the least. <br>
+</li><li> Put all this horrible music into one song. <br>
+</li><li> ???
+</li><li>Profit
+</li></ol>
+<p>
+There's no way you will <a href="http://ubu.artmob.ca/sound/komar_melamid/KomarMelamid_The-Most-UnwantedSong.mp3">enjoy this song</a>.
+</p><p>
+The most unwanted music is over 25 minutes long, veers wildly between 
+loud, quiet, fast and slow. The orchestra features accordion, bagpipe 
+and an operatic soprano singing atonal music, advertising jingles, 
+political slogans, and "elevator" music, while a children's choir sings 
+jingles, holiday and cowboy songs. The song is a masterpiece in modern 
+horror.
+
+<a href="http://www.ubu.com/sound/komar.html">Read more about this project</a>.
+
+</p><p>Via <a href="https://mikelove.wordpress.com/2008/04/18/the-most-unwanted-song/">Mike Love’s blog</a> 
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 18, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_most_unwanted_song.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/the_most_unwanted_song#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="where_did_last_fm_go">
+
+	<div class="entry-title entry-info">
+			<h3><a href="where_did_last_fm_go.html" title="permalink">Where did Last.fm go?</a></h3>
+		</div>
+
+	<div class="entry-content">
+				If you go to <a href="https://last.fm/">last.fm</a> right now, you 
+will probably receive an 'unable to connect' error from your browser.  
+Rumor has it that Miley Cyrus didn't like the way she had been <a href="https://www.last.fm/music/Hannah+Montana">tagged</a> at last.fm so she invoked her secret Hannah Montana powers to take the site down.  The <a href="http://blog.last.fm/2008/04/18/possible-lastfm-downtime">official story</a> is just a cover.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 18, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="where_did_last_fm_go.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/where_did_last_fm_go#comments.html">Comments [5]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="coming_next_month_last_fm">
+
+	<div class="entry-title entry-info">
+			<h3><a href="coming_next_month_last_fm.html" title="permalink">Coming next month: Last.fm's biggest challenge</a></h3>
+		</div>
+
+	<div class="entry-content">
+				There's an interesting story in the Washington Post about CBS's plans for Last.fm. 
+<p><a href="https://www.washingtonpost.com/wp-dyn/content/article/2008/04/17/AR2008041703719.html"><em>CBS Interactive's Quincy Smith On Re-Org: 'More CBS Corp. Firepower Focused On Interactive' - washingtonpost.com</em></a><em>:
+ "Last.fm: It's almost a year since CBS plunked down $280 million for 
+the UK music recommendation start-up and Smith knows he needs to deliver
+ on all that promise. Last.fm has been growing rapidly on its own and 
+has been given start-up like breathing room but it's time to bring it 
+more into the fold. As we've written here before, Last.fm also needs 
+more U.S. traction. Yes, Smith said, they bought Last.fm in part because
+ of its strong international appeal. 'But it's our job, frankly, as a 
+corporation, to make them more valid in the United States.' To that end,
+ CBS will ramp up on-air promos with 'a lot more call outs' starting in 
+May and, very soon, Last.fm will get its own CMO 'charged with plugging 
+them more into the CBS mainstream.' In late May, CBS will start sending 
+viewers of certain shows to the show's music on Last.fm. 'The downside 
+of Last.fm right now, from my perspective, has nothing to do with the 
+service itself ... the question is how do you blow it up and make it a 
+major media brand in the United State?' Last.fm is working with CBS 
+Interactive's Entertainment unit. As Smith put it, 'CBS has done much 
+less of a job with Last.fm than Last.fm has done with Last.fm.'"</em></p><em></em>
+No doubt going mainstream with Last.fm is necessary for CBS to justify 
+their $280 million dollar investment - but for a site like Last.fm, 
+going mainstream is really tricky.  Last.fm listeners tend to be highly 
+engaged music fans - whose taste runs to less mainstream music - you are
+ more apt to find artists like Radiohead, Arcade Fire and the Postal 
+Service in the top ten at Last.fm compared to the mainstream pop artists
+ like Mariah Carey and Miley Cyrus that populate the <a href="https://www.billboard.com/bbcom/charts/chart_display.jsp?g=Singles&amp;f=Pop+100">Billboard Pop 100</a>.
+  As Last.fm goes mainstream, there is going to be a culture clash as 
+the mainstream listeners collide with the old-school last.fm listeners. 
+ Teenyboppers (and their angry parents) will wonder why <a href="https://www.last.fm/music/Hannah+Montana/+tags">Hannah Montana is tagged</a>
+ with 'hardcore death metal' and 'lesbian'. Old-school last.fm listeners
+ will leave for alternative sites as last.fm loses its focus as the best
+ site to discover new indie and alternative music.   It's Digg all over 
+again. As<a href="https://mashable.com/2008/02/05/digg-tech-section-analysis/"> Digg went mainstream</a>,
+ it lost its focus on technology - and all the hard-core tech readers 
+went back to slashdot.  The problem for Last.fm is that as it goes 
+mainstream, it risks losing much of its core audience - the highly 
+engaged music fan - and this user base of hard core music fans is one of
+ Last.fm's biggest asset.   
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 18, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="coming_next_month_last_fm.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/coming_next_month_last_fm#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Thursday Apr 17, 2008</h2>
+	</div>
+
+	<div class="entry" id="hacking_recommenders">
+
+	<div class="entry-title entry-info">
+			<h3><a href="hacking_recommenders.html" title="permalink">Hacking recommenders</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>
+Companies like Google have spent years fighting search engine optimizers
+ that will try to inflate the search rankings in exchange for money.  
+The next wave of this foolishness is upon us - recommender engine 
+optimizers. Companies will take your money in exchange for inflating the
+ playcounts for your tracks.  For $747 a company called Tune Boom will 
+increase the playcounts on your MySpace tracks by 300,000.  The <a href="http://tuneboompro.com/">tuneboom pro</a> site just reeks of sliminess:
+
+</p><blockquote>More Plays Get You Attention. It's the Number One Factor
+ To Get On The MySpace Charts! While Having Lots Of Friends On MySpace 
+Is Important - It's Only Useful If You Have Targeted a REAL Fan Base - 
+It's Proven That the Very First Information Looked At Are Your Song 
+Plays! It ALL Starts With The Plays!
+
+*Important: Don't let fans come to your page and see 20, 30, or 50, 
+plays! People like to be a part of something big and don't want to miss 
+out. When they see a high song play count and see that your song plays 
+are increasing, they will be more likely to click and listen to your 
+music and become friends and fans. </blockquote>
+
+Via <a href="https://blog.wired.com/music/2008/04/tuneboom-pro-ar.html">TuneBoom Pro Apparently Inflates Artists' MySpace Plays | Listening Post from Wired.com</a>
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 17, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="hacking_recommenders.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="guitarhero">
+
+	<div class="entry-title entry-info">
+			<h3><a href="guitarhero.html" title="permalink">GuitarHero++</a></h3>
+		</div>
+
+	<div class="entry-content">
+				In the TED Talk <a href="https://www.ted.com/index.php/talks/view/id/246"> Releasing the music in your head</a>,
+ Tod Machover talks about new ways for people to interact with music. 
+Tod argues that music is not just for listening. Everyone can create 
+music, given the right tools. Tod builds systems that allow people to 
+interact with music, experiment with music and even to perform music, 
+even without formal music training.   
+Tod introduces <a href="https://www.ted.com/speakers/view/id/216">Dan Ellsey</a> -a composer with cerebral palsy who uses Hyperscore to write and perform his music.  It's an interesting talk.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 17, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="guitarhero.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="how_to_build_a_web">
+
+	<div class="entry-title entry-info">
+			<h3><a href="how_to_build_a_web.html" title="permalink">How to build a web-scale recommender</a></h3>
+		</div>
+
+	<div class="entry-content">
+				There are lots of challenges in building a good recommender system -
+ one challenge is dealing with the scale.  A good recommender needs lots
+ of data - the more the better. The best recommenders - like those at 
+Amazon or Netflix have billions of taste data points for millions of 
+users.  <a href="https://last.fm/">Last.fm</a> collects a half-billion  
+scrobbles in a month.  More data is good - Amazon, Neflix and Last.fm 
+are known for their good recommendations and that is mainly because they
+ have so much good data.  But dealing with this data can be a challenge.
+  Sites like Last.fm  are having to become experts at dealing with <a href="http://blog.last.fm/2008/04/01/hadoop-summit-2008-creating-new-infrastructures-for-big-data">Big Data</a> just so they can generate good recommendations.
+<p>
+Building a system that is ready to collect so much data and process it can be a challenge.  It is certainly a challenge for <a href="recommendation_for_the_rest_of.html">Project Aura</a>.
+ We want to build a system from the ground up that is ready for all of 
+this data.  Building such a web scale system that is highly reliable, 
+fault tolerant and allows us to easily expand our computing capacity 
+without re-architecting the system is not easy.  But luckily we have a 
+secret weapon that makes it easy (well, easier) to build a web-scale 
+recommender. That secret weapon is Project Caroline.  
+</p><p>
+<a href="https://www.projectcaroline.net/main/">Project Caroline</a> is a
+ research program developing a horizontally scalable platform for the 
+development and deployment of Internet services. The platform comprises a
+ programmatically configurable pool of virtualized compute, storage, and
+ networking resources. With Project Caroline we can develop services 
+rapidly, deploy frequently, and automatically expand or contract our use
+ of platform resources to match changing runtime demands.  In some ways,
+ it is like Amazon's EC2 - in that allows for elastic computing across a
+ number of networked computers, but Project Caroline works at a higher 
+level - instead of dealing with linux images - you work with grid 
+resources such as file systems, databases and virtualized containers for
+ processes.  It is really quite easy and flexible to use.  Rich Zippel 
+describes <a href="http://blogs.sun.com/zippel/entry/project_caroline">Project Caroline in his blog </a>as: <em>
+ a really cool platform that allows you to programmatically control all 
+of the infrastructure resources you might need in building a 
+horizontally scaled system. You can allocate and configure databases, 
+file systems, private networks (VLAN's), load balancers, and a lot more,
+ all dynamically, which makes it easy to flex the resources your 
+application uses up and down as required.</em>"
+</p><p>
+Project Aura consists of a set of loosely coupled components that use 
+Jini for service discovery and RMI for IPC.  The heart of the system is a
+ distributed datastore that allows us to spread our taste data and the 
+computation associated with the data over a number of compute resources.
+  Feeding this datastore are a set of webcrawlers and on top of this sea
+ of components we have a set of web services and web apps for 
+communicating with the outside world.   Getting this system to run on a 
+local set of computers in the lab was a daunting task - with all the 
+typical troubles of custom startup scripts, missing environment 
+variables, processes registering with the wrong RMI registry, etc.  All 
+the typical things that can go wrong when trying to get a lots of 
+computers working together to solve a single problem.  Based upon this, I
+ really thought we were going to have lots of problems getting this all 
+running on Project Caroline - but instead it was a straightforward, 
+process.  In about a day, <a href="http://research.sun.com/people/mybio.php?c=257">Jeff</a> was able to get all of Project Aura running on Project Caroline.
+</p><p>
+I was worried that once we started to run on the Project Caroline grid, 
+we would lose some of ability to interact with our running system.  I 
+was worried that we wouldn't be able to monitor our system, look at log 
+files, restart individual components, or tweak a configuration - but 
+that is not the case. Project Caroline has a grid accessor tool lets us 
+take total control of the grid-based Project Aura. We can control 
+processes, configure the network, interact with the filesystem (we can 
+even use webdav to 'mount' the Project Aura filesystem on a local 
+machine). Interacting with Project Aura when it is running on the grid 
+is easier than when it is running locally. All the control is via a 
+single interface - its very nice.  
+
+</p><p><img src="support_files/_gridaccess2.png" alt="gridaccess2.png" border="0">
+</p><p>
+Now that we have Project Aura running on top of Project Caroline - I'm 
+getting used to the idea of having 60 web crawling threads feeding a 
+16-way datastore that is being continually indexed by our search engine -
+ and  all of this is running across some number of processors - I don't 
+really know how many, and I don't really care
+</p><p>
+I'm really excited about Project Caroline - this seems to be the right 
+answer to the question that plagues anyone who is developing what they 
+hope will become the next YouTube - How do you build and deploy a system
+ that is going  to scale up if and when you get really popular?
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 17, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="how_to_build_a_web.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday Apr 16, 2008</h2>
+	</div>
+
+	<div class="entry" id="sanfran_musictech_summit2">
+
+	<div class="entry-title entry-info">
+			<h3><a href="sanfran_musictech_summit2.html" title="permalink">SanFran MusicTech Summit</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>Brian Zisk and friends have already scheduled a followup to the very successful <a href="http://sanfranmusictech.com/">SanFran MusicTech Summit</a>
+ The summit will be on May 8th, right after the 50th anniversary of NARM
+ (the National Record Merchandising Association).  Note that this also 
+happens to be right in the middle of JavaOne week, so if you are geeking
+ out at one conference, you are just a cable car ride away from the 
+other.   I'm going to JavaOne, and that will no doubt keep me busy all 
+week, but if I do get tired of hearing about yet another closures 
+language extension for Java, I may try to sneak over to the summit. 
+They've already signed up a good set of <a href="http://sanfranmusictech.com/speakers.html">speakers</a> for the summit, so it is sure to be an enriching experience.</p>
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 16, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="sanfran_musictech_summit2.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/sanfran_musictech_summit2#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday Apr 15, 2008</h2>
+	</div>
+
+	<div class="entry" id="listiply_playlist_sharing_for_spotify">
+
+	<div class="entry-title entry-info">
+			<h3><a href="listiply_playlist_sharing_for_spotify.html" title="permalink">Listiply - Playlist sharing for Spotify</a></h3>
+		</div>
+
+	<div class="entry-content">
+				I've started using <a href="http://www.listiply.com/">Listiply </a>  a site for sharing <a href="https://spotify.com/">Spotify</a>
+ playlists.  When I'm jonesing for some new music I just pop over to 
+Listiply, pick a playlist that sounds interesting and fire it up. Right 
+now I'm listening to <a href="https://open.spotify.com/user/philip/playlist/0h45AqlMwPca5ATZ6Mb2by">Svängigt, jazzigt, elektroniskt </a> - which is filled with music I've never ever heard of - but it is really good to listen to while working.  
+<p>
+Everyday I become a bigger fan of Spotify. It is just great to have a 
+seemingly bottomless collection of music to chose from. By creating URLs
+ to everything (tracks, artists, albums and playlists), Spotify is 
+enabling sites like Listiply. By adopting standards like <a href="http://xspf.org/">XSPF</a>,
+ Spotify playlists will play well with others. And Spotify is fast.  It 
+feels faster than my iTunes does, despite the fact that the music 
+Spotify is serving is probably thousands of miles away, while iTunes is 
+serving music and metadata right from my hard-drive.  It is not hard to 
+understand why people are going to <a href="http://www.i-wanna-get-a-spotify-invite.net/">extreme lengths</a> to get a Spotify invite.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 15, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="listiply_playlist_sharing_for_spotify.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/listiply_playlist_sharing_for_spotify#comments.html">Comments [4]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are browsing the main weblog
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="page14.html">Previous page</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="page16.html">Next page</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="support_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-187070-1");
+pageTracker._trackPageview();
+</script>
+</body></html>

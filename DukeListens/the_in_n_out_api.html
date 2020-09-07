@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The In-N-Out API - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="the_in_n_out_api.html#content">content</a>, <a href="the_in_n_out_api.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="the_in_n_out_api">
+
+	<div class="entry-title entry-info">
+			<h2>The In-N-Out API</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>
+</p><table>
+<tbody><tr>
+<td><img src="support_files/2000art.jpg">
+</td><td>
+I'm just back from a trip to the west coast.  Willie and I spent three
+days in Mountain View giving demos of <a href="http://freetts.sourceforge.net/">FreeTTS</a> and <a href="http://cmusphinx.sourceforge.net/sphinx4">Sphinx-4</a> at 
+the Sun Labs open house.  For a quick lunch
+one day, we stopped into <a href="http://www.in-n-out.com/">In-N-Out
+Burger</a>, a fast food burger joint.  They don't have these on the
+east coast.  The In-N-Out menu is very simple, three kinds of
+hamburgers, french fries, and drinks. That's it.
+The place was clean, the burger was good, what more could you ask for.
+<br>
+<p>
+This serves as a good model for API design, unlike McDs, In-N-Out has
+tried to keep their interface (the menu) nice and simple. And since
+their API is so simple (just burgers and fries, no fajitas, no apple
+pies, no chicken, no fish, no salads), they can do a good job.  It's
+<a href="https://www.amazon.com/exec/obidos/tg/detail/-/1555581234/qid=1091445287/sr=1-1/ref=sr_1_1/102-2332674-7549718?v=glance&amp;s=books">The
+Unix Philosophy</a> applied to hamburgers: <i>Make each program do one
+thing well</i>. The advantages of a small menu are obvious. Shorter
+lines since customers don't spend too much time deciding on what to
+have, and better food (since they are just cooking burgers, they can make them to order).
+</p></td></tr>
+</tbody></table>
+
+I have seen APIs that use the McDs approach ... give the customer all
+the choices.  Look at the <a href="https://logging.apache.org/log4j/docs/">log4j
+API</a>. It is a logging and tracing package.  Now, in my mind,
+logging packages should be pretty straight forward. They need to take
+a message, classify it and send it somewhere to be output. Looking at
+the <a href="https://logging.apache.org/log4j/docs/api/index.html">log4j
+API</a> I see over <b> 120 classes</b> in the API. This API is so big there's
+a whole <a href="https://www.amazon.com/exec/obidos/tg/detail/-/2970036908/qid=1091446564/sr=8-2/ref=sr_8_xs_ap_i2_xgl14/102-2332674-7549718?v=glance&amp;s=books&amp;n=507846">book</a> describing it. 
+In my mind, that is way
+too complicated, too many choices. All I really want to do is this:
+<pre>    Logger.log(WARN, "Coffee is too hot");
+</pre>
+<p>
+API designers need to walk the fine line between functionality and 
+usability. Too much functionality can limit the appeal of an API. Just 
+give me a burger with fries
+please.
+</p><p>
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Aug 02, 2004</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_in_n_out_api.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1091473266000" id="comment-1091473266000"></a>
+            <div class="comment odd" id="comment1">
+
+                So what do you think about <a href="http://www.zenlemur.com/innout.shtml" rel="nofollow">In-N-Out's undocumented features</a>?
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Wes Felter</b>
+                
+                on August 02, 2004 at 03:01 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_in_n_out_api#comment-1091473266000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1091474469000" id="comment-1091474469000"></a>
+            <div class="comment even" id="comment2">
+
+                Yep, just like all heavily-used APIs, there are those 
+undocumented features. The danger of course is that one day you'll order
+ 'the animal' and they'll just say "What? that's not on the menu. 
+Sorry". Not to long ago I visited a McDonalds and ordered the #2 only to
+ find that they had switched around the value meal menu. I got the wrong
+ thing. Of course this is  a most egregious violation of API principles,
+ changing the behavior without changing the name. Sigh, I'm getting 
+hungry.
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Paul</b>
+                
+                on August 02, 2004 at 03:21 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_in_n_out_api#comment-1091474469000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1091498639000" id="comment-1091498639000"></a>
+            <div class="comment odd" id="comment3">
+
+                Already getting to be too much of the Bruce Tate effect.
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Sumit</b>
+                
+                on August 02, 2004 at 10:03 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_in_n_out_api#comment-1091498639000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>The In-N-Out API</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="what_s_in_my_heap.html">What's in my heap?</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="sphinx_4_sightings.html">Sphinx-4 Sightings</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

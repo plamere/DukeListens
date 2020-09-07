@@ -1,0 +1,409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using Aardvark - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="using_aardvark.html#content">content</a>, <a href="using_aardvark.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="using_aardvark">
+
+	<div class="entry-title entry-info">
+			<h2>Using Aardvark</h2>
+		</div>
+
+	<div class="entry-content">
+				As a way to demonstrate some of the capabilities of Project Aura, 
+we've created Aardvark, a blog recommender.  Of course, the world 
+probably doesn't need another blog recommender - but by building a blog 
+recommender we get some experience dealing with a really large dataset 
+that has lots of interesting characteristics.  For one thing, we are 
+using content analysis, classification and autotagging to help identify 
+relevant content. We use incoming links and attention to determine how 
+much authority a particular entry has on a topic. Since we use content 
+as well as social data to identify relevant content,  we are less 
+susceptible to the cold start problem, and we are able to create 
+recommendations based upon topics not just the usual "people who read X 
+also read Y".
+<p>
+We didn't want to build yet another blog reader, everyone already has 
+their favorite way to read blogs - and we didn't want to spend a lot of 
+time crafting an attractive web interface like the <a href="http://bp1.blogger.com/_JQ7fxW3ASg4/R31KHmGgdSI/AAAAAAAACQA/XCO8vTYWviY/s1600-h/Findory+home+page+cropped.jpg">Findory</a>.
+ Instead, we wanted to focus primarily on the back-end, on the quality 
+of the recommendations. So instead of spending our time writing a fancy 
+blog reader that you wouldn't want to use anyway, we just made it work 
+with our favorite blog reader: <a href="https://www.google.com/reader">Google Reader</a>.
+</p><p>
+Here's how it works.  Read your blogs in Google Reader like you always 
+do.  When you read an item that is particularly interesting add a star 
+(using the Google Reader 'add star' link).  Over time you should build 
+up a pretty good collection of items that represents your interest.  For
+ Aardvark to generate recommendations for you, we need to learn what 
+your preferences are. Luckily, the Google Reader allows you to export 
+your starred items as a feed. 
+</p><p></p><center> <img src="support_files/_aardvark_starred_items.png" alt="aardvark_starred_items.png" border="0"></center>
+<p> In Google Reader, navigate to your settings/tags section, where you 
+can 'view public page' for your starred items.   On this page you'll 
+find a link to your starred item feed.  Copy that so you can paste it 
+into Aardvark. Here are my <a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/starred">starred items</a>.  </p><p>
+Now you are ready to get recommendations from Aardvark.  First, login to Aardvark (note that this isn't publicly available yet).
+</p><p>
+</p><center><img src="support_files/_aardvark_login.png" alt="aardvark_login.png" border="0"></center>
+<p>
+You can use your OpenID to register.  When you register you paste in the
+ URL to your starred item feed. Now Aardvark can notice the items that 
+you are starring and generate recommendations for you based upon these 
+items.
+</p><p>
+</p><center><img src="support_files/_aardvark_registration.png" alt="aardvark_registration.png" border="0"></center>
+
+<p>
+Once you register, Aardvark will give you a few feeds that you can add 
+to Google Reader.  This is where Aardvark will send your 
+recommendations:
+</p><p></p><center><img src="support_files/_aardvark_main.png" alt="aardvark_main.png" border="0"></center>
+<p>
+After you add the recommendation feed to Google Reader, Aardvark will 
+keep the feed filled with items that you might find interesting:
+</p><p>
+<img src="support_files/_aardvark_googlereader.png" alt="aardvark_googlereader.png" border="0">
+</p><p>
+Well, there you have it, a quick tour of how you can use Aardvark to get
+ blog recommendations.  We aren't quite ready to make it available to 
+the general public - but if you think you might be interested, you can 
+at least start to star items in Google Reader, so that when we are 
+ready, you'll be ready.
+</p><p>
+BTW, Jeff built the web interface and integrated the OpenId support. The site really looks great.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 24, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="using_aardvark.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1209130073000" id="comment-1209130073000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Sounds good</p>
+
+
+<p>does it work with just the starred item feed or could I also give it 
+my shared items feed?  As I have been keeping a shared item list for 
+quite a while and would be a better source to plug in....</p>
+
+
+<p>Ta</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Phil</b>
+                
+                on April 25, 2008 at 09:27 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/using_aardvark#comment-1209130073000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209131057000" id="comment-1209131057000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>@phil - yes you can use your shared items feed, or really any feed at
+ all. So for instance, I could use Aardvark to find content that would 
+be good to write about in this blog, but just giving the feed for Duke 
+Listens to aardvark.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on April 25, 2008 at 09:44 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/using_aardvark#comment-1209131057000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209164111000" id="comment-1209164111000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>First, login to Aardvark (note that this isn't publicly available yet).</p>
+
+
+<p>Is this going to be publicly available</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.gandalf-lab.com/"><b>Niraj J</b></a>
+                
+                on April 25, 2008 at 06:55 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/using_aardvark#comment-1209164111000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209294007000" id="comment-1209294007000"></a>
+            <div class="comment even" id="comment4">
+
+                [Trackback] Bookmarked your post over at Blog Bookmarker.com!
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.blogbookmarker.com/tags/aardvark"><b>aardvark</b></a>
+                
+                on April 27, 2008 at 07:00 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/using_aardvark#comment-1209294007000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1210815195000" id="comment-1210815195000"></a>
+            <div class="comment odd" id="comment5">
+
+                
+<p>When can we try it out? Has it been released yet?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://jambecorp.blogspot.com/"><b>James Brunskill</b></a>
+                
+                on May 14, 2008 at 09:33 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/using_aardvark#comment-1210815195000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Using Aardvark</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="the_myth_of_music_discovery.html">The debunking the...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="the_only_2nd_generation_search.html">The only 2nd-generat...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

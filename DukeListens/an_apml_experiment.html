@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>An APML Experiment - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="an_apml_experiment.html#content">content</a>, <a href="an_apml_experiment.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="an_apml_experiment">
+
+	<div class="entry-title entry-info">
+			<h2>An APML Experiment</h2>
+		</div>
+
+	<div class="entry-content">
+				<p><br>Lately there's been quite a bit of attention being paid to 
+making sure that the data that describes the things that we like,&nbsp; 
+our attention data, is portable.&nbsp; With portable attention data, we 
+could go to any music store and be directed to the music that we are 
+most likely to want to listen to.&nbsp; We won't have to spend any time 
+rating tracks or artists, we'll just show the music store our taste 
+data.&nbsp; Of course, this taste data needs to be in some standard 
+format so that everyone can understand it. One effort at standardizing 
+our taste data is APML.&nbsp; <a href="http://apml.org/">APML</a> is an 
+XML based language that allows users to share their own personal taste 
+data in much the same way that OPML allows the exchange of 
+				reading lists between blog readers.&nbsp;&nbsp; APML is new and not 
+finished yet, but even in its infant state, it is garnering lots of 
+support.&nbsp;&nbsp; </p><p>I am particularly interested in how APML 
+could be used to represent an individual's music taste.&nbsp;&nbsp; One 
+possibility is to have the APML file for the individual list the artists
+ that a person likes (or vehemently dislikes).&nbsp; Another approach is
+ to have the preferences be more abstract - to list weighted affinities 
+toward music genres or styles.&nbsp;&nbsp; The latter approach seemed 
+much more interesting to me - it offers some bit of privacy (instead of 
+seeing Paris Hilton in my APML file, you would just see&nbsp; Female Pop
+ Singer).&nbsp; </p><p>As an experiment, I've created a little APML 
+generator web service for last.fm users.&nbsp; If you give the web 
+service your last.fm user name, the service goes to last.fm, retrieves 
+data about your listening habits and generates an APML representation of
+ your taste.&nbsp; For example, to retrieve the APML for my listening 
+tastes visit the following URL:<br><br><a href="http://research.sun.com:8080/AttentionProfile/apml/music/lamere">http://research.sun.com:8080/AttentionProfile/apml/music/lamere</a><br><br><br>This yields:<br></p><pre>&lt;APML version="0.6"&gt;</pre><pre>&lt;Head&gt;<br>  &lt;Title&gt;music taste for lamere&lt;/Title&gt;<br>  &lt;Generator&gt;Created by TasteBroker.org in 2777 ms &lt;/Generator&gt;<br>  &lt;DateCreated&gt;2007-11-21T16:15:24&lt;/DateCreated&gt; <br>&lt;/Head&gt;</pre><pre>&lt;Body defaultprofile="music"&gt;<br>&nbsp; &lt;Profile name="music"&gt;<br>&nbsp; &lt;ImplicitData&gt;<br>&nbsp;&nbsp; &lt;Concepts&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Concept key="rock" value="1.0" from="tastebroker.org" updated="2007-11-21T16:15:24"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Concept key="alternative" value="0.74616855" from="tastebroker.org" updated="2007-11-21T16:15:24"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Concept key="indie" value="0.63257456" from="tastebroker.org" updated="2007-11-21T16:15:24"/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &lt;Concept key="alternative rock" value="0.38583755" from="tastebroker.org" updated="2007-11-21T16:15:24"/&gt;<br>&nbsp;&nbsp;   &lt;!-- many lines omitted --&gt;<br>&nbsp;  &lt;/Concepts&gt;<br>&nbsp; &lt;/ImplicitData&gt;<br> &lt;/Profile&gt;<br>&lt;/Body&gt;<br><br>&lt;/APML&gt;<br></pre><p>To
+ generate the implicit concepts, I gather the top 50 artists for the 
+user, and for each of these artists I gather the top 50 tags that have 
+been applied to each of those artists.&nbsp; I adjust the weight of the 
+tags based on the user's affinity for the associated artist. I then take
+ top scores to generate the APML. Of course, all this chattering with 
+last.fm can make the web service quite slow.&nbsp; I do try to cache as 
+much data as I can to try to speed things up, but if you have eclectic 
+tastes, it can take up to a minute or so to generate your APML file.<br><br>The
+ resulting APML seems to be a good representation of my taste.&nbsp; I'm
+ interested in hearing from others that might be last.fm users whether 
+or not the generated APML file is a good map of their taste.&nbsp; Feel 
+free to try out the web service.&nbsp; The URL is:</p>http://research.sun.com:8080/AttentionProfile/apml/music/YOUR_LAST_FM_USER_NAME<p> The next step is to see how well we can generate recommendations based upon these APML files.<br><br>
+</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Nov 21, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="an_apml_experiment.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1196672035000" id="comment-1196672035000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>This is truly amazing! Retrieving data about user's listening habits is really cool. Here's my: <a href="http://research.sun.com:8080/AttentionProfile/apml/music/ansriram" rel="nofollow">http://research.sun.com:8080/AttentionProfile/apml/music/ansriram</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://blogs.sun.com/ansriram"><b>Anjana</b></a>
+                
+                on December 03, 2007 at 03:53 AM EST
+
+                <a href="https://kiserai.net/DukeListens/an_apml_experiment#comment-1196672035000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>An APML Experiment</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="a_parting_gift_from_musicmobs.html">A parting gift from...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="the_ghost_map.html">The Ghost Map</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

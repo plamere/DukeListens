@@ -1,0 +1,640 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Open Research - Research Goals - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="open_research_research_goals.html#content">content</a>, <a href="open_research_research_goals.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="open_research_research_goals">
+
+	<div class="entry-title entry-info">
+			<h2>Open Research - Research Goals</h2>
+		</div>
+
+	<div class="entry-content">
+				<em>The story so far - this is an <a href="open_research.html">experiment in 'open research'</a> - I'm going to blog my research on a particular topic.  In this post, I'm outlining the high level goals for the project.</em>
+ 
+<h2>Executive Summary
+</h2>
+Find better ways to exploit the information that are contained in social
+ tags, especially social tags that are applied to music, in order to 
+provide tools to allow an individual to explore a complex space. 
+
+<h2>Details
+</h2>Most music recommendations are of the form - 'here's a set of 
+artists or tracks that you might like', or 'if you like "weezer" you 
+might like "cake".  They don't offer any reasoning behind the 
+recommendation.  These types of recommendations may be appropriate if 
+you are shopping for music at AmazonMp3 or iTunes, but it really is a 
+horrible way to go about exploring for new music.
+<p>
+
+</p><p>
+
+ <img src="support_files/_itunesonece.png" alt="itunesonece.png" style="float: left; margin: 10px;" border="0">
+
+Music is a very rich space.  There are hundreds or thousands of 
+overlapping genre and subgenre.  The meaning of a genre changes overtime
+ ("Pop" of 2000 is very different from "Pop" of 1970).  Some artists 
+define their own genre, other artists span many genres.  There's no 
+single "correct" taxonomy of genres - experts don't even agree on the 
+most basic questions about genre such as where does 'pop' end and 'rock'
+ begin.    Genre is complex - and yet it is only one axis of this 
+complex music space. There is also mood, era, lyrics, artist influence, 
+popularity and on and on.
+
+Ultimately, I'd like to build a discovery tool that will allow a user to
+ easily explore a rich space such as music. Unlike a traditional 
+recommender that is tailored for a music shopper, this discovery tool 
+would be tailored to someone who is exploring  for the enjoyment of 
+discovery.  <a href="http://techno.org/electronic-music-guide/">Ishkur's Guide to Electronic Music </a>is an excellent example of the type of interface I am interested in building.
+</p><p>
+<a href="http://support_files/_iskurs.png"><img src="support_files/_iskurs.png" alt="iskurs.png" style="width: 500px;" border="0">
+</a>
+</p><p>
+
+In this one interface is captured the  a very rich view of the world of 
+electronic music.  There is decade information, high level genre, 
+subgenres, genre dependencies, with examples from multiple artists for 
+each genre along with  reviews of the artist or genre.   I'd like to be 
+able to build an interface similar to Ishkur's automatically using data 
+that is available from sites like Musicbrainz, Last.fm and All Music.
+
+A first step toward this goal is to be able to find information about 
+how various genres and sub-genres overlap.   Professionally curated 
+genre hierarchies such as what you'll find at All Music, Mp3.com, Amazon
+ or iTunes, tend to be small and flat and don't show any kind of 
+overlap.  The genre hierarchy embedded in the wikipedia is richer, but 
+still doesn't show how the various genres overlap.
+
+For this first step I want to build a rich representation of the genre 
+space automatically from data mined from the web. This rich 
+representation  includes:
+
+</p><ul><li>Identifying the set of genres and subgenres that people actually use.  (i.e. is 'Brutal Death Metal' really a genre?).</li>
+
+<li>Distinguish genres from other types of music descriptions such as mood, locale</li>
+
+<li>Identify overlaps in genre (how much if at all does 'emo' overlap with 'punk'?, Is 'alternative' just a new name for 'rock'?)</li>
+
+<li>Create a hierarchy of genre.   Hierarchies are a natural way to 
+explore a space - A hierarchy allows an explorer to start from with the 
+general and move to the specific.  The hierarchy may be a mono- or a 
+poly- hierarchy.</li>
+
+<li>Identify synonyms (Are 'hip hop', 'hip-hop' and 'rap' identical?)</li>
+
+<li>Disambiguate terms (Does 'progressive' mean the same when it is 
+applied to 'progressive rock', 'progressive jazz', and 'progressive 
+metal'?)</li>
+
+<li>Identify changes in genre meaning over time (Is 1960s 'Ska' the same as 1980s 'Ska'?)</li>
+
+<li>For each genre, what are good exemplar artists/tracks for the genre? Are tracks from popular artists better exemplars?
+</li>
+</ul>
+I want to build this rich representation of genre from data mined from 
+the web, without any human intervention, so that as the genre space 
+evolves overtime, this genre map will automatically evolve as well.  
+
+I've done some early experiments generating genre mono-hierarchies from 
+Last.fm artist tags with promising results.  (<a href="metal.html">See this post</a>).
+  However, there is much work to be done to turn that experiment into a 
+real system that that can take a big bucket of social tags, separate the
+ wheat from the chaff, and turn them into a representation that can 
+guide visualization and exploration of the music space.
+<p>
+<a href="http://support_files/_tinymetal.png"><img src="support_files/_tinymetal.png" alt="tinymetal.png" style="width: 600px;" border="0"></a></p><p>
+Next steps - we need to do some background reading, in particular we need to explore a number of  areas:
+</p><p>
+</p><ul><li>Music seeking behaviors - to understand better how having a 
+rich representation of genre might be used to enhance music discovery 
+(transparency, play)</li>
+<li> Genre Hierarchy - explore the issues involved in trying  to represent genre in hierarchies or overlapping graphs</li>
+<li>Text techniques - we will need lots of text mojo here (disambiguation, clustering, latent semantic analysis, etc.)</li>
+<li>Evaluation -  we need some way of evaluating our results</li>
+<li>Visualization - how do we visualize a complex, overlapping, polyhierarchy?</li></ul>
+<p>
+I am interested in all kinds of feedback. A big goal for me with this 
+'open research' is to get early feedback.  Likewise, suggestions for 
+background reading on the aforementioned topics (or any others that seem
+ relevant will be helpful).  In a future post, I'll put together the 
+reading list for anyone that wants to follow along.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 02, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="open_research_research_goals.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1212410241000" id="comment-1212410241000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Some helpful social tags for genres could be those from Wikipedia and
+ LyricWiki which themselves form an interesting graph.  The 
+categorization in MediaWiki (which powers both sites) doesn't force the 
+graph to be strictly hierarchical, so it may provide a bit of what 
+you're looking for.</p>
+
+
+<p>Here's a decent page to start on:<br>
+<a href="http://lyricwiki.org/Category:Genre" rel="nofollow">http://lyricwiki.org/Category:Genre</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://lyricwiki.org/"><b>Sean Colombo</b></a>
+                
+                on June 02, 2008 at 08:37 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1212410241000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1212431062000" id="comment-1212431062000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>One of my frustrations with music recommendations systems is the 
+potentially unsolvable problem of what *doesn't* get recommended.  It's 
+exasperating to hear a song on conventional radio that hasn't been 
+suggested by any of the Internet music sites i frequent.  My (completely
+ unsupported) conclusion from this is that connections that look 
+significant to experts and/or machine learning are not always the 
+connections that account for quirks in individual taste.</p>
+
+
+<p>I think it'd be cool to have the sort of tool that you envision, that
+ finds connections between music and explains the connections.  But it'd
+ also be nice to have a system where i could define the reasons why i 
+connect tracks or artists (somber mood, humorous lyrics, 
+personally-defined genre connection) and use that as a rule or dimension
+ for discovery.  As if the problem weren't already hard enough :-)</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://thesearemyfeet.blogspot.com/"><b>Mike Mull</b></a>
+                
+                on June 02, 2008 at 02:24 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1212431062000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1212432419000" id="comment-1212432419000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>It sounds like some of the methodologies in the color name survey 
+might be applicable. It suggests that what you are trying to do is in 
+fact doable. see <a href="http://infosthetics.com/archives/2008/03/color_name_survey.html" rel="nofollow">http://infosthetics.com/archives/2008/03/color_name_survey.html</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://blogs.sun.com/blu"><b>Brian Utterback</b></a>
+                
+                on June 02, 2008 at 02:46 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1212432419000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1212489375000" id="comment-1212489375000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>Paul, some quick thoughts from sunny Vienna:</p>
+
+
+<p>- Genre: Personally I consider genre to be a very fuzzy concept. I'd 
+argue death country [1] and Finnish metal [2] are genres. I've heard 
+people talk about how they consider The Beatles to be a genre. It might 
+help if you define what "genre" means in your experiments. As far as I 
+know there is no specific generally excepted definition of what genre 
+means in music.</p>
+
+
+<p>[1] <a href="https://www.last.fm/tag/death%20country" rel="nofollow">http://www.last.fm/tag/death%20country</a><br>
+[2] <a href="https://www.last.fm/tag/finnish%20metal" rel="nofollow">http://www.last.fm/tag/finnish%20metal</a></p>
+
+
+<p>- Genre hierarchy: You mention Ishkur's guide as example. Ishkur uses
+ two approaches to create fuzzy hierarchical graphs. He briefly 
+structures genres by similarity hierarchically on the first level. He 
+uses a small set of broad and overlapping genres (house, trance, ...). 
+Beyond that sub-genres are organized on a time line with connecting 
+lines showing influences between sub-genres. I believe the "influenced 
+by" hierarchy is very interesting. I think his tool very clearly shows 
+the limitations of both approaches to structure music hierarchically. 
+Structuring genres hierarchically as subsets (metal -&gt; heavy metal) 
+only makes sense on a broad level, and even then there is a lot of 
+overlap. Structuring genres in terms of "influenced by" is becoming 
+increasingly harder. Ishkur's guide gets very messy in the 90s+... and 
+it's going to be even messier in the future. Almost everything is 
+influencing everything in today's information age. Artists are gathering
+ their inspirations from everywhere, and the number of genres seems to 
+be growing exponentially... only bound by the growing number of distinct
+ pieces of music. </p>
+
+
+<p>- Application: I think it might be a good idea to be more specific 
+about the intended application. I think Ishkur's guide is primarily 
+designed as a tool to understand the complex variations of electronic 
+music and how different sub-genres evolved and are connected. Btw, an 
+important part of his tool are the funny comments he makes about 
+different genres (something no computer could come up with). Anyway, to 
+be more specific, I don't think Ishkur or the users of his tool consider
+ it to be a music recommendation tool. I think it helps to be more 
+specific about the targeted application because there might be some 
+shortcuts you could take. For example, for a recommendation tool you 
+might not necessarily need to define what a genre is or what influenced 
+each genre.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>elias</b>
+                
+                on June 03, 2008 at 06:36 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1212489375000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1212490349000" id="comment-1212490349000"></a>
+            <div class="comment odd" id="comment5">
+
+                
+<p>@sean - thanks for the info - I didn't realize that LyricWiki was 
+also capturing genre info - very helpful.  It is interesting to see in 
+Wikipedia how the genres generated from the MediaWiki categorization 
+fields differ from the infobox genres.</p>
+
+
+<p>@mike - I wonder if the missing connections that you describe are 
+symptoms of the coldstart problems.  The DJs can find newer music faster
+ than the collaborative filters can. I like your idea of letting the 
+user define the connections.</p>
+
+
+<p>@brian - I particularly like the sheep drawing experiment. <a href="http://www.thesheepmarket.com/" rel="nofollow">http://www.thesheepmarket.com/</a> </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on June 03, 2008 at 06:52 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1212490349000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1212492161000" id="comment-1212492161000"></a>
+            <div class="comment even" id="comment6">
+
+                
+<p>@elias - thanks for the comments - hope you are enjoying Vienna.  I have fond memories of the Opera and the schnitzel.  </p>
+
+
+<p>I agree that genre is hard - so some definition of what we mean by 
+genre will be important.  Hopefully, we'll be able to tease out a 
+reasonable definition from the background reading on genre. Certainly 
+quite a bit has been written about the issues around genre and the 
+problems of creating genre taxonomies.</p>
+
+
+<p>Again, I agree with your observations about the increasing 
+complexities, as we try to consider hierarchies, influence, how genres 
+change over time, how artists fit (or don't fit) into particular genres.
+  But we have big computers so I'm sure we can figure  it all out, after
+ that it is just a user interface issue ;)</p>
+
+
+<p>Agreed - Ishkurs's guide is meant to be a way of exploring electronic
+ music.  There are lots of aspects of Ishkur's that I like. Indeed, I 
+think the snarky editorial comments are fun. They remind the user that 
+there's a real human behind the data. Dealing with the complexities of 
+the data are a big challenge, and as you point out, the complexities 
+will only increase.  I think that is a strong argument for a tool that 
+will help navigate the space.  Finding a way to present this data to a 
+user in a way that is useful will be a big challenge - and this is not 
+my expertise. But there are folks who think hard about this type of 
+problem who can hopefully help out.  So for a first step, I'd like to 
+build the data set that could be used to build an Ishkurs.  Once we have
+ this data, and a method for generating it, we (or others) can build the
+ interface.</p>
+
+
+<p>I agree that Ishkur's is not a music recommendation tool - I consider
+ it to be a genre exploration tool.  I do think that for a certain class
+ of highly engaged music listeners a discovery tool similar to Ishkur's 
+that allows the listener to explore all of music in the same fashion 
+would be extremely helpful.  </p>
+
+
+<p>As for the shortcuts, I understand your point - a general music 
+similarity function can simplify navigation and exploration of the music
+ space without going through the effort of trying to figure out what 
+micro-genres each track belongs to. However, I personally like to learn 
+about these genres - it makes it easier to talk to other humans about 
+the music if you can talk at a genre level, and I think it is just fun 
+to figure out the differences between thrash metal and speed metal. But I
+ realize you were just using genre as an example of a shortcut - I take 
+your point.</p>
+
+
+<p>So to sum up - for a first step, I want to be able to build a model 
+of music that shows hierarchy, overlap and influence  at a 'genre' level
+ (where 'genre' is still to be defined), as well as exemplar 
+artists/tracks for the various 'genre'.</p>
+
+
+<p>Thanks for the feedback - just the sort of feedback  I was hoping to get.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on June 03, 2008 at 07:22 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1212492161000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1213369810000" id="comment-1213369810000"></a>
+            <div class="comment odd" id="comment7">
+
+                
+<p>Sounds like a fascinating project. I wonder if you're focusing down 
+on the right question though? Given your exec summary, it's not obvious 
+that genres should be the primary avenue for exploration. As you 
+eloquently point out, genre is only one axis of the complex music space.
+ Given the ability of social tagging and other discovery and navigation 
+technologies to build and exploit data around some of those other axes, 
+there's an argument that genres may steeply decline in importance. 
+Genres are important if they are the only way to classify music - it's a
+ problem if I don't know whether to look in Pop or Rock in the record 
+shop. But if we can assemble a rich set of metadata based on mood, 
+period, influence etc, genres start to look like an increasingly blunt 
+instrument and the inevitable arguments over correct classification 
+pretty academic. </p>
+
+
+<p>Mood, period and influence (as well as geography, tempo etc) also 
+routinely turn up in last.fm tags (I've always been a little surprised 
+at the prevalence of genre in  last.fm tags, given it's one of the least
+ interesting and useful things to add to the conversation about music). 
+Not to mention the amazing work that Pandora and the Music Genome 
+Project have done to analyse musical features manually. Why not include 
+all of these attributes in your model alongside genres?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://www.bbc.co.uk/music"><b>Matthew Shorter</b></a>
+                
+                on June 13, 2008 at 11:10 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_research_goals#comment-1213369810000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Open Research - Research Goals</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="open_research.html">Open Research</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="open_research_background_reading.html">Open Research -...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

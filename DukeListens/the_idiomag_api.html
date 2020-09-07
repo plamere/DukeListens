@@ -1,0 +1,506 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The idiomag API - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="the_idiomag_api.html#content">content</a>, <a href="the_idiomag_api.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="the_idiomag_api">
+
+	<div class="entry-title entry-info">
+			<h2>The idiomag API</h2>
+		</div>
+
+	<div class="entry-content">
+				<a href="http://www.idiomag.com/api/"><img src="support_files/api_title.jpg"></a>
+<p>
+Last month, <a href="http://www.idiomag.com/">idiomag</a> launched its 
+new developer API that gives 3rd parties access to all sorts of music 
+related data.  In particular, the API gives you access to artist data 
+such as news articles, reviews and interviews, videos, images and MP3s. 
+They provide 'similar artist'-style recommendations as well as 
+personalized recommendations based on an individual's listening habits 
+(they'll base the recommendations on your listening data that they 
+hoover from sites like Pandora, Last.fm or iMeem).  They also will give 
+you recommendations based upon your APML (attention profile markup 
+language).  (I like how they use our <a href="http://tastebroker.org/">TasteBroker</a> as source of APML for their sample documentation).
+</p><p> The API is designed rather well. They support 3 types of output:
+ 'xml', 'json' and 'rss' (and for some methods, 'apml' 'xspf' and 
+'foaf') - so parsing the output will be pretty straightforward for 
+anyone who's used any kind of web services. The do have a few rather 
+funky conventions like  the parameter name artists[]' to indicate 
+multiple artists like so:
+</p><pre>http://www.idiomag.com/api/recommendation/articles/xml?key=secret&amp;<strong>artists[]</strong>=muse&amp;<strong>artists[]</strong>=radiohead
+</pre>
+but thats no big deal.  All of their API methods require an application 
+key. One beef I have is with the documentation - they don't have any 
+clickable examples in the docs - so trying out the API is rather 
+laborious - first you have to copy the url prefix, add your secret key, 
+add the method arguments and finally the parameters.  <i style="color: green;">Update 2 The Idiomag folks are fixing this ... some of the methods now have clickable link/examples. Woohoo!</i> They should follow the lead of APIs like <a href="https://last.fm/api">Last.fm</a> or <a href="http://developer.echonest.com/">the EchoNest</a>
+ and create a demo key that they can use in their docs so that all 
+services can have a clickable example. (The gold standard for web api 
+documentation is the Flickr services - their '<a href="https://www.flickr.com/services/api/explore/?method=flickr.tags.getListPhoto">flickr Api Explorer</a>'
+ lets you easily try out all aspects of the API from your web browser). 
+There was one glitch in the API - any attempt to format output in APML 
+triggers an error <b>Fatal error</b>:  Class 'xmlWriter' not found in <b>/var/www/html/app/views/helpers/apml.php</b> on line <b>11</b> - looks like something is misconfigured in the web server. <em style="color: green;">Update: the Idiomag guys have fixed this already </em>
+<p>
+The API provides 5 types of services: Articles, Artist, User, Tag and Recommendation.
+</p><p>
+</p><ul>
+<li> <strong>articles</strong> - returns recent and featured articles from the Idiomag catalog
+</li><li> <strong>artist</strong> - returns all sorts of info about 
+artists including related artists, tags, articles, playlists, videos 
+images.  The tag coverage seems quite sparse and uneven.  The Beatles 
+have only 3 tags (Classic rock, rock and pop) while Aphex Twin has 6 
+(electronic, ambient, IDM, experimental, electronica, techno). 
+</li><li> <strong>user</strong> - returns info tailored to a specific user - surprisingly, APML is not one of the supported output types for user/info.<em style="color: green;"> Update - APML is supported, it was just an error in the documentation. Fixed already.
+</em></li><li> <strong>tag</strong> - returns information about a tag- 
+apparently these are not traditional social tags - they seem to come 
+from a fixed vocabulary of tags (the <a href="http://www.idiomag.com/api/tags/">link</a>
+ that is supposed to give me the list of all tags currently available is
+ broken however, so I can't see how big the list is).  The results seem a
+ bit unusual. For instance, the first 4 artists returned for the tag 
+'rock' are 'Forward, Russia, '10 Years', '12 Stones', '3 Doors down'.  
+So perhaps we are getting an alphabetical list (but I don't know how 
+'Forward Russia' got to the front of the list).   I would have expected a
+ list ordered by tag frequency which should yield something more like: 
+the beatles, radiohead, coldplay, oasis.
+</li><li> <strong>recommendation</strong> - gives artist 
+recommendations, based either on an APML file, an artist list, or my 
+listening behavior at one of 10 or so social music sites.
+</li></ul>
+Lets take a look at the recommendations.  I tried the API with a single artist as a seed to start things off:
+<p>
+<b>seed: the beatles</b>
+</p><ul>
+<li> Sting and Edin Karamazov
+</li><li> William Shatner
+</li><li> The Kinks
+</li><li> Elvis
+</li><li> The Rolling Stones
+</li><li> Led Zeppelin
+</li><li> Paul McCartney
+</li><li> The Mamas and the Papas
+</li><li> The Beach Boys
+</li><li> George Harrison
+</li></ul>
+This is funny list - Sting and Edin Karamazov have been playing 
+16th-century Elizebethan music, Shater is, well, Shatner - so for the 
+top two recommendations, these certain win on the novelty scale (but 
+perhaps fail on the relevant scale), also notable in its absence is John
+ Lennon in the top 20 (he does appear paired with  Yoko, but not by 
+himself)
+<p>
+ </p><p>
+<b>seed: emerson, lake and palmer</b>
+</p><ul>
+<li> Rick Wakeman
+</li><li> Gentle Giant
+</li><li> Atomic Rooster
+</li><li> Moody Blues
+</li><li> Van der Graaf Generator
+</li><li> Asia
+</li><li> Aphrodite's Child
+</li><li> Kansas
+</li><li> Caravan
+</li><li> Camel
+</li></ul>
+That's a pretty reasonable list.
+ <p>
+<b>seed:deerhoof</b>
+</p><ul>
+<li> Blonde Redhead
+</li><li> Asobi Seksu
+</li><li> Odiorne
+</li><li> Quickspace
+</li><li> The Fiery Frnaces
+</li><li> Menomena
+</li></ul>
+Again, a reasonable list.
+ <p>
+<b>seed:miles davis</b>
+</p><ul>
+<li> John Coltrane
+</li><li> Miles Davis and Gil Evans
+</li><li> Chet Baker
+</li><li> Bill Carrothers
+</li><li> Charles Mingus
+</li><li> Stan Getz
+</li></ul>
+A totally fine list 
+<p>
+One of the neat things about Idiomag is that they can suck up my user 
+profile from Last.fm and give me recommendations based on my listening 
+habits.  However, the recommendations seemed to be a bit skewed to the 
+novel side of the spectrum. Of the 20 artists recommended, I recognized 
+only 2 (one I know I don't like, the other is already in regular 
+rotation) - it would be helpful if Idiomag could offer some explanation 
+of why an artist was recommended (such as 'we are recommending wolf eyes
+ because their noise rock is similar in style to deerhoof')
+</p><p> The catalog of artists seems to be pretty deep - but I did 
+notice some omissions. No Yo Yo Ma, no Maynard Ferguson, no Keith 
+Fullerton Whitman. 
+</p><p>
+One shortcoming of the API is that there doesn't seem to be any way to 
+resolve ambiguous artists, so if I want recommendations for <a href="https://musicbrainz.org/artist/2996c6a2-215d-4f78-aed6-81a130b04816.html">Prodigy</a> (the rap artist) and not <a href="https://musicbrainz.org/artist/8fb3bbdb-0eee-42d6-aa0c-8b5c2d3efcef.html">Prodigy</a> (the guitarist) or <a href="https://musicbrainz.org/artist/4a4ee089-93b1-4470-af9a-6ff575d32704.html">The Prodigy</a>
+ (the UK electronic group), I am out of luck. There's no way to search 
+the catalog for near spellings - so if you try to get information for 
+'beatles' instead of 'the beatles' you will get no results.  Idiomag 
+should adopt the model that last.fm and the Echonest use - to provide an
+ artist search api that returns a list of scored matches with an 
+associated musicbrainz id, and allow the id to be used in any subsequent
+ method calls.
+</p><p> 
+The API status feedback is also a bit thin - there's no way to tell from
+ the API results if there's a problem. For instance, I tried to get 
+recommendations based on seed artists Metallica and Yo Yo Ma (hoping to 
+get a recommendation for <a href="https://www.youtube.com/watch?v=xqUXDdJ3C-c">Apocalypctica</a>)
+ - but the resulting recommendations were just the standard set of heavy
+ metal bands - no sign of the cello at all.  It took a while before I 
+figured out that Yo Yo Ma wasn't factoring into the recommendations 
+because Idiomag doesn't know about him.
+</p><p>
+One last issue, I can't seem to find any terms-of-use for the API that 
+tells me how often I can make calls to the API, and whether I can use 
+the data for commercial purposes - perhaps the TOS is hidden somewhere. 
+But before I would consider using the API, I would really like to know 
+what the rules of the road are. 
+
+</p><p><i style="color: green;">Update 3 - idiomag has now published their <a href="http://www.idiomag.com/files/releases/idiomag_api_terms.pdf">terms-of-use</a>
+ It looks very  similar (to my non-lawyerly eyes) to the Last.fm terms -
+ free non-commercial use, commercial use is OK, but if you start making 
+insane amounts of money, idiomag may start charging you for the service</i></p><p>
+Despite a few quibbles, I like the Idiomag API - it puts lots of 
+interesting data in the hands of the developer, much of it is data that 
+would be hard to come by without paying lots of money.  Given the large 
+number of music-related startups (<a href="http://musically.com/blog/2008/12/17/200-digital-music-startups-from-2008/">here's 200 that started just last year alone</a>) finding a way to help all of these companies provide context for their users about music seems like a good idea.
+</p><p>
+<em style="color: green;">Update - the Idiomag folk sure are responsive.  I posted this to my blog, went to lunch, came back, killed some <a href="http://www.l4d.com/">zombies</a>,
+ and then checked my comments here to find that they've already fixed a 
+number of the issues that I pointed out.  Looks like they really care 
+about what they are doing.  I like that.</em>
+
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jan 08, 2009</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_idiomag_api.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1231436725000" id="comment-1231436725000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Hi Paul,</p>
+
+
+<p>Thanks very much for the review, Dan (Mr API here at idiomag) is 
+working right now on the little bugs you mentioned, so those should be 
+fixed very soon!</p>
+
+
+<p>Ed</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.idiomag.com/"><b>Edward Barrow</b></a>
+                
+                on January 08, 2009 at 12:45 PM EST
+
+                <a href="https://kiserai.net/DukeListens/the_idiomag_api#comment-1231436725000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1231437957000" id="comment-1231437957000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Looks like the call to get the list of available tags is an api call and requires the output format and your key</p>
+
+
+<p><a href="http://www.idiomag.com/api/tags/xml/?key=xxxxxxxxxx" rel="nofollow">http://www.idiomag.com/api/tags/xml/?key=xxxxxxxxxx</a></p>
+
+
+<p>Results are pretty good for the few i have tested. Just need to find those darn T&amp;Cs!</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://www.7digital.com/"><b>Mark Unsworth</b></a>
+                
+                on January 08, 2009 at 01:05 PM EST
+
+                <a href="https://kiserai.net/DukeListens/the_idiomag_api#comment-1231437957000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1231439685000" id="comment-1231439685000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Thanks for taking a look at our API Paul.</p>
+
+
+<p>I'm sorry about the issues with APML, this is now fixed and available
+ as an output format. A full list of our tags is now also available at <a href="http://www.idiomag.com/api/tags/" rel="nofollow">http://www.idiomag.com/api/tags/.</a></p>
+
+
+<p>We'll have a TOS for the API and clickable examples in the documentation up on the site soon.</p>
+
+
+<p>- Dan</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.idiomag.com/user/pixelm2/"><b>Dan W</b></a>
+                
+                on January 08, 2009 at 01:34 PM EST
+
+                <a href="https://kiserai.net/DukeListens/the_idiomag_api#comment-1231439685000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1231840090000" id="comment-1231840090000"></a>
+            <div class="comment even" id="comment4">
+
+                [Trackback] Bookmarked your post over at Blog Bookmarker.com!
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.blogbookmarker.com/tags/3-doors-down"><b>3 doors down</b></a>
+                
+                on January 13, 2009 at 04:48 AM EST
+
+                <a href="https://kiserai.net/DukeListens/the_idiomag_api#comment-1231840090000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>The idiomag API</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="music_blog_zeitgeist.html">Music Blog Zeitgeist</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="music_genre_is_hard.html">Music genre is hard</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

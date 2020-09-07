@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>A first peek at the data - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="a_first_peek_at_the.html#content">content</a>, <a href="a_first_peek_at_the.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="a_first_peek_at_the">
+
+	<div class="entry-title entry-info">
+			<h2>A first peek at the data</h2>
+		</div>
+
+	<div class="entry-content">
+				The <a href="open_research_the_data_lastfm.html">LastFM-ArtistTags2007</a> dataset has 100,000 unique artist tags for about 20,000 artists.  Let's take a closer look at some of the data.
+<p>
+First, here's a plot of tag frequency.  First thing to notice is the 
+power distribution. Not surprisingly, it looks like tags follow <a href="https://en.wikipedia.org/wiki/Zipf%27s_law">Zipf's la</a>w
+ (where the frequency of a tag is inversely proportional to its rank). 
+Interestingly, 45,000 of the 100,000 or so tags have been applied only 
+once. 
+</p><p>
+<a href="http://support_files/_tag.freq.full.png"><img src="support_files/_tag_002.png" alt="tag.freq.full.png" border="0"></a>
+</p><p>
+Looking at a log-log plot of the frequency vs. rank data, we see that 
+the data is linear starting at a rank around 25.  For tags at rank less 
+than 25 we see a tailing off from Zipf's law.  I think this tailing off 
+is to be expected.  The most applied tag 'rock' is not really very 
+descriptive.  I suspect that many taggers will self-edit and not apply 
+obvious tags.
+</p><p>
+<a href="http://support_files/_tag.freq.log.log.png"><img src="support_files/_tag_003.png" alt="tag.freq.log.log.png" border="0"></a>
+</p><p>
+This next plot gives a closer look at the 5,000 most frequently applied 
+tags.  In this dataset, about 2,500 tags have been applied 100 times or 
+more.
+</p><p>
+<a href="http://support_files/_tag.freq.detail.png"><img src="support_files/_tag.png" alt="tag.freq.detail.png" border="0"></a>
+</p><p>
+The top 25 tags applied are:
+</p><p>
+</p><pre>440854 rock
+343901 seen live
+277747 indie
+245259 alternative
+184491 metal
+158252 electronic
+136691 punk
+124599 pop
+119930 indie rock
+102937 classic rock
+97264 alternative rock
+89277 female vocalists
+79497 emo
+77455 death metal
+76898 Hip-Hop
+76668 hardcore
+74650 electronica
+73034 singer-songwriter
+69169 black metal
+62284 jazz
+60559 hard rock
+59763 folk
+59729 punk rock
+58135 Progressive rock
+57860 heavy metal
+54398 industrial</pre>
+<p>
+In the top 25, almost all of the tags are genre related (with the 
+exception of 'seen live' and 'female vocalists').  The data appears to 
+skew away from what one would expect from a general listening 
+population.  There's no 'Country' in the top 25, but there are 4 kinds 
+of metal. 
+</p><p>
+In future posts, I'll take a closer look at the various types of tags.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 10, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="a_first_peek_at_the.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1213119257000" id="comment-1213119257000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>So do you think we can treat tags the same way we treat terms in 
+unstructured text?  I.e., do you think we can throw away the top n 
+ranked tags, and call them "stoptags"?  </p>
+
+
+<p>Or do the tags "rock" and "indie", etc. have more statistical discriminatory ability than do the terms "the" and "and"?  </p>
+
+
+<p>Yes, there is more semantic richness to the word "rock" than to the 
+word "the".  But from a statistical, usefulness, system-building, 
+recommender perspective.. can and/or should we throw away "rock", the 
+same way we throw away "the"?</p>
+
+
+<p>P.s. minor typo: &lt;i&gt;In this dataset, about &lt;b&gt;2,5000&lt;/b&gt; tags have been applied 100 times or more.&lt;/i&gt;</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on June 10, 2008 at 01:34 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/a_first_peek_at_the#comment-1213119257000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1213119791000" id="comment-1213119791000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Jeremy - typo fixed, thanks.  As for treating the top N terms as stop
+ words, it will be an interesting experiment to try.  I've been having 
+good success with just using traditional tf-idf term weighting to 
+de-emphasize tags like 'Rock' and 'Indie' without throwing them out 
+altogether.  tf-idf weighting eliminates the problem of deciding how 
+many to throw out - so we don't have to decide whether or not to toss 
+the top 5, 10 or 100 tags.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on June 10, 2008 at 01:43 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/a_first_peek_at_the#comment-1213119791000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1213137342000" id="comment-1213137342000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Using something similar to tf-idf (which doesn't give very obscure 
+tags too much of a boost) and not considering rock etc as stop words 
+sounds like a good idea :-)</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>elias</b>
+                
+                on June 10, 2008 at 06:35 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/a_first_peek_at_the#comment-1213137342000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1213143484000" id="comment-1213143484000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>Yup, the idf approach does make sense.</p>
+
+
+<p>Just wondering if there would be a statistically significant 
+difference, in the end task/end goal, between a low-idf rock tag, and no
+ rock tag at all.  Guess we'd have to run that experiment :-)</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on June 10, 2008 at 08:18 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/a_first_peek_at_the#comment-1213143484000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>A first peek at the data</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="open_research_the_data_lastfm.html">Open Research - the...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="more_fun_statistics_about_last.html">More fun statistics...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

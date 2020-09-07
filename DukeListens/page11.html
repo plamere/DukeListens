@@ -1,0 +1,1274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="verify-v1" content="0c/Cx6NLE4aEaOKo//DNIIJVpWqeq374fNJIL//A2wE=">
+<title>Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="weblog">
+<!-- End of StatCounter Code -->
+
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="page11.html#content">content</a>, <a href="page11.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday Jun 24, 2008</h2>
+	</div>
+
+	<div class="entry" id="determining_synonyms_from_tags">
+
+	<div class="entry-title entry-info">
+			<h3><a href="determining_synonyms_from_tags.html" title="permalink">Determining synonyms from tags</a></h3>
+		</div>
+
+	<div class="entry-content">
+				One issue that is encountered when working with social tags is
+synonymy, that is, taggers have lots of ways to say the same thing.
+For instance, looking at the tags that have been applied to an artist 
+like Jay-Z we see tags such as "Hip-hop", "hiphop", "hip hop" and
+"rap".  Now it it pretty clear that "Hip-hop" and "hiphop" probably
+mean the same thing. This diversity can be good sometimes - for
+instance, if we know that "hip-hop" and "hip hop" usually mean the
+same thing then if someone is searching for "hip-hop" we can include 
+results that match "hip-hop" and "hip hop".   Of course, we could
+figure out that "hip-hop" and "hip hop" are closely related just by
+using text methods - but things are not usually so easy. What we'd
+like to do is develop a method that can look at the set of tags and
+determine which tags are synonyms, and which tags are closely related
+but are probably not synonyms (such as "hip hop" and "rap").
+<p>
+For a first experiment, I'd like to see if I can automatically find 
+synonyms for the tag "female vocalists".  To do this, I need to
+establish some ground truth.  By hand, I've gone through the 5,000
+most frequently applied artist tags, looking for tags that may be
+related to "female vocalists".  I found 59 of them shown here (along
+with the tag rank and tag frequency).
+
+</p><pre>12 89277 female vocalists
+80 15874 female
+113 8281 Female fronted metal
+128 7150 female vocalist
+227 2841 riot grrrl
+236 2716 female vocals
+278 2180 Female Voices
+365 1424 female artists
+480 955 female vocal
+569 698 female singers
+571 691 female fronted
+619 619 Girl Groups
+633 600 Girl Rock
+722 501 girls
+739 475 diva
+786 433 riot grrl
+880 374 female singer-songwriter
+885 370 women
+1023 301 girl group
+1064 289 chick rock
+1067 287 girl power
+1119 269 female singer-songwriters
+1202 245 female singer
+1224 239 female voice
+1544 179 female-vocalists
+1587 173 female rock
+1625 167 female dance vocals
+1650 163 girl music
+1727 154 french female
+1757 151 chick music
+2113 120 Girl
+2130 118 Female-fronted Metal
+2246 110 chicks
+2252 109 woman singer
+2681 89 female fronted rock
+2757 86 Female Artist
+2803 84 girl bands
+2893 81 girlie rock
+2895 81 female fronted band
+3077 75 japanese female vocalists
+3082 75 divas
+3135 73 girly
+3136 73 girl band
+3194 71 girl pop
+3201 71 eleCtro grrls
+3263 69 solo female
+3405 65 with female singers
+3426 65 front girl band
+3609 62 60s girls
+3676 60 grrl
+3788 58 females
+3884 56 woman
+3957 55 female vocal trance
+4044 54 Female country
+4188 51 grrls
+4370 49 Female solo artists
+4778 44 Favourite Females
+4828 43 girl punk
+4923 42 girls aloud
+</pre>
+
+Now I want to place the tags into 3 separate buckets - In bucket 1,
+I'll put tags that I think  are synonyms for "female vocalists".  In
+bucket 2, I'll put tags that are related but not synonyms, and in
+bucket 3, I'll place tags that are not related to "female vocalists"
+at all. 
+
+<h2> Bucket #1 - Synonyms for "female vocalists"</h2>
+These are female oriented tags (singular or plural), that don't imply any type of genre.
+<pre>12 89277 female vocalists
+80 15874 female
+128 7150 female vocalist
+236 2716 female vocals
+278 2180 Female Voices
+365 1424 female artists
+480 955 female vocal
+569 698 female singers
+571 691 female fronted
+619 619 Girl Groups
+722 501 girls
+739 475 diva
+885 370 women
+1023 301 girl group
+1202 245 female singer
+1224 239 female voice
+1544 179 female-vocalists
+1650 163 girl music
+1757 151 chick music
+2113 120 Girl
+2246 110 chicks
+2252 109 woman singer
+2757 86 Female Artist
+2803 84 girl bands
+2895 81 female fronted band
+3082 75 divas
+3135 73 girly
+3136 73 girl band
+3263 69 solo female
+3405 65 with female singers
+3426 65 front girl band
+3788 58 females
+3884 56 woman
+4370 49 Female solo artists
+</pre>
+
+<h2> Bucket #2 - Related but not synonyms to "Female Vocalists"</h2>
+female-oriented tags that imply genre or include another type of qualifier such as 'favorite'.
+<pre>113 8281 Female fronted metal
+227 2841 riot grrrl
+633 600 Girl Rock
+786 433 riot grrl
+880 374 female singer-songwriter
+1064 289 chick rock
+1067 287 girl power
+1119 269 female singer-songwriters
+1587 173 female rock
+1625 167 female dance vocals
+1727 154 french female
+2130 118 Female-fronted Metal
+2681 89 female fronted rock
+2893 81 girlie rock
+3077 75 japanese female vocalists
+3194 71 girl pop
+3201 71 eleCtro grrls
+3609 62 60s girls
+3676 60 grrl
+3957 55 female vocal trance
+4044 54 Female country
+4188 51 grrls
+4778 44 Favourite Females
+4828 43 girl punk
+4923 42 girls aloud
+</pre>
+
+<h2> Bucket #3 - Not related to "Female Vocalists" </h2>
+<pre>(all of the rest of the 5,000 tags).
+</pre>
+
+Dividing the female-oriented tags like this is not so clear cut, but we 
+have to start somewhere ... I'm open to any other suggestions as to how 
+to divide this space up. Once we have some ground-truth (imperfect as it
+ may be), we can develop an evaluation criteria that will let us 
+determine how well our synonym detector works.
+<p>
+The next step is to figure out how we can evaluate our synonym
+predictor.  That will be the next post.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 24, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="determining_synonyms_from_tags.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/determining_synonyms_from_tags#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Sunday Jun 22, 2008</h2>
+	</div>
+
+	<div class="entry" id="open_notebook_science">
+
+	<div class="entry-title entry-info">
+			<h3><a href="open_notebook_science.html" title="permalink">Open Notebook Science</a></h3>
+		</div>
+
+	<div class="entry-content">
+				I've noticed a few articles and resources around open research in 
+the last few weeks.  Last week, when I was visiting my parents in 
+Florida, I noticed my Dad's copy of Scientific America had an excellent 
+article called <a href="http://www.sciam.com/article.cfm?id=science-2-point-0">Science 2.0 -- Is Open Access Science the Future?</a>
+ that talks about the advantages and disadvantages of carrying out 
+science in the open, on the web. The article suggests advantages such as
+ a better dialog with people, and more opportunities for collaboration. 
+ The article points to the <a href="http://www.openwetware.org/">OpenWetWare</a> project at MIT, which is a a wiki for biology researchers.
+<p>
+Another excellent resource is the <a href="http://itc.conversationsnetwork.org/shows/detail3705.html">podcast interview by Jon Udell of Jean-Claude Bradley</a>.
+  Jean-Claude is a professor of chemistry at Drexel University who 
+started to make the scientific process as transparent as possible by 
+publishing all research work in real time to a collection of public 
+blogs, wikis and other web pages. He coined the term Open Notebook 
+Science which he <a href="https://drexel-coas-elearning.blogspot.com/2006/09/open-notebook-science.html">describes</a> as: "... there is a URL to a laboratory notebook (<a href="http://usefulchem.wikispaces.com/Exp025">like this</a>)
+ that is freely available and indexed on common search engines. It does 
+not necessarily have to look like a paper notebook but it is essential 
+that all of the information available to the researchers to make their 
+conclusions is equally available to the rest of the world. Basically, no
+ insider information."
+</p><p>
+I really like the idea of 'no insider information' - to put all your 
+successes and failures, every experiment, every bad result out there for
+ everyone to see.  Your lab notebook is open for the whole world to see.
+  
+</p><p>
+Jean-Claude has a <a href="http://precedings.nature.com/documents/39/version/1">presentation that outlines how they use Open Notebook science at Drexel</a>,
+ that is pretty interesting (albeit, quite focused on chemistry). They 
+use a Wiki to serve as the lab notebook. They rely on the automatic 
+versioning of the wiki software to maintain track of edits, so they 
+always know 'who did what' and 'when'. This addresses some of the 
+concerns <a href="https://mir-research.blogspot.com/2008/06/open-research.html">Elias raised</a> about making the research record be permanent. They will then use their blog to highlight interesting results or questions. 
+</p><p>
+To me, this is all pretty interesting, especially for the Music 
+Information Retrieval community. The MIR community has lots of 
+disciplines: musicology, signal processing, machine learning, library 
+science, text IR, coding, user interface, and on on.  No one can know 
+all there is to know in this field, so anything that can help increase 
+the opportunities for sharing ideas can really push forward the whole 
+research community. 
+</p><p>
+There are already a number of MIR researchers that are putting their research on line. ( <a href="https://beyondbagofframes.blogspot.com/">Mark Godfrey</a> <a href="http://blog.dbtune.org/">Yves Raimond</a>
+ to name just a couple).  I suspect that more researchers would work 
+this way if the tools were available and the advantages were laid out.  
+Perhaps this would be a good topic for a panel at ISMIR this year.  
+Since Jean-Claude Bradley is at Drexel there could even be an 
+opportunity to have Jean-Claude sit on the panel to serve as the 
+'expert'.  This panel could be about how to do 'open notebook science' 
+with some feedback from folks who are already doing that in the MIR 
+community.  I, myself, would find this panel to be very interesting.
+</p><p>
+Of course, we are way past the time to submit panels to ISMIR, so there 
+may not be any chance to have such a panel, but it doesn't hurt to try 
+.. so if enough MIR folks express some interest to me (just add a 
+comment to this post or send me an email), I'll talk with the ISMIR 
+organizers to see if this would be possible.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 22, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="open_notebook_science.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/open_notebook_science#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Saturday Jun 21, 2008</h2>
+	</div>
+
+	<div class="entry" id="social_tags_and_mir_a">
+
+	<div class="entry-title entry-info">
+			<h3><a href="social_tags_and_mir_a.html" title="permalink">Social Tags and MIR - a tutorial at ISMIR 2008</a></h3>
+		</div>
+
+	<div class="entry-content">
+				The organizers for <a href="http://ismir2008.ismir.net/">ISMIR 2008</a> have just posted the <a href="http://ismir2008.ismir.net/tutorials">schedule for tutorials</a> for this year's conference.  Among them is a tutorial that will be presented by <a href="http://www.jj-aucouturier.info/">Jean-Julien Aucouturier</a>, <a href="https://mir-research.blogspot.com/">Elias Pampalk</a> and myself entitled <strong>Social Tags and Music Information Retrieval</strong>.  Here are the details:
+<p>
+<cite>Social Tags are free text labels that are applied to items such as
+ artists, playlists and songs. These tags have the potential to have a 
+positive impact on music information retrieval research. In this 
+tutorial we describe the state of the art in commercial and research 
+social tagging systems for music. We explore some of the motivations for
+ tagging. We describe the factors that affect the quantity and quality 
+of collected tags. We present a toolkit that MIR researchers can use to 
+harvest and process tags. We look at how tags are collected and used in 
+current commercial and research systems. We explore some of the issues 
+and problems that are encountered when using tags. We present current 
+MIR-related research centered on social tags and suggest possible areas 
+of exploration for future research.</cite>
+</p><p>
+I am really excited about working on this tutorial with Elias and JJ. One of the highlights of 2007 for me was presenting a <a href="http://mtg.upf.edu/%7Eocelma/MusicRecommendationTutorial-ISMIR2007/">tutorial on music recommendation</a> with <a href="http://mtg.upf.edu/%7Eocelma/">Oscar Celma</a>.
+ I learned so much about the subject matter while preparing the 
+tutorial, and it was great fun to work with someone as smart as Oscar.  I
+ am really looking forward to repeating the experience.
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 21, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="social_tags_and_mir_a.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/social_tags_and_mir_a#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Friday Jun 20, 2008</h2>
+	</div>
+
+	<div class="entry" id="freakomendation_netflix">
+
+	<div class="entry-title entry-info">
+			<h3><a href="freakomendation_netflix.html" title="permalink">Freakomendation: Netflix</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Netflix suggests that if you liked "Freaks &amp; Geeks" clearly you 
+will like the "Lost Boys of Sudan".  And why not, they both have that 
+same <a href="https://en.wiktionary.org/wiki/fish_out_of_water">fish-out-of-water</a> sense to them.
+<p>
+<img src="support_files/_90A84C5B-A5FA-496D-B320-AE924E3A65DA.jpg" alt="90A84C5B-A5FA-496D-B320-AE924E3A65DA.jpg" border="0" height="174" width="236">
+</p><p>
+<em>From<a href="http://ccinsider.comedycentral.com/cc_insider/2008/06/which-is-funn-2.html"> Comedy Central insider</a> (Thanks, Zac!)</em>
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 20, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: freakomendations</p>
+	<p class="entry-links">
+		<a href="freakomendation_netflix.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Thursday Jun 19, 2008</h2>
+	</div>
+
+	<div class="entry" id="discovering_sharing_and_experiencing_music">
+
+	<div class="entry-title entry-info">
+			<h3><a href="discovering_sharing_and_experiencing_music.html" title="permalink">Discovering, Sharing and Experiencing Music</a></h3>
+		</div>
+
+	<div class="entry-content">
+				In this <a href="http://itc.conversationsnetwork.org/shows/detail3655.html">podcast</a>, Jon Udell interviews WebJay founder<a href="http://blog.gonze.com/"> Lucas Gonze</a>
+ about the issues surrounding music discovery.  It's an interesting, 
+rambling discussion that touches on curated, expert-driven discovery as 
+opposed to machine-driven discovery, problems with music metadata, as 
+well as Lucas' hobby of exploring 19th century parlour music. - <em>Thanks for the tip, Jeremy</em>. 
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 19, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="discovering_sharing_and_experiencing_music.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Monday Jun 16, 2008</h2>
+	</div>
+
+	<div class="entry" id="freakomendation_animal_house_and_the">
+
+	<div class="entry-title entry-info">
+			<h3><a href="freakomendation_animal_house_and_the.html" title="permalink">Freakomendation:  Animal House and the Nazis</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Since you like <a href="https://www.imdb.com/title/tt0077975/">National Lampoon's Animal House</a>, you may like this movie about how the economic conditions in 1930s Germany led to the rise of the Nazis.
+<p>
+<a href="https://flickr.com/photos/deadhorse/385177004/sizes/o/"><img src="support_files/385177004_221f9f532e_o.png"></a>
+
+</p><p>(Via <a href="https://flickr.com/photos/deadhorse/">Andrew Huff</a>.)</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 16, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: freakomendations</p>
+	<p class="entry-links">
+		<a href="freakomendation_animal_house_and_the.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Friday Jun 13, 2008</h2>
+	</div>
+
+	<div class="entry" id="heavy_metal_hip_hop_invasion">
+
+	<div class="entry-title entry-info">
+			<h3><a href="heavy_metal_hip_hop_invasion.html" title="permalink">Heavy Metal Hip-Hop Invasion</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Just for fun,  I wrote a little program that takes the set of <a href="looking_for_genres.html">genres</a> and mixes them up to give us a whole new set of imaginary genres.  Some of my favorite imaginary genres are:
+
+
+  <ul> 
+    <li>Acid Rockabilly
+</li>
+    <li>British Hip Pop
+</li>
+    <li>Blackened Broken Metal
+</li>
+    <li>British Stoner Rap
+</li>
+    <li>Coast Rock
+</li>
+    <li>Depressive political rock 
+</li>
+    <li>Dirty Neo-Prog
+</li>
+    <li><a href="https://www.urbandictionary.com/define.php?term=emo+metal">Emo Metal</a> </li>
+    <li>German uplifting death-grind 
+</li>
+    <li>Gothic country grrrl 
+</li>
+    <li>Hardcore chick trance 
+</li>
+    <li>Indie anarcho pop 
+</li>
+    <li>Industrial old northern house
+</li>
+    <li>Liquid Psychedelia 
+</li>
+    <li>New symphonic hip-hop
+</li>
+    <li>Organic Metal
+</li>
+    <li>Progressive teen Hardcore 
+</li>
+    <li>Suicidal Swedish viking rock 
+</li>
+    <li>Traditional ambient deutschpunk
+</li>
+    <li>Twee Afrobeat
+</li>
+  </ul> 
+I think would be really cool to listen to some of these genres (such as 
+'Twee Afrobeat' or 'Liquid Psychedelia') and I think some (such as 'new 
+symphonic hip-hop') would be just horrid.  The weird thing is that I can
+ imagine what many of these genres would sound like, even though they 
+don't exist.  Just try to imagine what 'Gothic Country Grrrl' would 
+sound like.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 13, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="heavy_metal_hip_hop_invasion.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/heavy_metal_hip_hop_invasion#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="polygamy_loves_company">
+
+	<div class="entry-title entry-info">
+			<h3><a href="polygamy_loves_company.html" title="permalink">Polygamy Loves Company</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Here's another Netflix Freakomendation.  If you like the HBO Series <a href="http://www.hbo.com/biglove/">Big Love</a> (which is an adult show about <em>how
+  a modern-day Utah polygamist who lives in suburban Salt Lake City 
+balances his three wives, seven children, and a mounting avalanche of 
+debt and demands</em>) Netflix recommends the <a href="https://en.wikipedia.org/wiki/The_Backyardigans">Backyardigans; The Legend of the Volcano Sisters</a>. Strange.
+<p>
+<a href="https://farm3.static.flickr.com/2301/2466605202_f2d54c36d9_o.jpg"><img src="support_files/2466605202_d1bf7350df.jpg"></a> </p><p>(From <a href="https://flickr.com/photos/zacechola/">zacechola</a> on <a href="https://flickr.com/photos/zacechola/2466605202/sizes/o/">Flickr</a>)
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 13, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: freakomendations</p>
+	<p class="entry-links">
+		<a href="polygamy_loves_company.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Thursday Jun 12, 2008</h2>
+	</div>
+
+	<div class="entry" id="a_beatle_wordle">
+
+	<div class="entry-title entry-info">
+			<h3><a href="a_beatle_wordle.html" title="permalink">A Beatle Wordle</a></h3>
+		</div>
+
+	<div class="entry-content">
+				I made this Tag Cloud by pasting the Beatles Wikipedia entry into <a href="http://wordle.net/">wordle</a>.
+<p>
+<a href="http://wordle.net/gallery/Beatles" title="Wordle: Beatles"><img src="support_files/Beatles.png" style="padding: 4px; border: 1px solid rgb(221, 221, 221);"></a>
+
+</p><p>
+<a href="http://wordle.net/">Wordle</a> is pretty cool (via <a href="http://infosthetics.com/">Information Aesthetics</a>)
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 12, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="a_beatle_wordle.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="looking_for_genres">
+
+	<div class="entry-title entry-info">
+			<h3><a href="looking_for_genres.html" title="permalink">Looking for genres</a></h3>
+		</div>
+
+	<div class="entry-content">
+				I took a tour by hand through the top 1,500 last.fm artist tags to
+identify which ones were related to genre. I found about 700 of them,
+ranging from the familiar 'rock', 'indie' and 'jazz' to 'aggrotech',
+'true Norwegian black metal', and 'terror ebm'. It is actually quite a
+it of work filtering the tags like this. I had to look up many tags
+like '<a href="https://en.wikipedia.org/wiki/Angura_kei">angura kei</a>'  and <a href="https://en.wikipedia.org/wiki/Juggalo">'juggalo'</a> to see if they were genre related.  And I am sure I made many mistakes.  Some of my favorites are:
+
+  
+  
+  
+  
+  <ul> 
+    <li><a href="https://en.wikipedia.org/wiki/Riot_grrl">riot grrl
+</a> </li> 
+    <li><a href="https://en.wikipedia.org/wiki/Glitch_%28music%29">Glitch</a> </li> 
+    <li><a href="https://en.wikipedia.org/wiki/Crust_punk">Crust</a> </li> 
+    <li><a href="https://en.wikipedia.org/wiki/Freak_folk">Freak Folk</a> </li> 
+  </ul> 
+  <p>
+My edited hand-edited list of genres can be found here:
+<a title="genre.txt" href="http://support_files/_genre.txt">genre.txt</a></p> 
+  <p><i>Update: Zac suggested making the genres links to the last.fm tag page .. so you can see the full list with links after the jump:</i></p> 
+  <p><i>Update #2:&nbsp; Oscar went one better, he made the genres link page with links sized by frequency of occurrence:&nbsp; <a href="http://mtg.upf.edu/%7Eocelma/last.fm-genre-tagcloud/">Oscar's last.fm genre tag cloud</a></i> <br></p>[<a class="readmore" href="looking_for_genres.html">Read More</a>]
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 12, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="looking_for_genres.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/looking_for_genres#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday Jun 10, 2008</h2>
+	</div>
+
+	<div class="entry" id="more_fun_statistics_about_last">
+
+	<div class="entry-title entry-info">
+			<h3><a href="more_fun_statistics_about_last.html" title="permalink">More fun statistics about last.fm tags</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Steve asked me how many words are in a typical<a href="open_research_the_data_lastfm.html"> Last.fm artist tag</a>.
+ So lets answer that question.  Of the 100,000 or so unique tags, about 
+33% of them are single word tags (like 'rock', 'emo' and 'metal'), 36% 
+are two word tags (like 'heavy metal', 'punk rock' and 'seen live'), 16%
+ are three word tags ('brutal death metal'), 6% are 4 word tags ('asian 
+drum and bass'), 3% are 5 word tags ('sounds awesome in my car').  The 
+longest tag is 49 words long. It is:
+<blockquote>i am a child in a field and i grow things in my dreams to 
+wake and water them to go to sleep and raise them from the earth into 
+existence from an idea to physical existence what power what madness a 
+gentle madness an eleven year olds madness</blockquote>
+The longest tag that has been applied multiple times is:
+<blockquote>songs that i sing along to but i always forget the words so i
+ say duh duh while trying to sound like i do know the words and no one 
+is falling for it but they keep quiet because they are embarassed for me</blockquote>
+<p>
+Some long tags that seem to be about music :
+</p><blockquote>bands or people from india or who sound like they might 
+be from india or who sound like they might be from around india or who 
+sound like they might enjoy bands or people who sound like they are from
+ around india
+</blockquote>
+A number of the longer tags seem to be the result of someone being 
+confused about how to enter separate tags. For example, this single tag 
+was probably meant to be 20 individual tags:
+<blockquote>rock - metal - industrial - electronic - punk - emo - ebm - 
+alternative - punk - dark electro - japanese - metalcore - female 
+fronted metal - techno - psytrance - love metal - new wave - synth pop -
+ indie</blockquote>
+<p>
+Some long single word tags:
+
+</p><pre>63 Eksprimentell-teknisk-avantgarde-saer-dop-steikbra-metal-musikk
+55 SkankledoodleskattysuperSKAalifragilisticexpialidocious
+55 No-break-twitch-screaming-grindcore-ninja-commando-team
+47 indiepostteletronicrockistsbaroquechamberaltpop
+47 hatebreedlookalikessoundsalikeswannabesgoodshit
+46 rrrrrrrruuuuuuuuuuuuuuuuuuuuuuggggghhhhhhhhhhh
+43 up-down-up-down-left-right-A-B-select-start
+40 put-your-brain-in-a-blender-and-drink-it
+40 baseballbatmusicforcoolindiekidswithbats
+39 fffffffffffffffffffffffffffffffffffffff
+38 where-do-thoughts-like-those-come-from
+37 good-old-animation-guitar-syntheziser
+36 gothic-techno-industrial-dance-disco
+36 MAurrrrriiiiittttttiiiiiuuuuuussssss
+36 21AAD6B6-A1E6-4e07-B2E9-9F512F446E4B
+35 onemightbecomebarrenlisteningtothis
+35 not-to-be-confused-with-THE-Citadel
+35 Supercallifragilisticexpialidocious
+35 Lie-on-the-floor-and-smoke-to-music
+35 BatmanUcanBeMySupermanSaveMeHereIam
+34 Progressive-Industrial-Atmospheric
+34 Industrial-Electroica-Jungle-Death</pre>
+
+Once again, many of these seem to be the results of the confused tagger not understanding how to apply multiple tags at once.
+<p>
+317 Unique tags that start with "I ..." such as:
+</p><pre>11 I would like to own or listen to more music by these bands and artists
+11 I got a patch
+11 I dig it
+11 I dig
+10 I must try
+10 I can be cool sometimes
+10 I LOVE THIS MUSIC
+10 I Have Seen Them
+9 I think its a doom metal band
+9 I like this stuff
+9 I cant account for these
+9 I am so sad
+8 I love this bands
+8 I love them all
+8 I like this music
+8 I like this
+8 I like these guys a lot</pre>
+My favorite is: <em>I was never a Swedish teenager with swedish teen angst so now I will attempt at having it</em>. Speaking of 'favorite', Last.fm taggers have hundreds of ways of tagging their favorite artists. Among them are:
+<pre>FavoriteArtists
+favoritebands
+FAVORTIEEESSS
+Favoritmusik
+Favoritizims
+favoritttes
+favoiteness
+faveartists
+favorites1
+favorieten
+faveorites
+Favourites
+Favoritter
+favroites
+favoutite
+favourits
+favourite
+favour-01
+favorites
+favoriten
+favoritas
+faveorite
+favaurite
+fav0urit3
+Favouites
+Favoritos
+Favoriter
+favorito
+favoriet
+favoirte
+favbands
+Favoritt
+Favorits
+Favorite
+favorit
+Favoris
+FavBand
+favour
+favori
+favor8
+favies
+favela
+Favvis
+Favess
+FavArt
+favvy
+favou
+favos
+Favvo
+Favor
+Faves
+favs
+favo
+fava
+Fave
+fav</pre>
+
+Tags can be crazy - there are just so many different reasons why people 
+tag, there's tons of noise, there are tag abusers - but because there 
+are so many tags, they can also be extremely useful.  Next up, we'll try
+ to sift through the tags and categorize them into big buckets like 
+genre, mood, opinion and so on.
+
+
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 10, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="more_fun_statistics_about_last.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="a_first_peek_at_the">
+
+	<div class="entry-title entry-info">
+			<h3><a href="a_first_peek_at_the.html" title="permalink">A first peek at the data</a></h3>
+		</div>
+
+	<div class="entry-content">
+				The <a href="open_research_the_data_lastfm.html">LastFM-ArtistTags2007</a> dataset has 100,000 unique artist tags for about 20,000 artists.  Let's take a closer look at some of the data.
+<p>
+First, here's a plot of tag frequency.  First thing to notice is the 
+power distribution. Not surprisingly, it looks like tags follow <a href="https://en.wikipedia.org/wiki/Zipf%27s_law">Zipf's la</a>w
+ (where the frequency of a tag is inversely proportional to its rank). 
+Interestingly, 45,000 of the 100,000 or so tags have been applied only 
+once. 
+</p><p>
+<a href="http://support_files/_tag.freq.full.png"><img src="support_files/_tag_002.png" alt="tag.freq.full.png" border="0"></a>
+</p><p>
+Looking at a log-log plot of the frequency vs. rank data, we see that 
+the data is linear starting at a rank around 25.  For tags at rank less 
+than 25 we see a tailing off from Zipf's law.  I think this tailing off 
+is to be expected.  The most applied tag 'rock' is not really very 
+descriptive.  I suspect that many taggers will self-edit and not apply 
+obvious tags.
+</p><p>
+<a href="http://support_files/_tag.freq.log.log.png"><img src="support_files/_tag_003.png" alt="tag.freq.log.log.png" border="0"></a>
+</p><p>
+This next plot gives a closer look at the 5,000 most frequently applied 
+tags.  In this dataset, about 2,500 tags have been applied 100 times or 
+more.
+</p><p>
+<a href="http://support_files/_tag.freq.detail.png"><img src="support_files/_tag.png" alt="tag.freq.detail.png" border="0"></a>
+</p><p>
+The top 25 tags applied are:
+</p><p>
+</p><pre>440854 rock
+343901 seen live
+277747 indie
+245259 alternative
+184491 metal
+158252 electronic
+136691 punk
+124599 pop
+119930 indie rock
+102937 classic rock
+97264 alternative rock
+89277 female vocalists
+79497 emo
+77455 death metal
+76898 Hip-Hop
+76668 hardcore
+74650 electronica
+73034 singer-songwriter
+69169 black metal
+62284 jazz
+60559 hard rock
+59763 folk
+59729 punk rock
+58135 Progressive rock
+57860 heavy metal
+54398 industrial</pre>
+<p>
+In the top 25, almost all of the tags are genre related (with the 
+exception of 'seen live' and 'female vocalists').  The data appears to 
+skew away from what one would expect from a general listening 
+population.  There's no 'Country' in the top 25, but there are 4 kinds 
+of metal. 
+</p><p>
+In future posts, I'll take a closer look at the various types of tags.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 10, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="a_first_peek_at_the.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/a_first_peek_at_the#comments.html">Comments [4]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="open_research_the_data_lastfm">
+
+	<div class="entry-title entry-info">
+			<h3><a href="open_research_the_data_lastfm.html" title="permalink">Open Research - the Data: Lastfm-ArtistTags2007</a></h3>
+		</div>
+
+	<div class="entry-content">
+				For this Open Research experiment, I shall be working with a set of 
+social tag collected from Last.fm via Audioscrobbler web services.  
+Since it might be handy for anyone following along to have access to the
+ same data set, I am making this data set available directly for any 
+researcher who wants to use it.  
+<p>
+The dataset is available for download here: <a href="http://mediacast.sun.com/users/lamere/media/Lastfm-ArtistTags2007">Lastfm-ArtistTags2007</a>
+</p><p>
+Here are the details as told in  the README file:
+
+</p><pre><strong>The LastFM-ArtistTags2007 Data set
+</strong>Version 1.0
+June 2008
+
+<strong>What is this?
+</strong>
+    This is a set of artist tag data collected from Last.fm using
+    the <a href="http://www.audioscrobbler.net/data/webservices/">Audioscrobbler webservice</a> during the spring of 2007.
+
+    The data consists of the raw tag counts for the 100 most
+    frequently occuring tags that Last.fm listeners have applied
+    to over 20,000 artists.
+
+    An undocumented (and deprecated) option of the audioscrobbler
+    web service was used to bypass the Last.fm normalization of tag
+    counts.  This data set provides raw tag counts.
+
+<strong>Data Format:
+</strong>
+  The data is formatted one entry per line as follows:
+
+  musicbrainz-artist-id&lt;sep&gt;artist-name&lt;sep&gt;tag-name&lt;sep&gt;raw-tag-count
+
+<strong>Example:
+</strong>
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;american&lt;sep&gt;14
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;animals&lt;sep&gt;5
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;art punk&lt;sep&gt;21
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;art rock&lt;sep&gt;18
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;atmospheric&lt;sep&gt;4
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;avantgarde&lt;sep&gt;3
+
+
+<strong>Data Statistics:
+</strong>
+    Total Lines:      952810
+    Unique Artists:    20907
+    Unique Tags:      100784
+    Total Tags:      7178442
+
+<strong>Filtering:
+</strong>
+    Some minor filtering has been applied to the tag data.  Last.fm will
+    report tag with counts of zero or less on occasion. These tags have
+    been removed.
+
+    Artists with no tags have not been included in this data set.
+    Of the nearly quarter million artists that were inspected, 20,907
+    artists had 1 or more tags.
+
+<strong>Files</strong>:
+
+    ArtistTags.dat  - the tag data
+    README.txt      - this file
+    artists.txt     - artists ordered by tag count
+    tags.txt        - tags ordered by tag count
+
+<strong>License</strong>:
+
+    The data in LastFM-ArtistTags2007 is distributed with permission of
+    Last.fm.  The data is made available for non-commercial use only under
+    the Creative Commons Attribution-NonCommercial-ShareAlike UK License.
+    Those interested in using the data or web services in a commercial
+    context should contact partners at last dot fm. For more information
+    see <a href="http://www.audioscrobbler.net/data/">http://www.audioscrobbler.net/data/</a>
+
+<strong>Acknowledgements</strong>:
+
+    Thanks to Last.fm for providing the access to this tag data via their
+    web services
+
+<strong>Contact</strong>:
+
+    This data was collected, filtered and by Paul Lamere of Sun Labs. Send
+    questions or comments to <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="edbd8c9881c3a18c80889f88ad9e9883c38e8280">[email&#160;protected]</a></pre>
+<p>
+<b> What's all this then?</b>
+<em>This is an experiment in 'open research' - I'm going to blog my research on a particular topic.  Suggestions are welcome</em>
+</p><h2> Table of Contents</h2>
+<ul>
+  <li> <a href="open_research.html">Open Research</a>
+  </li><li> <a href="open_research_research_goals.html">Research Goals</a>
+  </li><li> <a href="open_research_background_reading.html">Background Reading</a>
+</li><li> <a href="open_research_the_data_lastfm.html">The Data</a> 
+</li></ul>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 10, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="open_research_the_data_lastfm.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/open_research_the_data_lastfm#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday Jun 04, 2008</h2>
+	</div>
+
+	<div class="entry" id="last_fm_in_a_box">
+
+	<div class="entry-title entry-info">
+			<h3><a href="last_fm_in_a_box.html" title="permalink">Last.fm in a Box</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Last.fm is extending its reach with a new program called <a href="https://mashable.com/2008/06/04/lastfm-in-a-box/">Last.fm in a Box</a>.  <em>Last.fm in a box</em> will allow Last.fm partners to embed the Last.fm ad-supported player in their site.  From the Press Release: <em>The
+ service is dubbed "Last.fm in a Box" because it’s a complete 
+"soundtrack for the Web" experience for users—featuring millions of 
+tracks from Last.fm’s unparalleled music catalogue. Based on the open 
+platform of Last.fm, partner sites can adopt "Last.fm in a Box" simply, 
+easily and quickly. The service will be ad-supported allowing brands and
+ sponsors the opportunity to reach millions of highly engaged music fans
+ across the Web beyond the Last.fm site.</em>
+<p>
+I found it interesting to see the teen/pre-teen site <a href="http://www.stardoll.com/en/">Stardoll.com</a>
+ as one of the "last.fm in a box" partners. This could be an interesting
+ clash of cultures as the 13 year old girls start pushing their 
+scrobbles into last.fm's music brain, while the old-school last.fm users
+ push back with their <a href="the_1_brutal_death_metal.html">nefarious tagging of pop music</a>.
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 04, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="last_fm_in_a_box.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="sten_s_blog">
+
+	<div class="entry-title entry-info">
+			<h3><a href="sten_s_blog.html" title="permalink">Sten's Blog</a></h3>
+		</div>
+
+	<div class="entry-content">
+				My buddy Sten, is a long time Java developer as well as the only 
+developer on the planet to contribute to three of the coolest Java 
+projects ever: <a href="http://projectdarkstar.com/">Project Darkstar</a>, <a href="http://research.sun.com/spotlight/2006/2006-06-28_search_inside_music.html">Search Inside the Music </a>and the RCI - a cockpit interface for a <a href="http://www.oss.goodrich.com/DB110RAPTOR.shtml">tactical reconnaissance camera</a> (which when it went airborne in 2000 may have been one of the first instances of Java flying in a cockpit).
+<p>
+Sten is now <a href="http://blogs.citytechinc.com/sanderson/">blogging about Java and development</a>. Sten has a dry sense of humor that make these informative posts fun to read.  An example, Sten talks about IntelliJ IDEA: <em>I
+ approached this IDE with suspicion, mostly because I didn’t trust its 
+CamelCase spelling.  However, I figured that they were trying to spell 
+“Intelligent”, which I could certainly relate to, but made a typo with 
+the “J”, got flustered, stopped, and tried to distract from this blunder
+ by shouting the second word.</em>
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 04, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="sten_s_blog.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are browsing the main weblog
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="page10.html">Previous page</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="page12.html">Next page</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="support_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-187070-1");
+pageTracker._trackPageview();
+</script>
+</body></html>

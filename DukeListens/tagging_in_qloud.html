@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Improving social tagging - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="tagging_in_qloud.html#content">content</a>, <a href="tagging_in_qloud.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="tagging_in_qloud">
+
+	<div class="entry-title entry-info">
+			<h2>Improving social tagging</h2>
+		</div>
+
+	<div class="entry-content">
+				There's a <a href="http://www.qloud.com/tutorial/iTunes/tutorial.html" target="_self">nifty flash demo</a>
+ showing how the iTunes/qloud plugin supports tagging of songs. It is 
+quite nice how the QLoud tagger is integrated directly into 
+iTunes.&nbsp; You can easily tag your songs, and then use those tags to 
+generate good playlists.&nbsp; The tags that you use to organize your 
+local collection are also sent back to the qloud where they are 
+aggregated and used to assist music discovery.&nbsp; Funny thing, 
+though, in the tagging example they show a user getting songs that are 
+tagged with 'love' to get a set of romantic songs.&nbsp; However, 
+tagging is a somewhat fickle process.&nbsp; The user may get romantic 
+songs, but the user may also get songs that were tagged 'love' because 
+the tagger <span style="font-style: italic;">loved</span> the song, not 
+because it was a perfect first-date song. So mixed in with the 
+heart-melters, may be a face-melter.&nbsp; With the result that your 
+romantic candelight dinner may be interrupted by the wails of Eddie Van 
+Halen.<br><br>That good-looking <a href="http://blogs.sun.com/searchguy" target="_self">Search Guy,</a>
+ Steve Green, will tell you that these social tagging systems just need 
+to get a little smarter.&nbsp; With a little clustering-goodness, a 
+tagging system such as Qloud should be able to notice that there are two
+ types of 'love'-tagged songs: those associated with romance, and those 
+associated with user-preference and if you build a playlist using an 
+ambiguous tag, a less ambiguous tag (such as 'romantic' or 'favorite') 
+is suggested.&nbsp; <br><br><img src="support_files/flickr_logo_gamma.gif">Flickr is starting to do this.&nbsp; You can explore the clusters associated with a tag.&nbsp; For instance&nbsp; <a href="https://www.flickr.com/photos/tags/apple/clusters/" target="_self">Explore / Tags / apple / clusters</a>
+ will show the clusters associated with the word 'apple'.&nbsp; There 
+are four main 'apple' clusters:&nbsp; Pictures of macIntosh computers, 
+pictures of the fruit, screenshots of OS X, and pictures of New York 
+City (including one 'double-apple' showing a picture of the new Apple 
+store in Manhattan).<br><br>Music discovery systems such as last.fm and 
+qloud need to start doing the same thing - cluster the tags and help us 
+dis-ambiguate the tags - this will give us more understandable results 
+when we start to use the tags for generating playlists. <br><br><br>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Oct 23, 2006</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="tagging_in_qloud.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1161631198000" id="comment-1161631198000"></a>
+            <div class="comment odd" id="comment1">
+
+                It seems like you could take advantage of recent work in
+ statistical (text) topic modeling to do something like this.  I'm 
+thinking in particular of LDA - latent dirichlet allocation.  (This is 
+more than just document or tag clustering.)  If you applied something 
+like this to the sets of tags on a music collection, you might indeed 
+learn that there are two senses of the word "love", and could generate 
+your playlists accordingly.
+
+However, the big gain here is not just limiting yourself to text/tag 
+features.. but integrating some musicological processing of the raw 
+audio features, too, to assist with the topic modeling.  I'd really like
+ to see a company start doing something like that.
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Jeremy P</b>
+                
+                on October 23, 2006 at 03:19 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/tagging_in_qloud#comment-1161631198000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1161711021000" id="comment-1161711021000"></a>
+            <div class="comment even" id="comment2">
+
+                paul--
+<br>
+<br>
+i'm a litte late on getting back to you on <a href="https://kiserai.net/DukeListens/qloud_vs_last_fm#comment-1161031061000.html" rel="nofollow">this</a>. anyhow . . . 
+<br>
+<br>
+regarding the quality of the data we collect, we think that the dynamic 
+goes like this: users tag primarily for their own benefit, to better 
+organize their collections, whether that be with bookmarks (delicious) 
+or, in our case, their music libraries. 
+<br>
+<br>
+this is why having our tagging occur inside iTunes is so key. users tag 
+there for their own benefit . . . the impact on our service happens as a
+ secondary consequence. when adding a tag directly benefits the 
+individual, the quantity and quality of the tags is greatly enhanced. 
+and tags, while not the only dimension we use in our search, are the 
+most important. 
+<br>
+<br>
+and yes, we see clustering as very important and plan on doing it too. 
+<br>
+<br>
+on your 30 second clip question . . .. again, users tag for us while 
+they're listening in their own library. the quality of our data coming 
+in is not affected by the length of our clips. nevertheless, we think it
+ could be a better discovery experience for users to also have access to
+ a full length streaming version of each song. we're thinking of adding 
+that too. 
+<br>
+<br>
+thanks again for blogging about us. we appreciate the discussion!
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://blog.qloud.com/"><b>Toby</b></a>
+                
+                on October 24, 2006 at 01:30 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/tagging_in_qloud#comment-1161711021000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Improving social tagging</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="cover_songs.html">Cover songs ...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="the_saddest_photo_on_flickr.html">The saddest photo on...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

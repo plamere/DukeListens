@@ -1,0 +1,478 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Determining synonyms from tags - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="determining_synonyms_from_tags.html#content">content</a>, <a href="determining_synonyms_from_tags.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="determining_synonyms_from_tags">
+
+	<div class="entry-title entry-info">
+			<h2>Determining synonyms from tags</h2>
+		</div>
+
+	<div class="entry-content">
+				One issue that is encountered when working with social tags is
+synonymy, that is, taggers have lots of ways to say the same thing.
+For instance, looking at the tags that have been applied to an artist 
+like Jay-Z we see tags such as "Hip-hop", "hiphop", "hip hop" and
+"rap".  Now it it pretty clear that "Hip-hop" and "hiphop" probably
+mean the same thing. This diversity can be good sometimes - for
+instance, if we know that "hip-hop" and "hip hop" usually mean the
+same thing then if someone is searching for "hip-hop" we can include 
+results that match "hip-hop" and "hip hop".   Of course, we could
+figure out that "hip-hop" and "hip hop" are closely related just by
+using text methods - but things are not usually so easy. What we'd
+like to do is develop a method that can look at the set of tags and
+determine which tags are synonyms, and which tags are closely related
+but are probably not synonyms (such as "hip hop" and "rap").
+<p>
+For a first experiment, I'd like to see if I can automatically find 
+synonyms for the tag "female vocalists".  To do this, I need to
+establish some ground truth.  By hand, I've gone through the 5,000
+most frequently applied artist tags, looking for tags that may be
+related to "female vocalists".  I found 59 of them shown here (along
+with the tag rank and tag frequency).
+
+</p><pre>12 89277 female vocalists
+80 15874 female
+113 8281 Female fronted metal
+128 7150 female vocalist
+227 2841 riot grrrl
+236 2716 female vocals
+278 2180 Female Voices
+365 1424 female artists
+480 955 female vocal
+569 698 female singers
+571 691 female fronted
+619 619 Girl Groups
+633 600 Girl Rock
+722 501 girls
+739 475 diva
+786 433 riot grrl
+880 374 female singer-songwriter
+885 370 women
+1023 301 girl group
+1064 289 chick rock
+1067 287 girl power
+1119 269 female singer-songwriters
+1202 245 female singer
+1224 239 female voice
+1544 179 female-vocalists
+1587 173 female rock
+1625 167 female dance vocals
+1650 163 girl music
+1727 154 french female
+1757 151 chick music
+2113 120 Girl
+2130 118 Female-fronted Metal
+2246 110 chicks
+2252 109 woman singer
+2681 89 female fronted rock
+2757 86 Female Artist
+2803 84 girl bands
+2893 81 girlie rock
+2895 81 female fronted band
+3077 75 japanese female vocalists
+3082 75 divas
+3135 73 girly
+3136 73 girl band
+3194 71 girl pop
+3201 71 eleCtro grrls
+3263 69 solo female
+3405 65 with female singers
+3426 65 front girl band
+3609 62 60s girls
+3676 60 grrl
+3788 58 females
+3884 56 woman
+3957 55 female vocal trance
+4044 54 Female country
+4188 51 grrls
+4370 49 Female solo artists
+4778 44 Favourite Females
+4828 43 girl punk
+4923 42 girls aloud
+</pre>
+
+Now I want to place the tags into 3 separate buckets - In bucket 1,
+I'll put tags that I think  are synonyms for "female vocalists".  In
+bucket 2, I'll put tags that are related but not synonyms, and in
+bucket 3, I'll place tags that are not related to "female vocalists"
+at all. 
+
+<h2> Bucket #1 - Synonyms for "female vocalists"</h2>
+These are female oriented tags (singular or plural), that don't imply any type of genre.
+<pre>12 89277 female vocalists
+80 15874 female
+128 7150 female vocalist
+236 2716 female vocals
+278 2180 Female Voices
+365 1424 female artists
+480 955 female vocal
+569 698 female singers
+571 691 female fronted
+619 619 Girl Groups
+722 501 girls
+739 475 diva
+885 370 women
+1023 301 girl group
+1202 245 female singer
+1224 239 female voice
+1544 179 female-vocalists
+1650 163 girl music
+1757 151 chick music
+2113 120 Girl
+2246 110 chicks
+2252 109 woman singer
+2757 86 Female Artist
+2803 84 girl bands
+2895 81 female fronted band
+3082 75 divas
+3135 73 girly
+3136 73 girl band
+3263 69 solo female
+3405 65 with female singers
+3426 65 front girl band
+3788 58 females
+3884 56 woman
+4370 49 Female solo artists
+</pre>
+
+<h2> Bucket #2 - Related but not synonyms to "Female Vocalists"</h2>
+female-oriented tags that imply genre or include another type of qualifier such as 'favorite'.
+<pre>113 8281 Female fronted metal
+227 2841 riot grrrl
+633 600 Girl Rock
+786 433 riot grrl
+880 374 female singer-songwriter
+1064 289 chick rock
+1067 287 girl power
+1119 269 female singer-songwriters
+1587 173 female rock
+1625 167 female dance vocals
+1727 154 french female
+2130 118 Female-fronted Metal
+2681 89 female fronted rock
+2893 81 girlie rock
+3077 75 japanese female vocalists
+3194 71 girl pop
+3201 71 eleCtro grrls
+3609 62 60s girls
+3676 60 grrl
+3957 55 female vocal trance
+4044 54 Female country
+4188 51 grrls
+4778 44 Favourite Females
+4828 43 girl punk
+4923 42 girls aloud
+</pre>
+
+<h2> Bucket #3 - Not related to "Female Vocalists" </h2>
+<pre>(all of the rest of the 5,000 tags).
+</pre>
+
+Dividing the female-oriented tags like this is not so clear cut, but we 
+have to start somewhere ... I'm open to any other suggestions as to how 
+to divide this space up. Once we have some ground-truth (imperfect as it
+ may be), we can develop an evaluation criteria that will let us 
+determine how well our synonym detector works.
+<p>
+The next step is to figure out how we can evaluate our synonym
+predictor.  That will be the next post.
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 24, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="determining_synonyms_from_tags.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1214515127000" id="comment-1214515127000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>I'd argue that there is a very important difference between "girly" 
+and "female vocalist". But I guess it really depends on what you plan to
+ do with those lists. Doing a query expansion if a system does not 
+return enough results sounds reasonable. Using it to compute similarity 
+could be tricky.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>elias</b>
+                
+                on June 26, 2008 at 05:18 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/determining_synonyms_from_tags#comment-1214515127000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1214907318000" id="comment-1214907318000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Hi paul, just came across your blog this is very interesting - I'm 
+going to read your white paper when I have a minute. I think you might 
+be interested in the new beta of Jaikoz Audio Tagger ( <a href="http://www.jthink.net/jaikoz/jsp/beta/start.jsp" rel="nofollow">http://www.jthink.net/jaikoz/jsp/beta/start.jsp</a>
+ )that supports reading Musicbrainz Folksonomy tags as genres AND 
+submitting them genres back to Musicbrainz Folksonomy. Jaikoz is written
+ in Java so possibly we could help each other with the issue of accurate
+ genre tagging.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.jthink.net/jaikoz/jsp/beta/start.jsp"><b>paul taylor</b></a>
+                
+                on July 01, 2008 at 06:15 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/determining_synonyms_from_tags#comment-1214907318000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1215765773000" id="comment-1215765773000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Would somebody (Paul, Elias?) know of any ground truth data out there
+ for this kind of experiments? That is, a bunch of music-related tags 
+divided into synonyms and not-synonyms.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>fabien</b>
+                
+                on July 11, 2008 at 04:42 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/determining_synonyms_from_tags#comment-1215765773000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Determining synonyms from tags</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="open_notebook_science.html">Open Notebook Scienc...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="old_school_music_recommendation.html">Old school music...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

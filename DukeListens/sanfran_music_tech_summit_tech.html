@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>SanFran Music Tech Summit  - Tech Talk - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="sanfran_music_tech_summit_tech.html#content">content</a>, <a href="sanfran_music_tech_summit_tech.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="sanfran_music_tech_summit_tech">
+
+	<div class="entry-title entry-info">
+			<h2>SanFran Music Tech Summit  - Tech Talk</h2>
+		</div>
+
+	<div class="entry-content">
+				Notes from the Tech Talk at the SanFran music tech summit. This 
+panel was a discussion about the technology behind some of the most 
+popular music sites. Moderator is Colin Brumelle.
+<p>
+<img src="support_files/_photo.jpg" alt="photo.jpg" border="0">
+</p><p>
+<img src="support_files/_photo-1.jpg" alt="photo-1.jpg" border="0"></p><p>
+Panelists:
+
+</p><ul>
+<li>Colin Brumelle - Moderator 
+</li><li>Tom Conrad - CTO Pandora
+</li><li>Marc Urbaitel - CTO In-Ticketing
+</li><li>Shaun Haber - Warner Bros. Records - Director of operations, using Drupal to build an artist platform.
+</li><li>Jeremy Riney - Project Playlist, CTO, Founder
+</li><li>Jack Moffit  - Xiph, Chesspark - IM, gaming
+</li></ul>
+
+Why did you chose a particular type of technology:
+<p>
+Marc - uses php - quicker turnaround time, lets them be much more nimble. Open source is good.
+</p><p>
+Shaun - open source CMS - chose Drupal: a big reason is active developer community.
+</p><p>
+Jeremy - also uses Drupal - Paylist is the largest Drupal user with 25 million active users.
+</p><p>
+Tom - were on Java, Oracle, Jetty servlets due to legacy reasons.  
+Oracle was a disaster, so they ported it all to postgres. Re-implemented
+ Oracle procesdures at the Java language.  Some core routines in C, - 
+huge memcachd  - 200 servers, 2000 interactions per second. 64 bits 
+linux, intel CPUs, the shiny frontend is flash. They didn't have anyone 
+who knows about flash. Used openLazlo to build the application using 
+javascript and their framework and compile it down to flash.  Tom says 
+Lazlo is a great piece of software.  
+</p><p>
+Jack - Perl, then Python, with webware frameworks, mysql, postgres, now 
+Jango (rails-like python), they run everything on Amazon EC2 and S3.  
+Wrote lots of Javascript - use all scriptaculous, prototype and others.
+</p><p>
+Colin: Is EC2 the future? 
+</p><p>
+Jack - Went through CO-LO hell.  Was hard to provision new hardware.  On
+ Amazon, they can type one command and get 10 more machines.  Jack is 
+very happy with EC2, S3. Jeremy was concerned with complexity but Jack 
+says it was not too hard.
+</p><p>
+Tom: If they were starting today, they would be considering cloud 
+computing like EC2. The hardest part to scale horizontally is the 
+database.  Risk become predicting the future. How do you provision just 
+the right amount of servers. This would become a guessing game.
+</p><p>
+Marc uses cloud computing to do scaling testing (buying lots of tickets at once).
+</p><p> 
+Tom - also the cloud is useful for data recovery - use the cloud to 
+serve as the failover. Pandora decided to do their own CDN. The save 
+much money they by doing it themselves.
+</p><p>
+Tom says don't by <a href="http://www.foundrynet.com/products/app-switch/">Foundry load balancers</a>
+
+</p><p>
+Questions from Derick of CDBaby -  Tells the story about how he rewrote 
+CD Baby for PHP and Ruby On Rails. After 2 years of frustration, he 
+threw it all away. Nothing to do with Rails - but keeping the two 
+systems (PHP and Rails) alive was hard.  Derick also lauds EC2.  Tom 
+does say that you are still paying a margin to Amazon for this so it 
+could cost you more than doing it yourself.
+</p><p>
+Tom talks about "test driven development".  They can rip their system 
+apart and put it back together and be confident that it will work 
+because of their tests
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 08, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="sanfran_music_tech_summit_tech.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1210283999000" id="comment-1210283999000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>This seems like a discussion of the technology at a nuts and bolts 
+level, a "muffler" level like they always say on the Gillmor Gang.  
+Servers and programming languages and such.</p>
+
+
+<p>Has there been any discussion about the technology at a "music" 
+level, i.e. how the various systems work, why they think that one 
+approach to technological mediation of music is better than another, 
+etc.?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on May 08, 2008 at 05:59 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/sanfran_music_tech_summit_tech#comment-1210283999000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1210320671000" id="comment-1210320671000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Thanks for the transcription Paul! Do you know whether there are some pod or screencasts around?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.wikifonia.org/"><b>Thomas Bonte</b></a>
+                
+                on May 09, 2008 at 04:11 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/sanfran_music_tech_summit_tech#comment-1210320671000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1210602229000" id="comment-1210602229000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Nice list.  Thanks for taking the time to put it together. By the way it's Django not Jango.  You know, the &lt;a href ="<a href="https://en.wikipedia.org/wiki/Django_Reinhardt%22%3Emusician%3C/a%3E" rel="nofollow">http://en.wikipedia.org/wiki/Django_Reinhardt"&gt;musician&lt;/a&gt;</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Douglas Eck</b>
+                
+                on May 12, 2008 at 10:23 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/sanfran_music_tech_summit_tech#comment-1210602229000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1211957791000" id="comment-1211957791000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>It will be very interesting to see how this plays out in the next five years. </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.productionmusiclibrary.com/"><b>Production Music</b></a>
+                
+                on May 28, 2008 at 02:56 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/sanfran_music_tech_summit_tech#comment-1211957791000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>SanFran Music Tech Summit  - Tech Talk</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="digital_thought_leaders_panel_sf.html">Digital Thought...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="javaone_take_home_1_hudson.html">JavaOne take home #1...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

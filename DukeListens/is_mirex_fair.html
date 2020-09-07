@@ -1,0 +1,536 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Is MIREX Fair? - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="is_mirex_fair.html#content">content</a>, <a href="is_mirex_fair.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="is_mirex_fair">
+
+	<div class="entry-title entry-info">
+			<h2>Is MIREX Fair?</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>On the <a href="https://mir-research.blogspot.com/2007/09/mirex-results-online.html">MIR Research blog</a>, Elias points out that the team that organizes <a href="http://www.music-ir.org/mirex2007/index.php/MIREX2007_Results">MIREX</a>
+ scored highest in a number of categories. Elias suggests that having 
+insider knowledge of the specifics of an evaluation can give a 
+submission an unfair advantage.&nbsp;&nbsp; I can see how this can 
+happen, even unintentionally.&nbsp; A system that is built and tuned 
+against a particular collection of music could be overfitting the 
+collection.&nbsp; Now if you bring this overfitting system to a new 
+collection, its performance will tend to drop since it is not tuned to 
+for the new collection. The overfitting hurts your system.&nbsp; 
+However, if you are testing, training and tuning against a test 
+collection that happens to overlap the evaluation collection,&nbsp; then
+ it is possible that overfitting can help your system in the final 
+evaluation.&nbsp; So for example, if the IMIRSEL system happened to be 
+built and tuned against the same collection that was used in the MIREX 
+evaluations, this may give that system an advantage. Knowing how 
+difficult it is in this day of copyright litigation to build up a 
+sizable test collection, it is not hard to imagine the IMIRSEL team 
+using the MIREX evaluation collection to tune their system.<br><br>Now, I
+ have worked closely with just about all of the members of the IMIRSEL 
+team, and I know that they are an extremely talented set of individuals 
+and are quite capable of creating a winning system.&nbsp; I also know 
+that these folks are diligent, methodical and careful in how they design
+ the MIREX evaluation to ensure the utmost in fairness.&nbsp; I have 
+little doubt that the MIREX results accurately reflect the 
+state-of-the-art.&nbsp; However, not everyone has had the opportunity of
+ working with the IMIRSEL team and so not everyone may share the same 
+confidence in the MIREX results.&nbsp; To alleviate these concerns, I 
+suggest that the IMIRSEL team detail the datasets used in training and 
+tuning the IMIRSEL submission, highlighting any overlaps with the data 
+used in the MIREX evaluation.&nbsp; Such a disclosure will help 
+alleviate any of the concerns some folks may have about the fairness of 
+MIREX.&nbsp; For MIREX to be a viable long term evaluation, MIR 
+researchers have to have a high confidence that it is fair.<br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Sep 17, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="is_mirex_fair.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1190198083000" id="comment-1190198083000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Please find below the response from Cameron Jones of the Imirsel team
+ - originally posted to the evalfest and music-ir lists (I hope he 
+doesn't mind me reposting it):</p>
+
+
+<p>The recent discussions on Elias Pampalk's<br>
+(<a href="https://mir-research.blogspot.com/2007/09/mirex-results-online.html%29" rel="nofollow">http://mir-research.blogspot.com/2007/09/mirex-results-online.html)</a><br>
+and Paul Lamere's (<a href="https://kiserai.net/DukeListens/is_mirex_fair%29.html" rel="nofollow">http://blogs.sun.com/plamere/entry/is_mirex_fair)</a><br>
+blogs on whether or not it is fair for the IMIRSEL team to participate<br>
+in the MIREX tasks has upset several members of IMIRSEL who always<br>
+strive for the utmost in fairness, thoroughness, and accuracy. As a<br>
+member of IMIRSEL, I can think of at least 4 reasons why IMIRSEL's<br>
+submission is legitimate, and above-the-bar. It is my hope to dispell<br>
+any hint of impropriety that may have been cast by the recent<br>
+discussions.</p>
+
+
+<p>  1. The features selected were based on the features used by other<br>
+labs in previous MIREXes, and other publicly available research.<br>
+  2. The feature extractors we used were not developed by someone with<br>
+direct access to the data.<br>
+  3. The classifiers we used were standard WEKA implementations.<br>
+  4. IMIRSEL is the "Systems EVALUATION Lab" not the "Systems<br>
+Development Lab" and therefore, does not engage in large-scale MIR<br>
+system building activities of any sustained length. Meaning our<br>
+submission could not have been "tuned" as has been claimed.</p>
+
+
+<p>1. Features were based on previous MIREX submissions.</p>
+
+
+<p>The feature sets used in the IMIRSEL submission were based on a set of<br>
+features developed and used by Mandel and Ellis in MIREX 2005. Mandel<br>
+and Ellis had the a submission which performed well in both Audio<br>
+Artist Identification, and Audio Genre Classification tasks in MIREX<br>
+2005. The IMIRSEL submission used several additional psychoacoustic<br>
+features based on the dissertation research of Kris West. To me, this<br>
+kind of submission embodies the goal of MIREX: the publication of<br>
+algorithms and the meaningful comparison of their performance, thus<br>
+allowing MIR researchers to make informed, justifiable decisions about<br>
+what algorithms to use. IMIRSEL did not systematically compare<br>
+possible feature sets against the data. We built one working feature<br>
+set and reported the findings. The EXACT SAME feature extractor was<br>
+used on ALL of our submissions (for all tasks in which IMIRSEL<br>
+participated). Our decisions to use this feature set was based on<br>
+publicly knowable data and utilized no insider knowledge.</p>
+
+
+<p>2. Feature extractors were developed by Kris West</p>
+
+
+<p>The feature extractors used in the IMIRSEL submission were not<br>
+developed by anyone with direct access to this year's submission data.<br>
+In total, 2 feature extractors were written using M2K. The first<br>
+feature extractor, developed by Andreas Ehmann (a member of the<br>
+IMIRSEL lab), had a bug and crashed our servers, and thus did not<br>
+generate any meaningful features which could be used. Kris West (a<br>
+associated member of IMIRSEL, but not resident in Illinois) developed<br>
+the second feature extractor for the IMIRSEL submission. Kris did not<br>
+have any knowledge of, or direct access to IMIRSEL's databases when<br>
+building the extractors, beyond what was available on the MIREX Wiki<br>
+pages (public knowledge of the task definitions). Although Kris is<br>
+affiliated with IMIRSEL, he is pursuing his own independent research<br>
+agenda, and is not active in the day-to-day operations of the lab, nor<br>
+decisions about data management, beyond those posted to the public<br>
+MIREX Wiki.</p>
+
+
+<p>3. Classifiers were not "tuned"</p>
+
+
+<p>The classifiers we used were all standard Weka packages. We used<br>
+Weka's KNN and Poly SMO classifers. The Poly SMO classifier was used<br>
+with default parameters. The KNN submission was likewise run with<br>
+minimal configuration, I believe K was set to 9 because when we used<br>
+the default value of 10, it crashed on one of the splits of the N-Fold<br>
+validation. The belief that we may have possibly iteratively tuned and<br>
+optimzed our submission is just wrong.</p>
+
+
+<p>4. Our passion is evaluation.</p>
+
+
+<p>Overall, IMIRSEL is about evaluation, not algorithm development. While<br>
+it is true that IMIRSEL is responsible for the development of M2K, we<br>
+do not usually spend our days thinking about how to develop new<br>
+algorithms, approaches, or feature sets. What we do spend a lot of<br>
+time working on is improving the design of MIREX, the design and<br>
+selection of tasks, the evaluation metrics we use in MIREX, the<br>
+validity of the results we have. We spend a lot of our time looking<br>
+over past MIREX results data and interpreting it, looking for patterns<br>
+and anomalies, and overall trying to make sure that MIREX is being<br>
+executed to the best of our abilities.</p>
+
+
+<p>Because of this, we did not have an "in house" submission lying around<br>
+that we could have submitted. We were not working on our submission<br>
+for months before hand, carefully selecting the feature sets, tuning<br>
+the classifier parameters, etc. We were too busy preparing for, and<br>
+then running MIREX. Rather, our submission this year was an attempt to<br>
+demonstrate to the community the power and flexibility of some new M2K<br>
+modules which integrate existing music and data mining toolkits, like<br>
+Weka and Marsyas. M2K presents a robust, high-speed development<br>
+environment for end-to-end MIR algorithm creation. IMIRSEL's<br>
+submission was supposed to be an also-ran, developed in response to a<br>
+challenge from Professor Downie to see "what could be hacked together<br>
+in M2K, QUICKLY!!!! We do not have a lot of time to fuss.". In<br>
+reality, the IMIRSEL submission was built in one evening.</p>
+
+
+<p>Finally, as has been stated repeatedly, MIREX is not a competition and<br>
+there are no "winners". So, rather than wasting time arguing about<br>
+what is fair or not, we should be using this opportunity to learn<br>
+something. Why is it that IMIRSEL's algorithm performed as well as it<br>
+did (which is not, keep in mind, necessarily a statistically<br>
+significant performance difference from the next highest scores)?</p>
+
+
+<p>M. Cameron Jones</p>
+
+
+<p>Graduate Research Assistant<br>
+International Music Information Retrieval Systems Evaluation Lab</p>
+
+
+<p>PhD Student<br>
+Graduate School of Library and Information Science</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.cmp.uea.ac.uk/"><b>Kris West</b></a>
+                
+                on September 19, 2007 at 06:34 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/is_mirex_fair#comment-1190198083000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1190198251000" id="comment-1190198251000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Cameron and all:</p>
+
+
+<p>Thanks for the detailed response.  This is probably a bad week to 
+have to spend time responding to gripes from the bleacher seats.  I 
+apologize if any of the issues I've raised have upset members of the 
+IMIRSEL team - I really do appreciate all of the efforts put in by the 
+team to run MIREX.  I realize that it is an incredible amount of effort 
+and you have spent many late nights over the last few weeks getting all 
+the submissions to run and all of the results tallied and posted.  
+Having to fend off criticisms at this late hour is not something I would
+ wish on anyone.  Let me  stress that I don't believe that there was 
+anything improper with the IMIRSEL submission.  As I said in my blog 
+post, I know the folks on the IMIRSEL team, and have worked with many of
+ them and have an extremely high opinion of the quality of the work, the
+ methodical approach and the passion the team has for evaluation.</p>
+
+
+<p>My concerns are all about transparency and process.  An outsider 
+looking at MIREX sees a closed evaluation, where only a select few can 
+see behind the curtain as to the details of the evaluation.  When the 
+team that organizes MIREX, the team that can peek behind the curtain, 
+submits a system, an outsider may raise an eyebrow.  When that team's 
+system scores best in many of the evaluations,  the outsider may raise 
+two eyebrows.    It's as if the Republicans were put in charge of 
+counting all the votes for an election and when they posted the voting 
+results, the Republicans won  all of the races.  Even if the votes were 
+accurately counted, there will be many raised eyebrows.<br>
+The same thing can happen here with MIREX.  Without care, people will 
+lose confidence in MIREX.   I think that the IMIRSEL team can make sure 
+that confidence in MIREX will remain high by ensuring that researchers 
+that are privy to evaluation details that are not known to all other 
+submitters do not submit systems. I think making sure that all 
+submitters have access to the same information is just common sense for a
+ blind evaluation like MIREX.  A submission from team 'IMIRSEL' gives 
+the impression that those with    privileged access to evaluation 
+details  (even if this is not the case, as you point out)  are 
+submitting a system.  In my mind, this reflects badly on MIREX. That is 
+the crux of my concern.</p>
+
+
+<p>I really appreciate the effort that the IMIRSEL team makes in 
+organizing and executing MIREX.  MIREX is an important part of the MIR 
+community and it will be a key driver of progress for many MIR tasks. 
+I'm excited to see MIREX continue to grow every year.   I hope you 
+interpret my comments as an attempt to help make MIREX better.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on September 19, 2007 at 06:37 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/is_mirex_fair#comment-1190198251000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1190218379000" id="comment-1190218379000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Hi Paul -</p>
+
+
+<p>I did want to respond to your comment about transparency in MIREX (avoiding the mess I seem to have started on the lists).</p>
+
+
+<p>In my mind, the evaluation process for MIREX is completely 
+transparent. All of the raw data results, for all algorithm submissions 
+are posted to the wiki, and anyone is free to confirm that the results 
+we've computed are indeed correct. Case in point, recently we received a
+ message from a member of the MIR community about the accuracy of the 
+MIREX 2006 Audio Beat Tracking results. In turns out that a mathematical
+ error on our part resulted in incorrect evaluation statistics being 
+posted to the wiki (and subsequently in the 2006 MIREX posters, 
+participant abstracts, and possibly other derivative publications). 
+While disheartening to hear we have erred, the fact that someone was 
+able to double-check our calculations speaks to the transparency we 
+strive towards.</p>
+
+
+<p>At the moment, the only "black box" in MIREX is the actual running of
+ the code. However, as I hope MIREX participants will confirm, this 
+process is hardly "fire-and-forget" for participants. We are continually
+ in contact with participants about the details of their code and its 
+execution. In the past, we have even given participants access to our 
+cluster in order to make sure that their code is compiled and working 
+properly. While this is hardly "glass box" transparency, we are in the 
+continual process of improving the design of MIREX. Our recent efforts 
+to develop a web-service based Do-It-Yourself (DIY) framework are 
+specifically designed to give participants greater access to our 
+datasets and computational resources. As a part of the MIREX DIY Service
+ we are also granting participants greater access to the metadata of our
+ audio and symbolic collections through web databases. </p>
+
+
+<p>- Cameron</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://cameronjones.com/"><b>Cameron Jones</b></a>
+                
+                on September 19, 2007 at 12:12 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/is_mirex_fair#comment-1190218379000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Is MIREX Fair?</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="musicmobs_offline.html">MusicMobs offline?</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="worst_music_recommendation1.html">Worst music recommen...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

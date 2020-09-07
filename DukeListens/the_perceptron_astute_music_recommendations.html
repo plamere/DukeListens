@@ -1,0 +1,360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The perceptron - astute music recommendations - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="the_perceptron_astute_music_recommendations.html#content">content</a>, <a href="the_perceptron_astute_music_recommendations.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="the_perceptron_astute_music_recommendations">
+
+	<div class="entry-title entry-info">
+			<h2>The perceptron - astute music recommendations</h2>
+		</div>
+
+	<div class="entry-content">
+				<a href="http://theperceptron.com/">The perceptron</a> is a music recommender built by London-based programmer <a href="http://blog.maryrosecook.com/">maryrosecook</a>.
+ Instead of relying on the usual collaborative filtering methods used in
+ most recommenders, the perceptron combines data from a number of 
+sources such as music playlist sites, Mp3 blogs, Myspace, Wikipedia and 
+real live humans to build the recommendations. 
+<p>
+<a href="http://theperceptron.com/"><img src="support_files/_percep.png" alt="percep.1.png" border="0" width="500"></a>
+</p><p>
+The interface is very simple - just type in the name of an artist that 
+you like and the perceptron will give you a list of artists to try out -
+ you can listen to music by the artist, read their Wikipedia bio, 
+purchase tracks by the artist, add the artist to a playlist, etc.  If 
+you sign up and login to the perceptron, it tracks your activity and 
+starts to adapt the recommendations based upon what you pay attention 
+to.  One thing I really like is how the perceptron tells you where the 
+source of a recommendation comes from, like so:
+<img src="support_files/_percep-reason.png" alt="percep-reason.png" border="0"> 
+</p><p>
+This explanation is helpful in giving me a better understanding of why a particular recommendation was made.
+</p><p>
+maryrosecook <a href="http://blog.maryrosecook.com/post/6764040/Creating-a-music-recommendation-engine">explains the algorithm</a>
+ she uses in her blog.  Included in her explanation is a table of 
+weights that she's derived from user activity for the various sources of
+ artist similarity data:
+</p><p>
+</p><table>
+<tbody><tr><td>Epitonic similar artists </td><td>	0.439
+</td></tr><tr><td>Tiny Mix Tapes similar artists </td><td>	0.316
+</td></tr><tr><td>Myspace top friends </td><td>	0.128
+</td></tr><tr><td>Mixtapes </td><td>	0.075
+</td></tr><tr><td>Record labels </td><td>	0.020
+</td></tr><tr><td>Epitonic other artists </td><td>	0.016
+</td></tr><tr><td>MP3 blogs </td><td>	0.003
+</td></tr></tbody></table>
+<p>
+No surprise that Epitonic similar artists have the highest weight, and 
+is responsible for a good portion of the recommendations.  I am a bit 
+surprised that the MP3 blogs have such a low impact on the 
+recommendations. maryrosecook does indicate that these weights were 
+derived after only a rather small amount of usage (200 user ratings) so 
+they may change quite a bit as the system is used more.
+</p><p>
+The recommendations from the perceptron are not always great.  Sometimes
+ you can see evidence of some recommendation spam (if I like the Beatles
+ will I really like the Bloody Beetroots?). On the other hand, the 
+recommendations from the perceptron are highly novel and diverse  - very
+ different from what you'd see at Last.fm, iTunes or Amazon.
+</p><p>
+<img src="support_files/_percep-deerhoof.png" alt="percep-deerhoof.png" border="0">
+</p><p>
+In addition to the occasional bum recommendation, there are a few kinks -
+ wikipedia bios go astray (I'm reading about cloud formations instead of
+ the bio for the band 'Cirrus' right now). Wikipedia markup sometimes 
+sneaks through the filters.  The music collection is skewed toward the 
+Myspace crowd, so us old folk who are looking for recommendations based 
+upon Rick Wakeman or The Nice are up the creek without a recommendation.
+ But despite these issues, I like the perceptron.  It has an indie feel -
+ something that was done more as a labor of love to help people find 
+music rather than just another way to make money selling music.  The 
+recommendations are offbeat - but for me that means finding out about a 
+whole lot of bands that I've never heard of.  I hope maryrosecook keeps 
+at this project - (well, at least until she gets hired by Last.fm). The 
+perceptron is a great way to find new music. (Oh, and her <a href="http://blog.maryrosecook.com/">blog</a> is a pretty fun read too).
+</p><p>
+<i> Thanks to Zac for the tip!</i>
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Nov 24, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="the_perceptron_astute_music_recommendations.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1227647346000" id="comment-1227647346000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Hiya,</p>
+
+
+<p>Thanks so, so much for the write-up of the perceptron.  I checked my 
+email this evening to find a barrage of messages notifying me of new 
+user sign-ups.  I scratched my head and then did a quick Google and 
+found that, most likely, your article is responsible.  Thank you.</p>
+
+
+<p>Let me know if you have any more suggestions for improvements.  (I 
+know that some of the recommendations can get a little crazy, and I am 
+working on increasing the Wikipedia article accuracy.)</p>
+
+
+<p>Thanks again,</p>
+
+
+<p>Mary</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://maryrosecook.com/"><b>maryrosecook</b></a>
+                
+                on November 25, 2008 at 04:09 PM EST
+
+                <a href="https://kiserai.net/DukeListens/the_perceptron_astute_music_recommendations#comment-1227647346000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227877738000" id="comment-1227877738000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>It may interest you to know that I have posted the latest data source weights here: <a href="http://theperceptron.com/blog/show/39" rel="nofollow">http://theperceptron.com/blog/show/39</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://maryrosecook.com/"><b>maryrosecook</b></a>
+                
+                on November 28, 2008 at 08:08 AM EST
+
+                <a href="https://kiserai.net/DukeListens/the_perceptron_astute_music_recommendations#comment-1227877738000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>The perceptron - astute music recommendations</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="the_napoleon_dynamite_problem.html">The Napoleon Dynamit...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="processing_1_0_has_been.html">Processing 1.0 has...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

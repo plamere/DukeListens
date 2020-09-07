@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>I make a Java newbie mistake - and almost lose a month of data - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="paul_makes_a_newbie_java.html#content">content</a>, <a href="paul_makes_a_newbie_java.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="paul_makes_a_newbie_java">
+
+	<div class="entry-title entry-info">
+			<h2>I make a Java newbie mistake - and almost lose a month of data</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>For one of the Search Inside the Music demos that I'll be showing
+ at the Sun Labs open house next week, I've been building up a database 
+of music artists and related info.&nbsp; I've been gathering this 
+data&nbsp; from many different places on the web using a crawler.&nbsp; 
+It's not a fast process - it takes about a month to build up enough data
+ to make it useful. &nbsp; My crawler collects the data and writes it 
+out to a set of text files so that later it can be indexed with the our 
+nifty search engine.</p><p>I tested the whole process using a small 
+crawl of the web on my Linux laptop.&nbsp; When I was happy that 
+everything was working fine, I started the crawl running on one of&nbsp;
+ our large Solaris servers.&nbsp; Unfortunately, there was a lurking bug
+ ... a Java programming 101 kind of bug that would make the data 
+collected from the month long crawl be wrong.<br></p><p>Music artist names very international.&nbsp; There's <a href="https://www.google.com/musica?aid=0p4L5uFGJn&amp;sa=X&amp;oi=music&amp;ct=result">Björk</a>, there's <a href="https://www.google.com/musica?aid=aWH7XH3HTmD&amp;sa=X&amp;oi=music&amp;ct=result">José <b>Feliciano</b></a> there's <a href="https://www.google.com/musica?aid=guAhKOtcHHD&amp;sa=X&amp;oi=music&amp;ct=result">Mötley Crüe</a> and <a href="https://www.google.com/musica?aid=FEY06SY3ZkL&amp;sa=X&amp;oi=music&amp;ct=result">Motörhead</a>,&nbsp; (there's even a whole genre of music called<a href="https://en.wikipedia.org/wiki/Heavy_metal_umlaut"> umlaut metal</a>).&nbsp;
+ My mistake was forgetting that when&nbsp; writing a text file in Java 
+(using&nbsp; a PrintWriter for instance), the default encoding used is 
+the encoding of the operating system.&nbsp; Now for my Linux laptop, the
+ default encoding is UTF-8 which can handle all of the umlauts and 
+accents.&nbsp; But for our Solaris server, the default encoding is 
+plain, old ASCII.&nbsp; With its 7 bits, ASCII can't represent any of 
+the rich characters that are needed to represent all of the artist 
+names.&nbsp; When I indexed my 30 days of data and started looking at 
+the results I was very sad to see 'bj?rk"&nbsp; and "m?tley cr?e".&nbsp;
+ </p><p>With our open house demo just 5 days from now, there's no way 
+for me to recrawl the data and save it to disk using the proper 
+encoding.&nbsp; Luckily, when I did the initial crawl, I resolved all of
+ the artists to a <a href="https://musicbrainz.org/">MusicBrainz</a> 
+ID.&nbsp; I'm able to turn this ID back into the canonical name for the 
+artist, so I am able to patch the names without having to do a 
+recrawl.&nbsp; Whew! </p><p>So my lesson for the day is ... don't rely 
+on the default encoding when reading and writing text. Now, back to 
+getting the rest of the demo to work.<br>&nbsp;</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 20, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: Java</p>
+	<p class="entry-links">
+		<a href="paul_makes_a_newbie_java.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1177075822000" id="comment-1177075822000"></a>
+            <div class="comment odd" id="comment1">
+
+                It'd be handy if IDEs could detect reliance on the default encoding and flag it up as a potential problem.
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://cime.net/%7Ericky/"><b>Ricky Clarkson</b></a>
+                
+                on April 20, 2007 at 09:30 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/paul_makes_a_newbie_java#comment-1177075822000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1177106337000" id="comment-1177106337000"></a>
+            <div class="comment even" id="comment2">
+
+                Hi Paul!
+
+Just found out you left a link for this site. I would love to tell you 
+some more about my project. I'm pretty busy for the next week or so but 
+after that I can sum up and write the a bit more if you'd like?
+
+Anyway your blog seems pretty interesting too!
+
+-K
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://kaspernoerlund.blogspot.com/"><b>Kasper Nørlund</b></a>
+                
+                on April 20, 2007 at 05:58 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/paul_makes_a_newbie_java#comment-1177106337000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>I make a Java newbie mistake - and almost lose a month of data</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="quick_and_dirty_persistence.html">quick and dirty...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="the_tragically_hip.html">The Tragically Hip</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

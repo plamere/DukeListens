@@ -1,0 +1,314 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GIBRO - Garbage In, Bad Recommendations out - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="gibro_garbage_in_bad_recommendations.html#content">content</a>, <a href="gibro_garbage_in_bad_recommendations.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="gibro_garbage_in_bad_recommendations">
+
+	<div class="entry-title entry-info">
+			<h2>GIBRO - Garbage In, Bad Recommendations out</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>Social music web sites like last.fm and iLike are all the rage. 
+They harness the wisdom of the crowds to make recommendations - using 
+the Amazon-esque 'people who listen to X also listen to Y' style of 
+recommendations.&nbsp; The core value for these social music sites is 
+the taste data that they collect on all of their users.&nbsp; However, 
+because this taste data is user submitted, it is fairly easy for users 
+to submit fake data.&nbsp; For instance, here's a little applescript 
+from <a href="http://dougscripts.com/itunes/itinfo/itunes41info.php">Doug's Applescripts</a>&nbsp; that sets the playcount of the first selected song in iTunes to 250,000</p><blockquote><pre><span style="color: red;">tell</span> <span style="color: blue;">application</span> "iTunes"<br>	<span style="color: red;">set</span> <span style="color: green;">t</span> <span style="color: red;">to</span> <span style="color: red;">get</span> <span style="color: blue;">item</span> 1 <span style="color: red;">of</span> <span style="color: blue;">selection</span><br>	<span style="color: red;">set</span> <span style="color: blue;">played</span> <span style="color: blue;">count</span> <span style="color: red;">of</span> <span style="color: green;">t</span> <span style="color: red;">to</span> 250000<br><span style="color: red;">end</span> <span style="color: red;">tell</span><br></pre></blockquote><p>Many
+ of the social recommender sites will sync up with the iTunes playcount 
+data. So all I have to do is select 'Perfect Me', run the script, sync 
+up with my favorite social music site and I've become Deerhoof's #1 
+fan.&nbsp;&nbsp; People really do this ...&nbsp; last.fm user <a href="https://www.last.fm/user/Kikoin/">Kikoin</a> has 'played' Metallica songs over 128,000 times.&nbsp; iLike user <a href="http://ilike.com/user/Shay_K8/most_played_artists">Shay K</a> has 'played' the White Stripes over 472,000 times.&nbsp; Take a look at the playcounts for Shay K's top ten artists:<br></p><blockquote><p>
+    
+  
+
+  </p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 472,744 The White Stripes<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 337,880 The Beatles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 337,819 Beastie Boys<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 270,334 Stephen Malkmus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;
+ &nbsp; 270,211 Tom Petty &amp; The 
+Heartbreakers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 256,433 Ween (on tour)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 202,665 The Cure<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 137,006 The Polyphonic Spree<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 135,455 Wilco (on tour)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 135,290 Vince Guaraldi Trio</p></blockquote><p>Adding
+ up the playcounts for Shay K's top 30 tracks we get more than 5 million
+ total playcounts.&nbsp; At 3 minutes a song, if Shay K listened to 
+music 24 hours a day, we get about <i>30 years of continuous music</i>.&nbsp;
+ Imagine now, if Shay K's data goes into the iLike music recommender 
+unfiltered - Shay K's synthetic taste could dominate the similarity 
+model and we'd end up with some rather surprising recommendations like 
+"if you like the White Stripes, you may also like the Vince Guaraldi 
+Trio".</p><p>If you are going to deploy a 'wisdom of the crowds' music 
+recommender you are going to have work hard to separate the real taste 
+data from the manufactured taste data,&nbsp; or else you will generate 
+bad recommendations.&nbsp; Garbage In - Bad Recommendations out.<br></p><blockquote><p><br></p><p>&nbsp;</p></blockquote>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 22, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="gibro_garbage_in_bad_recommendations.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1179850152000" id="comment-1179850152000"></a>
+            <div class="comment odd" id="comment1">
+
+                Great point, Paul.  The particular robot you mention is 
+easy to filter out -- that behavior is so far from the norm it is easy 
+to eliminate -- but the problem gets much harder if the shills behave 
+fairly normally most of the time.<br><br>John Riedl at GroupLens has 
+done some interesting work on this issue, including his 2004 paper, 
+"Shilling recommender systems for fun and profit".<br><br>I think it is 
+worth pointing out that the spam problem is much worse for "winner take 
+all" systems than for recommender systems.  If you manage to get to the 
+top of Digg or Google search results, you get huge amounts of traffic.  
+If you manage to manipulate a recommender system, you likely only will 
+be seen by a small fraction of the audience.
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://glinden.blogspot.com/"><b>Greg Linden</b></a>
+                
+                on May 22, 2007 at 12:09 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/gibro_garbage_in_bad_recommendations#comment-1179850152000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1179869175000" id="comment-1179869175000"></a>
+            <div class="comment even" id="comment2">
+
+                Messed up recommendations might not be the only problem.
+ Charts, user profiles, top listeners for a given artist, and so on are 
+less interesting if they can easily be manipulated. Here is a <a href="https://www.last.fm/forum/21717/_/264484" rel="nofollow">link to a thread</a> of Last.fm users discussing this.
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://last.fm/"><b>elias</b></a>
+                
+                on May 22, 2007 at 05:26 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/gibro_garbage_in_bad_recommendations#comment-1179869175000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>GIBRO - Garbage In, Bad Recommendations out</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="music_mashups_risky_business.html">Music Mashups ==...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="pandora_on_the_go.html">Pandora on the Go</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

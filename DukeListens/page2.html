@@ -1,0 +1,963 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="verify-v1" content="0c/Cx6NLE4aEaOKo//DNIIJVpWqeq374fNJIL//A2wE=">
+<title>Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="weblog">
+<!-- End of StatCounter Code -->
+
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="page2.html#content">content</a>, <a href="page2.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+	<div class="day-title">
+	<h2>Thursday Jan 08, 2009</h2>
+	</div>
+
+	<div class="entry" id="the_idiomag_api">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_idiomag_api.html" title="permalink">The idiomag API</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<a href="http://www.idiomag.com/api/"><img src="support_files/api_title.jpg"></a>
+<p>
+Last month, <a href="http://www.idiomag.com/">idiomag</a> launched its 
+new developer API that gives 3rd parties access to all sorts of music 
+related data.  In particular, the API gives you access to artist data 
+such as news articles, reviews and interviews, videos, images and MP3s. 
+They provide 'similar artist'-style recommendations as well as 
+personalized recommendations based on an individual's listening habits 
+(they'll base the recommendations on your listening data that they 
+hoover from sites like Pandora, Last.fm or iMeem).  They also will give 
+you recommendations based upon your APML (attention profile markup 
+language).  (I like how they use our <a href="http://tastebroker.org/">TasteBroker</a> as source of APML for their sample documentation).
+</p><p> The API is designed rather well. They support 3 types of output:
+ 'xml', 'json' and 'rss' (and for some methods, 'apml' 'xspf' and 
+'foaf') - so parsing the output will be pretty straightforward for 
+anyone who's used any kind of web services. The do have a few rather 
+funky conventions like  the parameter name artists[]' to indicate 
+multiple artists like so:
+</p><pre>http://www.idiomag.com/api/recommendation/articles/xml?key=secret&amp;<strong>artists[]</strong>=muse&amp;<strong>artists[]</strong>=radiohead
+</pre>
+but thats no big deal.  All of their API methods require an application 
+key. One beef I have is with the documentation - they don't have any 
+clickable examples in the docs - so trying out the API is rather 
+laborious - first you have to copy the url prefix, add your secret key, 
+add the method arguments and finally the parameters.  <i style="color: green;">Update 2 The Idiomag folks are fixing this ... some of the methods now have clickable link/examples. Woohoo!</i> They should follow the lead of APIs like <a href="https://last.fm/api">Last.fm</a> or <a href="http://developer.echonest.com/">the EchoNest</a>
+ and create a demo key that they can use in their docs so that all 
+services can have a clickable example. (The gold standard for web api 
+documentation is the Flickr services - their '<a href="https://www.flickr.com/services/api/explore/?method=flickr.tags.getListPhoto">flickr Api Explorer</a>'
+ lets you easily try out all aspects of the API from your web browser). 
+There was one glitch in the API - any attempt to format output in APML 
+triggers an error <b>Fatal error</b>:  Class 'xmlWriter' not found in <b>/var/www/html/app/views/helpers/apml.php</b> on line <b>11</b> - looks like something is misconfigured in the web server. <em style="color: green;">Update: the Idiomag guys have fixed this already </em>
+<p>
+The API provides 5 types of services: Articles, Artist, User, Tag and Recommendation.
+</p><p>
+</p><ul>
+<li> <strong>articles</strong> - returns recent and featured articles from the Idiomag catalog
+</li><li> <strong>artist</strong> - returns all sorts of info about 
+artists including related artists, tags, articles, playlists, videos 
+images.  The tag coverage seems quite sparse and uneven.  The Beatles 
+have only 3 tags (Classic rock, rock and pop) while Aphex Twin has 6 
+(electronic, ambient, IDM, experimental, electronica, techno). 
+</li><li> <strong>user</strong> - returns info tailored to a specific user - surprisingly, APML is not one of the supported output types for user/info.<em style="color: green;"> Update - APML is supported, it was just an error in the documentation. Fixed already.
+</em></li><li> <strong>tag</strong> - returns information about a tag- 
+apparently these are not traditional social tags - they seem to come 
+from a fixed vocabulary of tags (the <a href="http://www.idiomag.com/api/tags/">link</a>
+ that is supposed to give me the list of all tags currently available is
+ broken however, so I can't see how big the list is).  The results seem a
+ bit unusual. For instance, the first 4 artists returned for the tag 
+'rock' are 'Forward, Russia, '10 Years', '12 Stones', '3 Doors down'.  
+So perhaps we are getting an alphabetical list (but I don't know how 
+'Forward Russia' got to the front of the list).   I would have expected a
+ list ordered by tag frequency which should yield something more like: 
+the beatles, radiohead, coldplay, oasis.
+</li><li> <strong>recommendation</strong> - gives artist 
+recommendations, based either on an APML file, an artist list, or my 
+listening behavior at one of 10 or so social music sites.
+</li></ul>
+Lets take a look at the recommendations.  I tried the API with a single artist as a seed to start things off:
+<p>
+<b>seed: the beatles</b>
+</p><ul>
+<li> Sting and Edin Karamazov
+</li><li> William Shatner
+</li><li> The Kinks
+</li><li> Elvis
+</li><li> The Rolling Stones
+</li><li> Led Zeppelin
+</li><li> Paul McCartney
+</li><li> The Mamas and the Papas
+</li><li> The Beach Boys
+</li><li> George Harrison
+</li></ul>
+This is funny list - Sting and Edin Karamazov have been playing 
+16th-century Elizebethan music, Shater is, well, Shatner - so for the 
+top two recommendations, these certain win on the novelty scale (but 
+perhaps fail on the relevant scale), also notable in its absence is John
+ Lennon in the top 20 (he does appear paired with  Yoko, but not by 
+himself)
+<p>
+ </p><p>
+<b>seed: emerson, lake and palmer</b>
+</p><ul>
+<li> Rick Wakeman
+</li><li> Gentle Giant
+</li><li> Atomic Rooster
+</li><li> Moody Blues
+</li><li> Van der Graaf Generator
+</li><li> Asia
+</li><li> Aphrodite's Child
+</li><li> Kansas
+</li><li> Caravan
+</li><li> Camel
+</li></ul>
+That's a pretty reasonable list.
+ <p>
+<b>seed:deerhoof</b>
+</p><ul>
+<li> Blonde Redhead
+</li><li> Asobi Seksu
+</li><li> Odiorne
+</li><li> Quickspace
+</li><li> The Fiery Frnaces
+</li><li> Menomena
+</li></ul>
+Again, a reasonable list.
+ <p>
+<b>seed:miles davis</b>
+</p><ul>
+<li> John Coltrane
+</li><li> Miles Davis and Gil Evans
+</li><li> Chet Baker
+</li><li> Bill Carrothers
+</li><li> Charles Mingus
+</li><li> Stan Getz
+</li></ul>
+A totally fine list 
+<p>
+One of the neat things about Idiomag is that they can suck up my user 
+profile from Last.fm and give me recommendations based on my listening 
+habits.  However, the recommendations seemed to be a bit skewed to the 
+novel side of the spectrum. Of the 20 artists recommended, I recognized 
+only 2 (one I know I don't like, the other is already in regular 
+rotation) - it would be helpful if Idiomag could offer some explanation 
+of why an artist was recommended (such as 'we are recommending wolf eyes
+ because their noise rock is similar in style to deerhoof')
+</p><p> The catalog of artists seems to be pretty deep - but I did 
+notice some omissions. No Yo Yo Ma, no Maynard Ferguson, no Keith 
+Fullerton Whitman. 
+</p><p>
+One shortcoming of the API is that there doesn't seem to be any way to 
+resolve ambiguous artists, so if I want recommendations for <a href="https://musicbrainz.org/artist/2996c6a2-215d-4f78-aed6-81a130b04816.html">Prodigy</a> (the rap artist) and not <a href="https://musicbrainz.org/artist/8fb3bbdb-0eee-42d6-aa0c-8b5c2d3efcef.html">Prodigy</a> (the guitarist) or <a href="https://musicbrainz.org/artist/4a4ee089-93b1-4470-af9a-6ff575d32704.html">The Prodigy</a>
+ (the UK electronic group), I am out of luck. There's no way to search 
+the catalog for near spellings - so if you try to get information for 
+'beatles' instead of 'the beatles' you will get no results.  Idiomag 
+should adopt the model that last.fm and the Echonest use - to provide an
+ artist search api that returns a list of scored matches with an 
+associated musicbrainz id, and allow the id to be used in any subsequent
+ method calls.
+</p><p> 
+The API status feedback is also a bit thin - there's no way to tell from
+ the API results if there's a problem. For instance, I tried to get 
+recommendations based on seed artists Metallica and Yo Yo Ma (hoping to 
+get a recommendation for <a href="https://www.youtube.com/watch?v=xqUXDdJ3C-c">Apocalypctica</a>)
+ - but the resulting recommendations were just the standard set of heavy
+ metal bands - no sign of the cello at all.  It took a while before I 
+figured out that Yo Yo Ma wasn't factoring into the recommendations 
+because Idiomag doesn't know about him.
+</p><p>
+One last issue, I can't seem to find any terms-of-use for the API that 
+tells me how often I can make calls to the API, and whether I can use 
+the data for commercial purposes - perhaps the TOS is hidden somewhere. 
+But before I would consider using the API, I would really like to know 
+what the rules of the road are. 
+
+</p><p><i style="color: green;">Update 3 - idiomag has now published their <a href="http://www.idiomag.com/files/releases/idiomag_api_terms.pdf">terms-of-use</a>
+ It looks very  similar (to my non-lawyerly eyes) to the Last.fm terms -
+ free non-commercial use, commercial use is OK, but if you start making 
+insane amounts of money, idiomag may start charging you for the service</i></p><p>
+Despite a few quibbles, I like the Idiomag API - it puts lots of 
+interesting data in the hands of the developer, much of it is data that 
+would be hard to come by without paying lots of money.  Given the large 
+number of music-related startups (<a href="http://musically.com/blog/2008/12/17/200-digital-music-startups-from-2008/">here's 200 that started just last year alone</a>) finding a way to help all of these companies provide context for their users about music seems like a good idea.
+</p><p>
+<em style="color: green;">Update - the Idiomag folk sure are responsive.  I posted this to my blog, went to lunch, came back, killed some <a href="http://www.l4d.com/">zombies</a>,
+ and then checked my comments here to find that they've already fixed a 
+number of the issues that I pointed out.  Looks like they really care 
+about what they are doing.  I like that.</em>
+
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jan 08, 2009</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_idiomag_api.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/the_idiomag_api#comments.html">Comments [4]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday Jan 07, 2009</h2>
+	</div>
+
+	<div class="entry" id="music_blog_zeitgeist">
+
+	<div class="entry-title entry-info">
+			<h3><a href="music_blog_zeitgeist.html" title="permalink">Music Blog Zeitgeist</a></h3>
+		</div>
+
+	<div class="entry-content">
+				I've been enjoying all of the year-end 'best of' lists. My favorite 
+so far has been the Hype Machine Music Blog Zeitgeist.  Especially since
+ it is so easy to listen to them:
+<p>
+<a href="https://hypem.com/zeitgeist/2008"><img src="support_files/zeitgeist-2008-radio.gif" style="border-style: solid; border-color: rgb(159, 169, 172); border-width: 1px 1px 0pt;"></a><br><object height="110" width="452"><param name="movie" value="http://media.imeem.com/m/81rAYqRBky/aus=false/"><param name="wmode" value="transparent"><embed src="https://kiserai.net/DukeListens/page2_files/a.swf" type="application/x-shockwave-flash" wmode="transparent" flashvars="headerColor=85c441&amp;autoShuffle=false&amp;r=web&amp;isPrimary=true&amp;primaryColor=85c441&amp;pm=st&amp;secondaryColor=85c441&amp;linkColor=5e5f61&amp;autoStart=false" height="110" width="452"></object>
+</p><p>
+I've also been enjoying the <a href="http://thepitchfork500.com/">Pitchfork 500</a> - which is a list of the greatest songs since 1977 (the year I graduated from High School).  <a href="http://thepitchfork500.com/"><img src="support_files/book_cover.jpg" style="float: left; margin: 10px;"></a> This list is a bit harder to listen to than the Hype Machine lists - but I've been building up a Spotify playlist - the <a href="https://open.spotify.com/user/plamere/playlist/5D3XapuqytRAWVIirdhOgC">pitchfork500 on spotify</a>: (I'm only up to 1979), but if you are a spotify listener feel free to listen.  The song list is posted on <a href="https://fromclosertonear.blogspot.com/2008/11/pitchfork-500-our-guide-to-greatest.html">from closer to near</a>
+ but you really will want to read the full book, each song has a 2 or 3 
+paragraph description of why the song was picked, why it was 
+influential, where it fits in the evolving genre hierarchy.  
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jan 07, 2009</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="music_blog_zeitgeist.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/music_blog_zeitgeist#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Monday Jan 05, 2009</h2>
+	</div>
+
+	<div class="entry" id="first_source_release_of_ardor3d">
+
+	<div class="entry-title entry-info">
+			<h3><a href="first_source_release_of_ardor3d.html" title="permalink">First source release of Ardor3d</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<a href="http://www.ardor3d.com/content/">I</a> see on Josh Slack's blog that the Ardor3D team have made the<a href="http://blog.renanse.com/2009/01/ardor3d-source-released.html"> first source code release for Ardor3D</a> - the clean slate rewrite of JMonkeyEngine.  
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jan 05, 2009</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="first_source_release_of_ardor3d.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Friday Jan 02, 2009</h2>
+	</div>
+
+	<div class="entry" id="interview_with_rj_of_last">
+
+	<div class="entry-title entry-info">
+			<h3><a href="interview_with_rj_of_last.html" title="permalink">Interview with RJ of Last.fm</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Here's a <a href="http://www.dailytech.com/Full+Transcript+of+Last+Weeks+Lastfm+Interview/article13836.htm">nifty interview of RJ of last.fm</a>
+ by Tom Corelis.  Tom asked all the questions that I would have asked.  
+ Good job Tom.  Here's what RJ had to say about Sun Hardware:
+<p><cite> A few years ago we were buying from a local supplier here, and
+ over the years it became more important to us to get really power 
+efficient equipment, because at the data centers in London and the UK 
+power is a real premium; it was hard to get enough power. So we started 
+looking around for machines that were more tailored to low-powered 
+stuff.
+So we have a mix of different suppliers but right now we’re buying quite
+ a lot from Sun. We just got some new low-power blades that we’ve put in
+ to do web serving, and our main database – with which we use PostgreSQL
+ – is also on Sun hardware, for example. So yeah, we’ve been getting 
+some good stuff from them. Sun seems to make a good range of servers 
+that are quite conscious on the power requirements, and are quite good 
+about giving you the spec about how much power they’re going to draw.</cite>
+</p><p>
+And Java
+</p><p>
+<cite>We actually do a lot of our storage and processing in Hadoop, 
+which is a framework based on a paper that Google released on the same 
+subject. So, that’s actually a distributed computing framework written 
+in Java.</cite>
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jan 02, 2009</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="interview_with_rj_of_last.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="girl_talk_at_work">
+
+	<div class="entry-title entry-info">
+			<h3><a href="girl_talk_at_work.html" title="permalink">Girl Talk at Work</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<h2> Girl Talk at Work</h2>
+<object height="344" width="425"><param name="movie" value="http://www.youtube.com/v/KykbPtRb0K4&amp;hl=en&amp;fs=1"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="support_files/KykbPtRb0K4hlenfs1.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="344" width="425"></object>
+<p>
+Working in bed is not such a bad thing
+</p><h2> Girl Talk At Play </h2>
+<object height="344" width="425"><param name="movie" value="http://www.youtube.com/v/Guv67H3WPDE&amp;hl=en&amp;fs=1"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="support_files/Guv67H3WPDEhlenfs1.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="344" width="425"></object>
+
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jan 02, 2009</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="girl_talk_at_work.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday Dec 31, 2008</h2>
+	</div>
+
+	<div class="entry" id="freakomendation_ffwd">
+
+	<div class="entry-title entry-info">
+			<h3><a href="freakomendation_ffwd.html" title="permalink">Freakomendation - ffwd</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<img src="support_files/_F4761A28-AC13-47F5-9A3C-757B74574663.jpg" alt="F4761A28-AC13-47F5-9A3C-757B74574663.jpg" style="float: left; margin: 10px;" border="0"><a href="http://www.ffwd.com/home">ffwd</a>
+ is a site with a goal of doing for video what Last.fm and iLike do for 
+music. ffwd uses collaborative filtering to create video channels that 
+are customized for a user.
+<p>
+This week I received an email from ffwd where they excitedly claimed to 
+have some new recommendations for me, including this set of channels 
+that I should check out:
+<img src="support_files/_ffwd-2.png" alt="ffwd-2.png" border="0">
+</p><p>
+Two of these seem to be rather general: Recommendations for 'business' 
+and 'tv show' would be like the local convenience store recommending 
+that I might want to buy some milk and bread. However, it is the third 
+recommendation, the 'panties' channel that caught my eye, so to speak.  
+ I didn't recall doing anything on ffwd that would trigger an 'adult' 
+recommendation, so this particular recommendation was a puzzler.   I 
+checked out my history on ffwd to see what they know about me to see if I
+ could figure out why they gave me this particular recommendation. It 
+turns out, ffwd knows only a little bit about me - I rated a few shows 
+last year:</p><p>
+<img src="support_files/_ffwd-taste.png" alt="ffwd-taste.png" border="0" height="231" width="335">
+</p><p> Its just typical nerd TV - nothing that should trigger a 
+recommendation for a tour of the nether regions.  More than likely, 
+ffwd's collaborative filtering algorithm is just not dealing with sparse
+ data very well, causing it to make freakomendations.  Unfortunately for
+ ffwd, these aren't just bad recommendations, they are likely to be 
+offensive to some.
+</p><p>
+Sure enough, a few days later, I had this email in my inbox:
+
+</p><blockquote><p>
+Subject: <strong>apology from the ceo</strong>
+</p><p>
+Dear plamere,
+</p><p>
+On behalf of the ffwd team, I apologize if our recent email 
+recommendations didn't make sense, or worse, offended you. We are 
+testing a new channel recommendation system and may have put it into 
+service prematurely.
+</p><p>
+Most subscribers found the suggestions useful, but if you didn't, please
+ be patient as we work out the kinks and simply respond honestly to the 
+recommendations. By ignoring the mistakes, and clicking on the relevant 
+suggestions, you will improve the system for you and all other viewers.
+</p><p>
+Again I apologize for any offensive recommendations and appreciate your patience as we improve our system.
+</p><p>
+Happy New Year!
+</p><p>
+Patrick<br>
+CEO, ffwd
+</p><p></p></blockquote>
+And so it seems, I was not the only one of ffwd's users who received 
+such an recommendation.  As corporate apologies go, this is not a bad 
+one, but I don't like this bit "Most subscribers found the suggestions 
+useful, but if you didn't, please be patient...". This seems to imply 
+that if I took offense, it is really my fault, not ffwd's, since most of
+ the ffwd subscribers didn't seem to be offended. If you are going to 
+apologize, just do it, don't waffle or weasel about it.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 31, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: freakomendations</p>
+	<p class="entry-links">
+		<a href="freakomendation_ffwd.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/freakomendation_ffwd#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday Dec 24, 2008</h2>
+	</div>
+
+	<div class="entry" id="the_music_explaura_video">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_music_explaura_video.html" title="permalink">The Music Explaura Video</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Over the holiday break, I like to do a bit of recreational 
+programming ... this year I shall be working on the Music Explaura. This
+ is a rich internet application that will allow you to explore your own 
+music collection, get recommendations for new music and generally just 
+have fun while discovering new music. Of course it will hook up to <a href="recommendation_for_the_rest_of.html">Project Aura </a>to
+ get all the recommendations.  I have enough of the pieces put together 
+that I was able to do a little demo showing some of the interface.  I 
+made a video and posted it to Youtube:
+<p>
+<object height="344" width="425"><param name="movie" value="http://www.youtube.com/v/DVpyXWcvYug&amp;hl=en&amp;fs=1&amp;ap=%2526fmt%3D18"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><embed src="support_files/DVpyXWcvYughlenfs1ap26fmt18.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" height="344" width="425"></object>
+</p><p>
+(and by the way, his is my first Youtube video)
+</p><p>
+And here are some screenshots:
+</p><p>
+<img src="support_files/_me1.png" alt="me1.png" border="0">
+</p><p>
+<img src="support_files/_me2.png" alt="me2.png" w="" border="0">
+</p><p>
+<img src="support_files/_me3.png" alt="me3.png" border="0">
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 24, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_music_explaura_video.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/the_music_explaura_video#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday Dec 23, 2008</h2>
+	</div>
+
+	<div class="entry" id="what_s_your_musical_visual">
+
+	<div class="entry-title entry-info">
+			<h3><a href="what_s_your_musical_visual.html" title="permalink">What's your musical-visual IQ?</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Here's an <a href="https://current.com/items/89649027/what_is_your_musical_visual_iq.htm">interesting logic test</a> to see how well you can relate music to abstract shapes and sensors.
+<p>
+<img src="support_files/_music-vis0.png" alt="music-vis0.png" border="0" height="238" width="429">
+</p><p>
+Here are my scores:
+</p><p>
+<img src="support_files/_music-vis.png" alt="music-vis.png" border="0" height="348" width="546">
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 23, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="what_s_your_musical_visual.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/what_s_your_musical_visual#comments.html">Comments [3]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Monday Dec 22, 2008</h2>
+	</div>
+
+	<div class="entry" id="freakomendation_as_400_and_dementia">
+
+	<div class="entry-title entry-info">
+			<h3><a href="freakomendation_as_400_and_dementia.html" title="permalink">Freakomendation: AS/400 and Dementia</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Here's another Freakomendation from Amazon. Since you purchased <a href="https://www.amazon.com/Starter-Kit-IBM-iSeries-400/dp/1583040846/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1229969909&amp;sr=8-1">The Starter Kit for the IBM iSeries and AS/400</a> - Amazon recommends <a href="https://www.amazon.com/Reducing-Stress-related-Behaviours-Persons-Dementia/dp/1843103494/ref=sr_1_1?ie=UTF8&amp;s=books&amp;qid=1229969953&amp;sr=1-1">Reducing stress-related behaviors in Persons with Dementia</a>.  I've never worked with AS/400 so perhaps this really is a valid recommendation.
+<p>
+<img src="support_files/_E2B03B2F-AA65-473A-81C3-8E2E9C5B7ABE.jpg" alt="E2B03B2F-AA65-473A-81C3-8E2E9C5B7ABE.jpg" border="0"> </p><p>Via <a href="https://reddit.com/goto?share=true&amp;id=t3_7l2v7">reddit</a>.
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 22, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: freakomendations</p>
+	<p class="entry-links">
+		<a href="freakomendation_as_400_and_dementia.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/freakomendation_as_400_and_dementia#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="the_data_is_in_guitar">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_data_is_in_guitar.html" title="permalink">The Data is In - Guitar Hero and Music Discovery </a></h3>
+		</div>
+
+	<div class="entry-content">
+				<a href="https://flickr.com/photos/digiyesica/534240394/"><img src="support_files/_761441A7-6256-4151-B533-69879AD48AA9.jpg" alt="761441A7-6256-4151-B533-69879AD48AA9.jpg" style="float: left; margin-right: 10px;" border="0" height="240" width="160"></a>
+Nielsen SoundScan is reporting data about artists who have released 
+songs on its "Guitar Hero" platform.  Guitar Hero track sales rise by an
+ average of 3X after the release on Guitar Hero.  Some examples:  
+<div style="margin-left: 160px;">
+<ul>
+<li> Guns N' Roses, "Welcome to the Jungle"  released on "Guitar Hero III" Oct. 27, 2007: 38,000 downloads, up 153 percent
+</li><li>Smashing Pumpkins, "Cherub Rock"  released on "Rock Band" on Nov. 20, 2007: 6,600 downloads, up 843 percent. 
+</li><li>Nirvana, "In Bloom" released on "Rock Band," Nov. 20, 2007: 9,000 downloads, up 543 percent.
+</li></ul>
+</div>
+
+More data in the <a href="https://www.google.com/hostednews/ap/article/ALeqM5jJXeDF6XEht44gk3XsG7pXotfqjgD956SSN03">AP Release</a>. Via <a href="https://www.pcworld.com/article/155870/music_sales_rejuvenated_by_rock_band_guitar_hero.html">PC World, Game On</a>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 22, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_data_is_in_guitar.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Friday Dec 19, 2008</h2>
+	</div>
+
+	<div class="entry" id="riaa_decides_to_stop_suing">
+
+	<div class="entry-title entry-info">
+			<h3><a href="riaa_decides_to_stop_suing.html" title="permalink">RIAA decides to stop suing their customers</a></h3>
+		</div>
+
+	<div class="entry-content">
+				An early Christmas present from the Recording Industry of America. <a href="https://online.wsj.com/article/SB122966038836021137.html?"> Music Industry to Abandon Mass Suits</a>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 19, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="riaa_decides_to_stop_suing.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/riaa_decides_to_stop_suing#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Thursday Dec 18, 2008</h2>
+	</div>
+
+	<div class="entry" id="my_two_favorite_music_services">
+
+	<div class="entry-title entry-info">
+			<h3><a href="my_two_favorite_music_services.html" title="permalink">My two favorite music services - now combined!</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<img src="support_files/_B972ABFA-AA54-4D5B-B5A2-EBC38991426C.jpg" alt="B972ABFA-AA54-4D5B-B5A2-EBC38991426C.jpg" style="float: left;" border="0" height="116" width="108"><img src="https://kiserai.net/DukeListens/page2_files/_B6BADDE2-C689-440A-80E3-32D5C704CD71.jpg" alt="B6BADDE2-C689-440A-80E3-32D5C704CD71.jpg" style="float: right;" border="0" height="50" width="103">
+Today on the <a href="https://www.spotify.com/blog/archives/2008/12/18/spotify-scrobbles/">Spotify blog</a>,
+ Andreas announced that Spotify now supports scrobbling to Last.fm. Once
+ you set it up,all of your Spotify plays will be automatically 
+scrobbled.
+<p><img src="support_files/_scrobspot2.png" alt="scrobspot2.png" border="0" width="500">
+</p><p>
+Setting this up just takes a couple of seconds in the Spotify preferences:
+</p><p>
+<img src="support_files/_scrobbleingspotify.png" alt="scrobbleingspotify.1.1.1.1.1.png" border="0" height="124" width="406">
+</p><p>
+Andreas also points out this <a href="http://emil.hesslow.se/spotify/spotify__lastfm.user.js">nifty Greasemonkey script</a>
+ that lets you play the Last.fm site in Spotify. Here's an example, the 
+greasemonky script has added the green music notes to my 'Friends 
+listening now' section.  When I click on the green note, spotify opens, 
+ready to play the artist, album or track. Totally cool.
+</p><p>
+<img src="support_files/_spotmonkey.png" alt="spotmonkey.png" border="0" height="189" width="299">
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 18, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="my_two_favorite_music_services.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/my_two_favorite_music_services#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday Dec 16, 2008</h2>
+	</div>
+
+	<div class="entry" id="anita_lillie_in_crunchgear">
+
+	<div class="entry-title entry-info">
+			<h3><a href="anita_lillie_in_crunchgear.html" title="permalink">Anita Lillie in CrunchGear</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<a href="https://itooglefm.blogspot.com/2008/12/mir-student-researcher-in-press.html">Jeremy</a> points to this nifty <a href="http://www.crunchgear.com/2008/12/15/musicbox-a-truly-powerful-visualization-of-your-music-library/">write-up on Anita's Music Box</a>.  If you are interested in music discovery visualizations, be sure to read<a href="http://thesis.flyingpudding.com/documents/Anita_FINAL_THESIS.pdf"> Anita's thesis</a><img src="support_files/_E250D835-E279-4101-855E-7DAA20001A4B.jpg" alt="E250D835-E279-4101-855E-7DAA20001A4B.jpg" border="0" width="500">.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 16, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="anita_lillie_in_crunchgear.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/anita_lillie_in_crunchgear#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Monday Dec 15, 2008</h2>
+	</div>
+
+	<div class="entry" id="last_fm_hackday">
+
+	<div class="entry-title entry-info">
+			<h3><a href="last_fm_hackday.html" title="permalink">Last.fm hackday</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Photo stream from  <a href="https://www.last.fm/group/Hack+Day">Last.fm's HackDay</a>. Looks like great fun, - wish I could have been there.
+<p>
+<object height="300" width="400"> <param name="flashvars" value="&amp;offsite=true&amp;lang=en-us&amp;page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Dlastfm%2Bhackday%26s%3Drec&amp;page_show_back_url=%2Fsearch%2F%3Fq%3Dlastfm%2Bhackday%26s%3Drec&amp;method=flickr.photos.search&amp;api_params_str=&amp;api_text=lastfm+hackday&amp;api_tag_mode=bool&amp;api_media=all&amp;api_sort=date-posted-desc&amp;jump_to=&amp;start_index=0"> <param name="movie" value="http://www.flickr.com/apps/slideshow/show.swf?v=63961"> <param name="allowFullScreen" value="true"><embed type="application/x-shockwave-flash" src="support_files/show.swf" allowfullscreen="true" flashvars="&amp;offsite=true&amp;lang=en-us&amp;page_show_url=%2Fsearch%2Fshow%2F%3Fq%3Dlastfm%2Bhackday%26s%3Drec&amp;page_show_back_url=%2Fsearch%2F%3Fq%3Dlastfm%2Bhackday%26s%3Drec&amp;method=flickr.photos.search&amp;api_params_str=&amp;api_text=lastfm+hackday&amp;api_tag_mode=bool&amp;api_media=all&amp;api_sort=date-posted-desc&amp;jump_to=&amp;start_index=0" height="300" width="400"></object>
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 15, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="last_fm_hackday.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="the_rocterscale">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_rocterscale.html" title="permalink">The Rocterscale</a></h3>
+		</div>
+
+	<div class="entry-content">
+				The guys at the BBC's <a href="https://www.bbc.co.uk/blogs/radiolabs/">radiolabs</a> are having way too much fun.  There's no way can they call this 'work'.
+<p>
+<a href="https://www.bbc.co.uk/blogs/radiolabs/2008/12/the_rockterscale.shtml"><img src="support_files/_F76BE497-4F97-4B83-84EE-9CCF34CFDA18.jpg" alt="F76BE497-4F97-4B83-84EE-9CCF34CFDA18.jpg" border="0" height="500" width="375"></a>
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 15, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_rocterscale.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are browsing the main weblog
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="page1.html">Previous page</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="page3.html">Next page</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="support_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-187070-1");
+pageTracker._trackPageview();
+</script>
+</body></html>

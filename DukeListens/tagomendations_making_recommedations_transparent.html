@@ -1,0 +1,373 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tagomendations - making recommendations transparent - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="tagomendations_making_recommedations_transparent.html#content">content</a>, <a href="tagomendations_making_recommedations_transparent.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="tagomendations_making_recommedations_transparent">
+
+	<div class="entry-title entry-info">
+			<h2>Tagomendations - making recommendations transparent</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>If you go to one of the many social music sites out there and get
+ 'similar artists' recommendations for Jimi Hendrix.&nbsp; You are 
+likely to get a list such as the one you get from Last.fm:</p><p align="center"><img src="support_files/wme-hendrix-last.png" align="bottom" border="0" hspace="0" vspace="0">&nbsp;</p><p>There's
+ no arguing that this is a good list - but it is also a rather diverse 
+list.&nbsp; Eric Clapton's blues guitar is quite different from the 
+psychedelic acid rock of the Doors. I'd really like to know a bit more 
+about the recommendations - in particular I'd like to know why a 
+particular artist was recommended. This can help me gain trust in the 
+recommender as well as help direct me to artists based on criteria 
+that&nbsp; are most relevant to me.&nbsp; Unfortunately, most 
+recommenders are based strictly on consumption habits, so the only 
+recommendation explanation available is the Amazonian "People who 
+listened to Jimi Hendrix also listened to Eric Clapton and the 
+Doors"&nbsp; - which is not too helpful for me.</p><p>We want to make 
+recommendations transparent - so that you can ask 'why did you recommend
+ this' and get a useful answer beyond the typical 'people who bought X 
+also bought Y'.&nbsp; In order to generate transparent&nbsp; 
+recommendations you need to have some understanding of the content - 
+there has to be some way of knowing that Hendix tracks typically contain
+ distorted guitar, for example.&nbsp; Companies like Pandora, with their
+ music genome project have spent years analyzing to hundreds of 
+thousands of tracks, assigning 400+ attributes to each track. This lets 
+Pandora give those great explanation that makes them so popular with 
+their users:</p><p align="center"><a href="https://flickr.com/photos/libraryman/1225285863/"><img src="support_files/wme-hendrix-pandora.png" align="bottom" border="0" hspace="0" vspace="0"></a></p><p>Pandora
+ can generate these excellent explanations because they've taken the 
+time (and spent lots of money) to listen to and extensively label all of
+ their music.&nbsp; Most companies won't have the time, money or 
+patience to do this - and even Pandora that is committed to this 
+approach, can't keep up with the volume of new music that is generated 
+every year.&nbsp; Luckily, there are other sources of content 
+description that we can use to generate recommendations.</p><p>One such 
+source are social tags.&nbsp; Social tags have been all of the rage in 
+the web 2.0 world.&nbsp; Sites like del.icio.us, Flickr and Last.fm 
+demonstrate how the such tags can be extremely useful for searching and 
+organizing content, especially non-text content.&nbsp; Social tags can 
+also be used to give us good transparent recommendations. &nbsp;</p><p>Here are the most frequent social tags applied to Jimi Hendrix at Last.fm:</p><p align="center"><img src="support_files/wme-hendrix-freq-tags.png" align="bottom" border="0" hspace="0" vspace="0">&nbsp;</p><p>Now
+ tags like 'rock' and 'blues' occur rather frequently for many artists, 
+so are less descriptive than tags like 'guitar god' which occur 
+infrequently across artists.&nbsp; So we can take this into account and 
+generate a list of the most distinctive tags for Jimi Hendrix.&nbsp; 
+These are tags that occur rarely across the entire set of artists, but 
+occur frequently for Hendrix.&nbsp; (This is the classic <a href="https://en.wikipedia.org/wiki/Tfidf">TF-IDF</a> term weighting technique).&nbsp; Here are the distinctive tags for Hendrix:</p><p align="center"><img src="support_files/wme-hendrix-distinctive-tags.png" align="bottom" border="0" hspace="0" vspace="0"></p><p>The
+ less descriptive tags such as 'rock' have fallen off the list while 
+extremely targeted tags like 'jimi hendix' and 'acid rock' have risen to
+ the top.&nbsp; This list is a much better description of Hendrix than 
+the 'Frequent Tags' list and can serve as the basis for our transparent 
+recommendations.</p><p>With these distinctive tags, we can generate recommendations based upon the <a href="http://www.miislita.com/information-retrieval-tutorial/cosine-similarity-tutorial.html">cosine distance</a>
+ of these distinctive tags to the distinctive tag sets of other 
+artists.&nbsp; This type of recommendation, based upon the similarity of
+ distinctive tags, gives us surprisingly good results.&nbsp; My 
+colleague, and resident neologist, <a href="http://research.sun.com/people/mybio.php?uid=93990">Steve</a>,
+ coined the term 'tagomendations' for recommendations based on the 
+social tags.&nbsp; Here are the tagomendations for Jimi Hendrix (ordered
+ by artist popularity):<br></p><p align="center"><img src="support_files/wme-hendrix-tagomendations.png" align="bottom" border="0" hspace="0" vspace="0"></p><p>Interestingly
+ (and surprisingly) our tagomendations compared favorably to 
+recommendations generated with the more traditional collaborative 
+filtering techniques when we evaluated them in a survey.&nbsp; And of 
+course, with these tagomendations based upoon distinctive tags we can 
+now explain why a recommendation was made, based upon how the 
+distinctive tags for two artists overlap.&nbsp;&nbsp; </p><p>For instance, for the Clapton recommedation, we can look at how the distinctive tags for Clapton and Hendrix overlap:<br></p><p align="center"><img src="support_files/wme-hendrix-why-clapton.png" align="bottom" border="0" hspace="0" vspace="0"><br></p><p>Clearly
+ if you like Hendrix because of his blues guitar playing, you might want
+ to give Clapton a listen. Compare this to the overlapping tags of The 
+Door and Hendrix:</p><p align="center"><img src="support_files/wme-hendrix-why-doors.png" align="bottom" border="0" hspace="0" vspace="0"></p><p>This is quite a different vibe - with the focus on psychedelia of the 60s.</p><p>These
+ tag clouds showing how the distinctive tags for recommended artists 
+overlap with the seed artist give me the opportunity to explore the 
+recommendations based on my taste.&nbsp; If I like Hendrix because I am a
+ fan of face-melting guitar, I will quickly find artists, like Joe 
+Satriani, Gary Moore, or Steve Vai - but if the reason I like Hendrix is
+ because of the 60s, psychedelic vibe, I may find Jefferson Airplane or 
+Steppenwolf more to my taste.</p><p>That's it in a nutshell - how we are
+ using social tags to generate transparent,&nbsp; explainable&nbsp; 
+recommendations.&nbsp;&nbsp; And by the way, to do the heavy lifting for
+ our Tagomendations&nbsp; we are using the text search engine called 
+Minion, developed by the <a href="http://research.sun.com/projects/dashboard.php?id=101">Advanced Search Technology</a>
+ group here at Sun Labs.&nbsp; Minion is a high quality, highly 
+configurable search engine that is perfect for doing these types of 
+experiments.&nbsp; Look for Minion, It's coming to an open source 
+repository near you very soon.</p><p>Likewise, we hope to release our 
+web-based music explorer that can generate transparent tagomendations 
+soon.&nbsp; Here's a little bit of what it looks like:</p><p align="center"><img src="support_files/wme.png" align="bottom" border="0" hspace="0" vspace="0">&nbsp;</p><p><br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Dec 19, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="tagomendations_making_recommedations_transparent.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1198248913000" id="comment-1198248913000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>This looks really excellent, Paul.  I'll bet a lot of people will want to try this out.  Cheers!</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://jonhaupt.net/"><b>Jon</b></a>
+                
+                on December 21, 2007 at 09:55 AM EST
+
+                <a href="https://kiserai.net/DukeListens/tagomendations_making_recommedations_transparent#comment-1198248913000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1198340798000" id="comment-1198340798000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>What a great concept!  I believe that there is room for improvement 
+in current recommendation technologies and that collaborative filtering,
+ combined with social tags and acoustic recognition may be the holy 
+grail...</p>
+
+
+<p>What the industry really needs though is a way for major and indie 
+artists to easily submit their music to all the leading recommendation 
+and metadata engines in one swoop....similar to the concept of what 
+reverbnation is doing.  In other words, one-stop shopping for content 
+creators to thoroughly "define" their art as part of the official 
+release phase and then use 1 main repository or clearinghouse to submit 
+to everyone else's back end...</p>
+
+
+<p>todd </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.toddbeals.com/"><b>Todd Beals</b></a>
+                
+                on December 22, 2007 at 11:26 AM EST
+
+                <a href="https://kiserai.net/DukeListens/tagomendations_making_recommedations_transparent#comment-1198340798000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Tagomendations - making recommendations transparent</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="from_beethoven_to_the_prodigy.html">From Beethoven to...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="blogging_from_my_iphone.html">Blogging from my...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

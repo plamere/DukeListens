@@ -1,0 +1,368 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Napoleon Dynamite Problem - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="the_napoleon_dynamite_problem.html#content">content</a>, <a href="the_napoleon_dynamite_problem.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="the_napoleon_dynamite_problem">
+
+	<div class="entry-title entry-info">
+			<h2>The Napoleon Dynamite Problem</h2>
+		</div>
+
+	<div class="entry-content">
+				Clive Thompson has an excellent piece today in the New York Times Magazine about recommendation:  <a href="https://www.nytimes.com/2008/11/23/magazine/23Netflix-t.html?hp=&amp;pagewanted=all">If you liked this, You're sure to love that</a>. The article gives a good overview of the <a href="http://www.netflixprize.com/">Netflix prize</a>
+ and some of the problems that the competitors face in dealing with 
+trying to predict whether  you would give "Michael Clayton"  2.2 stars 
+or 2.3 stars. As Steve Krause <a href="http://www.stevekrause.org/steve_krause_blog/2008/11/nyt-netflix-article.html">points out</a>,
+ Clive Thompson even tries to explain how singular value decomposition 
+works - not something you see everyday in a newspaper article.
+<p>
+Clive does seem to to fall into a a common trap that assumes that 
+computers must be seeing nuances and connections that humans can't:
+</p><ul>
+Possibly the algorithms are finding connections so deep and subconscious
+ that customers themselves wouldn’t even recognize them. At one point, 
+Chabbert showed me a list of movies that his algorithm had discovered 
+share some ineffable similarity; it includes a historical movie, “Joan 
+of Arc,” a wrestling video, “W.W.E.: SummerSlam 2004,” the comedy “It 
+Had to Be You” and a version of Charles Dickens’s “Bleak House.” For the
+ life of me, I can’t figure out what possible connection they have, but 
+Chabbert assures me that this singular value decomposition scored 4 
+percent higher than Cinematch — so it must be doing something right. As 
+Volinsky surmised, “They’re able to tease out all of these things that 
+we would never, ever think of ourselves.” The machine may be 
+understanding something about us that we do not understand ourselves.
+</ul>
+Or they may just be overfitting the data.
+<p>
+I was hoping to see Clive talk about the problems with the Netflix prize
+ - how it over emphasizes the importance of relevance in recommendation 
+at the expense of novelty and transparency.  The teams involved in the 
+Netflix prize spend all of their time trying to predict how many stars 
+each of the many thousands of Netflix customers would apply to movies.  
+This skews the recommendations away from novel and <a href="http://www.daniel-lemire.com/blog/archives/2008/11/14/measuring-the-diversity-of-recommended-lists-at-last/">diverse</a> recommendations.  
+</p><p>
+Similarly, the Netflix prize pays no attention to helping people understand why something is being recommended. There are some <a href="https://portal.acm.org/citation.cfm?id=1297275">good</a>
+ papers that show that recommenders that can explain why something is 
+being recommended can improve a users trust in the recommender and its 
+recommendations. 
+</p><p> The short and accessible paper: <a href="http://www.grouplens.org/node/126">Being accurate is not enough: how accuracy metrics have hurt recommender systems</a> provides an excellent counterpoint to the approach taken by the Netflix prize.  Some highlights from this paper:
+</p><ul>
+<li>  Item-Item similarity can bury the user in a 'similarity hole' of like items.
+</li><li> Recommendations with higher diversity are preferred by users 
+even when the lists perform worse on Netflix-prize style accuracy 
+measures.
+</li></ul>
+The New York Times article describes the 'Napoleon Dynamite' problem - 
+this is a film that people either love (five stars) or hate (1 star) and
+ it is really hard to predict.  One researcher says that this single 
+movie, of the 100,000 movies in the Netflix collection, accounts for 15%
+ of the error in their recommender.  I suggest that a better way to deal
+ with the Napoleon Dynamite problem is incorporate this uncertainty into
+ the recommendation directly.  A recommendation such as "Napoleon 
+Dynamite is a quirky film that appeals to a certain sense of humor - you
+ may love this movie, or you may hate this movie - but whichever, it 
+will certainly be something you will remember." - will be much more 
+informative than a recommendation of "3 stars".
+<p>
+When people learn that I work with recommender systems, they will often 
+ask me if I am working on the Netflix prize - I tell them no, I am not -
+ because of two reasons - first, there are some people who are way 
+smarter than me who are already working on this problem - and they will 
+certainly get better results than I would ever be able to, and second, 
+and perhaps more importantly, - I don't think it is a very relevant 
+problem to solve - there are other aspects of recommendation: novelty, 
+diversity, transparency steerability, coverage, and trust that are as 
+important - and a good recommender can't just optimize one aspect, it 
+has to look at all of these aspects.
+ 
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Nov 23, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_napoleon_dynamite_problem.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1227546506000" id="comment-1227546506000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>I agree with your comments about accuracy not being enough. I have 
+not worked directly on the "Prize" problem, but I have looked some at 
+the data. Statistically significant relationships may be an entry point 
+to generate hypotheses, but they are essentially meaningless without an 
+associated explanation. I am not sure why Netflix focused the 
+competition on the accuracy of error. Unless I am missing something, I 
+find the question of predicting "whether you would give Michael Clayton 
+2.2 stars or 2.3 stars" not meaningful. And even the best possible 
+algorithm probably will have an average error that is much worse. So has
+ anything been learned from the prize competition?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Fred Annexstein</b>
+                
+                on November 24, 2008 at 12:08 PM EST
+
+                <a href="https://kiserai.net/DukeListens/the_napoleon_dynamite_problem#comment-1227546506000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227565015000" id="comment-1227565015000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Nice blog post! :-)<br>
+I also enjoyed that NYT article very much (and I totally agree with everything you wrote).</p>
+
+
+<p>Despite the obvious overfitting problems and all the flaws of the 
+evaluation metric: It was a genius idea to set up the Netflix prize and I
+ congratulate Netflix for setting the bar to 10%. So close and yet still
+ so far away after such a long time and so many attempts.</p>
+
+
+<p>Btw, it's great to see a team of Austrians on rank 2. And it's even 
+nicer to see that they seem linked to one of my all time favorite 
+professors!* :-)</p>
+
+
+<p>*) <a href="http://www.icg.tu-graz.ac.at/Members/bischof" rel="nofollow">http://www.icg.tu-graz.ac.at/Members/bischof</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Elias</b>
+                
+                on November 24, 2008 at 05:16 PM EST
+
+                <a href="https://kiserai.net/DukeListens/the_napoleon_dynamite_problem#comment-1227565015000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>The Napoleon Dynamite Problem</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="the_yes_developer_api.html">The YES Developer...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="the_perceptron_astute_music_recommendations.html">The perceptron -...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

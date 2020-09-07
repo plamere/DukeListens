@@ -1,0 +1,318 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>How to build a web-scale recommender - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="how_to_build_a_web.html#content">content</a>, <a href="how_to_build_a_web.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="how_to_build_a_web">
+
+	<div class="entry-title entry-info">
+			<h2>How to build a web-scale recommender</h2>
+		</div>
+
+	<div class="entry-content">
+				There are lots of challenges in building a good recommender system -
+ one challenge is dealing with the scale.  A good recommender needs lots
+ of data - the more the better. The best recommenders - like those at 
+Amazon or Netflix have billions of taste data points for millions of 
+users.  <a href="https://last.fm/">Last.fm</a> collects a half-billion  
+scrobbles in a month.  More data is good - Amazon, Neflix and Last.fm 
+are known for their good recommendations and that is mainly because they
+ have so much good data.  But dealing with this data can be a challenge.
+  Sites like Last.fm  are having to become experts at dealing with <a href="http://blog.last.fm/2008/04/01/hadoop-summit-2008-creating-new-infrastructures-for-big-data">Big Data</a> just so they can generate good recommendations.
+<p>
+Building a system that is ready to collect so much data and process it can be a challenge.  It is certainly a challenge for <a href="recommendation_for_the_rest_of.html">Project Aura</a>.
+ We want to build a system from the ground up that is ready for all of 
+this data.  Building such a web scale system that is highly reliable, 
+fault tolerant and allows us to easily expand our computing capacity 
+without re-architecting the system is not easy.  But luckily we have a 
+secret weapon that makes it easy (well, easier) to build a web-scale 
+recommender. That secret weapon is Project Caroline.  
+</p><p>
+<a href="https://www.projectcaroline.net/main/">Project Caroline</a> is a
+ research program developing a horizontally scalable platform for the 
+development and deployment of Internet services. The platform comprises a
+ programmatically configurable pool of virtualized compute, storage, and
+ networking resources. With Project Caroline we can develop services 
+rapidly, deploy frequently, and automatically expand or contract our use
+ of platform resources to match changing runtime demands.  In some ways,
+ it is like Amazon's EC2 - in that allows for elastic computing across a
+ number of networked computers, but Project Caroline works at a higher 
+level - instead of dealing with linux images - you work with grid 
+resources such as file systems, databases and virtualized containers for
+ processes.  It is really quite easy and flexible to use.  Rich Zippel 
+describes <a href="http://blogs.sun.com/zippel/entry/project_caroline">Project Caroline in his blog </a>as: <em>
+ a really cool platform that allows you to programmatically control all 
+of the infrastructure resources you might need in building a 
+horizontally scaled system. You can allocate and configure databases, 
+file systems, private networks (VLAN's), load balancers, and a lot more,
+ all dynamically, which makes it easy to flex the resources your 
+application uses up and down as required.</em>"
+</p><p>
+Project Aura consists of a set of loosely coupled components that use 
+Jini for service discovery and RMI for IPC.  The heart of the system is a
+ distributed datastore that allows us to spread our taste data and the 
+computation associated with the data over a number of compute resources.
+  Feeding this datastore are a set of webcrawlers and on top of this sea
+ of components we have a set of web services and web apps for 
+communicating with the outside world.   Getting this system to run on a 
+local set of computers in the lab was a daunting task - with all the 
+typical troubles of custom startup scripts, missing environment 
+variables, processes registering with the wrong RMI registry, etc.  All 
+the typical things that can go wrong when trying to get a lots of 
+computers working together to solve a single problem.  Based upon this, I
+ really thought we were going to have lots of problems getting this all 
+running on Project Caroline - but instead it was a straightforward, 
+process.  In about a day, <a href="http://research.sun.com/people/mybio.php?c=257">Jeff</a> was able to get all of Project Aura running on Project Caroline.
+</p><p>
+I was worried that once we started to run on the Project Caroline grid, 
+we would lose some of ability to interact with our running system.  I 
+was worried that we wouldn't be able to monitor our system, look at log 
+files, restart individual components, or tweak a configuration - but 
+that is not the case. Project Caroline has a grid accessor tool lets us 
+take total control of the grid-based Project Aura. We can control 
+processes, configure the network, interact with the filesystem (we can 
+even use webdav to 'mount' the Project Aura filesystem on a local 
+machine). Interacting with Project Aura when it is running on the grid 
+is easier than when it is running locally. All the control is via a 
+single interface - its very nice.  
+
+</p><p><img src="support_files/_gridaccess2.png" alt="gridaccess2.png" border="0">
+</p><p>
+Now that we have Project Aura running on top of Project Caroline - I'm 
+getting used to the idea of having 60 web crawling threads feeding a 
+16-way datastore that is being continually indexed by our search engine -
+ and  all of this is running across some number of processors - I don't 
+really know how many, and I don't really care
+</p><p>
+I'm really excited about Project Caroline - this seems to be the right 
+answer to the question that plagues anyone who is developing what they 
+hope will become the next YouTube - How do you build and deploy a system
+ that is going  to scale up if and when you get really popular?
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 17, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="how_to_build_a_web.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+        </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>How to build a web-scale recommender</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="sanfran_musictech_summit2.html">SanFran MusicTech...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="guitarhero.html">GuitarHero++</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

@@ -1,0 +1,328 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ISMIR Day 3 - Content based similarity and retrieval - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="ismir_day_3_content_based.html#content">content</a>, <a href="ismir_day_3_content_based.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="ismir_day_3_content_based">
+
+	<div class="entry-title entry-info">
+			<h2>ISMIR Day 3 - Content based similarity and retrieval</h2>
+		</div>
+
+	<div class="entry-content">
+				<h2><a href="http://ismir2008.ismir.net/papers/ISMIR2008_209.pdf">Social
+ Playlists and Bottleneck Measurements : Exploiting Musician Social 
+Graphs Using Content-Based Dissimilarity and Pairwise Maximum Flow 
+Values</a></h2>
+Ben Fields, Kurt Jacobson, Christophe Rhodes and Michael Casey
+<p>
+Ben Field (dressed to kill) talks about his interesting work in looking at acoustic similarity and social networks. 
+
+<strong>Motivation</strong>: There's a glass ceiling for content-based classification. <strong>Novelty</strong>:
+ Don't always want 'similar' music. Novelty is important.  
+Social/cultural awareness .  Can we improve recommendations and playlist
+ by incorporating social context and not just acoustic similarity.
+</p><p>
+Ben conducted a flow analysis of myspace artists, looking for nodes.  
+How: Start with a randomly selected myspace artist, grab their 'top 
+friends' (near neighbors in the graph) and repeat.  Do this 6 times - 
+yields &gt; 15,000 artist and 60K tracks.  120K directed edges - 15.5 
+edges per node. Ben showed that this graph follows the Duncan watts 
+power law.  
+</p><p>
+So what do you do? - group artists based on maximum flow and compared 
+with acoustic similarity. Not too surprisingly, these spaces are not 
+well correlated. (These plots compare the Earth Mover's distance, vs. 
+maximum flow value).
+</p><p>
+What can we do with this? - Look at meaningful ways to exploit this 
+difference in acoustic and graph similarity.  A playlist generator could
+ be created by following maxflow paths through a social graph, where the
+ cost of the paths are determined by acoustic similarity. This is a neat
+ idea.
+</p><p>
+<img src="support_files/_fields.png" alt="fields.png" border="0" height="816" width="456">
+</p><h2><a href="http://ismir2008.ismir.net/papers/ISMIR2008_181.pdf">Music Genre Classification: A Multilinear Approach</a></h2>
+Ioannis Panagakis, Emmanouil Benetos and Constantine Kotropoulos
+<p>
+This team is looking at automatic genre classification using a 
+bio-inspired cortical representation of the slow multi-scale spectro- 
+temporal modulations of each recording is used.  The author described in
+ great detail their novel method for approaching genre classification 
+using cortical Representation with wavelet analysis and tensors. Most of
+ what he talked about was beyond me. He does seem to be bringing a new 
+toolkit from bioinformatics to apply to music, with interesting results.
+  This talk has the most equations per slide of ISMIR so far (50 times 
+more equations then in Malcolm's talk).
+</p><p>
+<strong>Results</strong>: about 80% accuracy - which corresponds to at or near the state-of-the-art for genre classification.  
+</p><p>
+<img src="support_files/_ionnis.png" alt="ionnis.png" border="0" width="600">
+</p><p>
+
+</p><h2><a href="http://ismir2008.ismir.net/papers/ISMIR2008_259.pdf">Combining Features Extracted From Audio, Symbolic and Cultural Sources</a></h2>
+Cory McKay and Ichiro Fujinaga
+<p>
+<img src="support_files/_IMG_0650.JPG" alt="IMG_0650.JPG" style="float: left; margin: 10px;" border="0" width="200">
+</p><p>
+Cory describes their investigations of the classification utility of 
+combining features extracted from separate audio, symbolic and cultural 
+sources of musical information.  Again, this is a genre classification 
+experiment.  
+</p><p>
+Can you improve classification performance by combining features. Also 
+cory looks at the types of classification errors.  Will this help us 
+break through the glass ceiling?
+</p><p>
+They extracted the 3 types of features and compared classification of 
+all 7 subsets. They created a new dataset: the SAC Dataset - Symbolic  
+Audio Cultural.
+SAC has 10 genres of music, that can be collapsed into 5 genres. 
+Use the <a href="http://jmir.sourceforge.net/">jMIR</a> toolkit for analysis.
+</p><p>
+<strong>Results</strong>: When combining all 3 features, classification 
+accuracy improved.  However the improvements of 3 types over 2 is not 
+statistically significant. Looking at misclassifications - they used a 
+misclassification cost function that reduces the penalty for 
+misclassifying to a similar genre. When using these weighted rates and 
+cultural features are used, the misclassifications tend to be in related
+ genres.  Results for a 10 genre taxonomy: 78.8% vs. the 68% results 
+from last year - indicating that combining the feature types helps break
+ through the glass ceiling.
+Next: The want to use a larger dataset with a larger class ontology.
+</p><p> Montreal Genre Classification Smackdown - Doug Eck doubts that 
+the symbolic features are really necessary, but Cory thinks that they 
+are.   
+</p><p> This was a very clear presentation. Well done, Cory.
+</p><p>
+<img src="support_files/_cory.png" alt="cory.png" border="0" height="858" width="482"> 
+</p><p>
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Sep 17, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="ismir_day_3_content_based.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+        </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>ISMIR Day 3 - Content based similarity and retrieval</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="ismir_day_3_keynote_noting.html">ISMIR Day 3 - Keynot...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="ismir_2008_mirex_panel.html">ISMIR 2008 Mirex...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

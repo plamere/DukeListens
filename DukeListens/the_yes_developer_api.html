@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The YES Developer API - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="the_yes_developer_api.html#content">content</a>, <a href="the_yes_developer_api.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="the_yes_developer_api">
+
+	<div class="entry-title entry-info">
+			<h2>The YES Developer API</h2>
+		</div>
+
+	<div class="entry-content">
+				<a href="https://api.yes.com/"><img src="support_files/_77C08F7C-9DAB-43F5-B72A-CFA31C6155DA.jpg" alt="77C08F7C-9DAB-43F5-B72A-CFA31C6155DA.jpg" style="float: left; margin: 10px;" border="0" height="150" width="197"></a><a href="https://www.yes.com/#YES_Lobby">Yes.com</a>
+ is an aggregator of information about terrestrial radio.  They track 
+the song playing activity of many thousands of radio stations.  Now they
+ are making all of this wonderful data available via a<a href="https://api.yes.com/"> web API</a>.  
+<p>
+You can do all sorts of things with the API - you can search for 
+stations (by call letter, by location, by style of music etc.), find out
+ what a particular station is playing, find out which artists or tracks 
+are popular etc.
+</p><p>
+ For instance, to find the stations near me I can just search using my zipcode:
+</p><p>
+<a href="https://api.yes.com/1/stations?loc=03064">http://api.yes.com/1/stations?loc=03064</a>
+</p><p>
+This yields a bunch of json (JavaScript Object Notation) that describes the local radio stations.
+</p><p>
+The API lets you get all sorts of interesting data, including:
+</p><ul>
+ <li> The log of all songs played on any station in the last week
+  </li><li> The top songs on any station (based on plays or user voting)
+  </li><li> Overall popularity of a song or artist
+  </li><li> Related songs (based upon playlist co-occurrence)
+</li></ul>
+<p>
+Some more examples:
+</p><ul>
+  <li> <a href="https://api.yes.com/1/chart?name=WBCN">Top tracks on local radio station WBCN</a>
+   </li><li> <a href="https://api.yes.com/1/log?name=WBCN&amp;ago=1">All the songs played yesterday on WBCN</a>.
+   </li><li> <a href="https://api.yes.com/1/media?q=stairway+to+heaven">Info about 'stairway to heaven'.</a>
+   </li><li> <a href="https://api.yes.com/1/related?mid=7016218">Songs 'related' to 'stairway to heaven'</a> (there's more Eddie Money on this list than I would have expected).
+</li></ul>
+This is a gold mine of data about popular music.  Folks interested in <a href="http://www.schnitzer.at/dominik/moc/">automatic</a> <a href="https://stuffalsothings.blogspot.com/2008/09/introductory-thoughts-on-playlist.html">generation</a> of <a href="http://www2.iiia.csic.es/%7Eclaudio/">playlists</a>
+ can mine song sequences from professionally curated playlists.  Music 
+marketeers can learn what music is popular in various geographic 
+locations.  Music recommenders can mine data about what songs are being 
+played together on the radio stations.  Given that terrestrial radio is 
+still the way that most people discover new music, this data is very 
+useful in helping us understand what people are listening to.
+<p>
+The API is full featured, is very fast and seems quite solid.  My 
+biggest gripe is that it serves up JSON and not XML (which is what just 
+about every other music api serves), so  it means incorporating another 
+parser in my code.  The folks at YES are thinking about making an XML 
+version, so even this gripe may be short-lived.
+</p><p>
+The API terms of use are quite reasonable - if you use their data on a 
+web site, you must link back to YES.com.  Commercial use is "available 
+and often immediately granted by just ensuring proper linking." 
+</p><p>
+This API has lots of data that hasn't been easily available before - 
+data that can be used to enable music discovery, playlist generation, 
+trend spotting.  Well done to the Yes.com developers for providing such a
+ clean and easy to use API - and well done to the Yes.com business folk 
+who realize the value in making this data available.  (And, by the way, 
+the <a href="https://www.yes.com/#YES_Lobby">Yes.com</a> site itself is pretty cool).
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Nov 22, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="the_yes_developer_api.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1227537716000" id="comment-1227537716000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>IMO, XML is extremely ill-suited for web APIs.  JSON is amazing for 
+Javascript implementation, and SOAP is better for just about everything 
+else.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>dt</b>
+                
+                on November 24, 2008 at 09:41 AM EST
+
+                <a href="https://kiserai.net/DukeListens/the_yes_developer_api#comment-1227537716000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>The YES Developer API</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="be_a_javaone_rock_star.html">Be a JavaOne Rock...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="the_napoleon_dynamite_problem.html">The Napoleon Dynamit...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

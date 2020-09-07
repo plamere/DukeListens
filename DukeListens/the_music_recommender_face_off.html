@@ -1,0 +1,399 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Music Recommender Face-Off - Part 1 - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="the_music_recommender_face_off.html#content">content</a>, <a href="the_music_recommender_face_off.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="the_music_recommender_face_off">
+
+	<div class="entry-title entry-info">
+			<h2>The Music Recommender Face-Off - Part 1</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>There are lots of music recommenders out there, each one  vying for<br>our attention, trying to connect us to our next favorite band.  But not all<br>recommenders are created equal. Some have the insights and good taste of a<br>Bill Goldsmith or a John Peel, while others seem to have as much insight<br>about what I might like as an iPod on shuffle play. But which<br>recommenders are the best, and which are the worst? And how do these music<br>recommendations compare to what a professional would generate? Can machines<br>compete with humans in what is clearly a question of taste?  A few months<br>ago, I decided to try to answer these questions - to find out what is the<br>best music recommender, and to find out if machines can compete with humans<br>when it comes to recommending music.  Over the next few days, I shall be<br>blogging what I've discovered.<br><br><b>The tough question</b><br><br>The hardest question to answer is 'How to evaluate a recommendation?'.<br>A typical recommendaton starts with a seed artist, so for instance<br>a recommendation may be of the form "If you like The Beatles you may<br>like.. " followed by a list of recommended artists.  Now, when I look a<br>music recommendation based on an artist that I really know, I can get<br>a feel for the quality of recommendation.  In the list of recommended<br>artists, I expect to see some artists that I already am familiar with -<br>probably bands that I like.  Even though these recommendations may<br>be obvious, they help me gain some trust in the recommender. If I<br>ask for a recommendation based on my affinity for Miles Davis and<br>a recommender suggests John Coltrane, I get a warm feeling that the<br>recommender is on the right track.  It is a relevant (albeit somewhat<br>obvious) recommendation. I also expect to see some artists that I've<br>heard of but am not too familiar with, and I also expect to see some<br>artists that I've never heard of.  So for me a good recommendation<br>contains a mix of the familiar (to help me gain trust), and the novel<br>(to help me find new music).  Now of course, if the recommended artists<br>are off track ('if you like Miles Davis you might like Paris Hilton'),<br>no amount of familiarity or novelty is going to turn the recommendation<br>into a good recommendation.  The recommendations need to be relevant.<br>To summarize, a good recommendation has three aspects:<br></p><ul><li>   <b>familiarity</b> - to help us gain trust in the recommender</li><li><b>novelty</b> - without new music, the recommendation is pointless</li><li><b>relevance</b> - the recommended music has to match my taste<br></li></ul><p>Lets look at a couple of recommendation as examples.  Here's a set of<br>similar artist recommendations for The Beatles from last.fm.  According to<br>last.fm, if you like the Beatles you might like:<br></p><ul><li>    The Rolling Stones</li><li>    The Who</li><li>    John Lennon</li><li>    Led Zeppelin</li><li>    Queen</li><li>    Beach Boys</li><li>    Doors</li><li>    David Bowie</li><li>    Kinks<br></li></ul><p>Well, last.fm certainly gets the 'familiar' and the 'relevant', but<br>there's nothing novel here. Any fan of the Beatles has no doubt heard of<br>all of these bands, no great discoveries will be found in this selection.<br><br>Compare those to this set from Dominique, a professional music critic.<br>According to Dominque, if you like the Beatles you might like:<br></p><ul><li>    Paul McCartney/Wings</li><li>    John Lennon</li><li>    Harry Nilsson</li><li>    Queen</li><li>    George Harrison</li><li>    ELO</li><li>    Raspberries</li><li>    Badfinger</li><li>    XTC</li><li>    The Millennium<br></li></ul><p>This list has the familiar and relevant McCartney, Lennon, Harrison<br>and Queen as well as some artists that a typical Beatles fan may not<br>have heard of: The Raspberries and Millennium.  Dominique seems to have<br>restricted his recommendations to bands from the late sixties and early<br>seventies. Not an unreasonable choice, but it does perhaps reduce  the<br>novelty aspect of the recommendations.<br><br>Compare those to this set from Chris, another professional music critic.<br>According to Chris, if you like the Beatles you might like:<br></p><ul><li>    Chuck Berry</li><li>    Harry Nilsson</li><li>    XTC</li><li>    Marshall Crenshaw</li><li>    Super Furry Animals</li><li>    Badfinger</li><li>    The Raspberries</li><li>    The Flaming Lips</li><li>    Jason Faulkner</li><li>    Michael Penn<br></li></ul><p>So there's the familiar with Chuck Berry and Harry Nilsson, but I have to<br>pause and think for a bit about relevance - there's no Rolling Stones or<br>The Who to give me a warm fuzzy feeling, Chris gets to the novel artists<br>right away - high on novelty scale but not high on the familiarity scale<br>(at least for me).<br><br>And finally here's a set of similar artist from the All Music Guide.<br>According to All Music, if you like the Beatles you might like:<br></p><ul><li>    Hollies</li><li>    Searchers</li><li>    Peter and Gordon</li><li>    Monkees</li><li>    Gerry and the Pacemakers</li><li>    Bee Gees</li><li>    Zombies</li><li>    Dave Clark Five</li><li>    Remains</li><li>    Sorrows<br></li></ul><p>This list seems fairly balanced, there's the familiar (Monkees, Bee Gees,<br>Dave Clark Five, and the Hollies), they've avoided the cliches (no Rolling<br>Stones, Queen or the Who) and have some bands that I'm not too familar<br>with including a band called 'The Sorrows' who are described as "one of<br>the most overlooked bands of the British Invasion" which certainly looks<br>like something that'd be fun to listen to if I like the Beatles.<br><br>With these four examples, I've tried to show the three elements<br>that I look for in a good music recommendation: familiarity, relevance<br>and novelty. The difficulty is, of course, that no two people will agree<br>exactly on what is familiar, relevant or novel.  What I find novel, may be<br>familiar to a professional music critic, while a musician may find musical<br>relevance when I don't. The difficult job for a recommender, whether<br>it is human or a machine is to find the proper level of famililarity,<br>novelty and relevance for each person.<br><br>Finally, if we really want to evaluate a number of recommender systems,<br>to compare the quality of recommendations, we have to figure out a good<br>way to turn the very subjective measures that we've looked at here into<br>a set of objective measures that we can use to score recommendations.<br>Part 2 will look at some of the objective ways we will use to evaluate the<br>various music recommenders.<br><br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Oct 04, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="the_music_recommender_face_off.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1191574668000" id="comment-1191574668000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>I have to wonder about the wisdom of using the Beatles as the 
+canonical example for the sanity checks. They present the same sort of 
+problem as Miles Davis in that over the course of their career, they 
+made definitive statements in so many sub-genres that it's hard to say 
+what is a *bad* recommendation. </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://lindsay.at/"><b>Adam</b></a>
+                
+                on October 05, 2007 at 04:57 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_music_recommender_face_off#comment-1191574668000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1191576871000" id="comment-1191576871000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>@adam: fair enough criticism - I chose the Beatles for this example 
+since everyone knows the Beatles - and common recommendations given for 
+the Beatles such as the Rolling Stones or the Who are good examples of 
+recommendations that fall into the 'good but not useful' category.  </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on October 05, 2007 at 05:34 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_music_recommender_face_off#comment-1191576871000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1191592366000" id="comment-1191592366000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Hey Paul,<br>
+Thanks for throwing AMG into the mix.</p>
+
+
+<p>I would like to propose a new term to replace "Novelty" in our 
+general lexicon. When I hear the term "Novelty" in regards to music, I 
+automatically think of Spike Jones, Alvin &amp; the Chipmunks and Weird 
+Al.  </p>
+
+
+<p>Is there another term that has the same meaning that doesn't already 
+have a music-related connotation?  Freshness?  Newness? Unfamiliarity? 
+Discovery? Introduciness???</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://amgtapestry.com/radio"><b>Zac</b></a>
+                
+                on October 05, 2007 at 09:52 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_music_recommender_face_off#comment-1191592366000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1191609246000" id="comment-1191609246000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>Thanks Paul, it's a very interesting split of the aspects that should
+ make a good recommendation list, or at least, a blind list (no 
+explanation given to justify any of the choices). However I see two 
+objections to this split.</p>
+
+
+<p>First, each of the aspects must be weighted toward the use of the 
+recommendation. If the sole use is uninterested recommendations of 
+artists that you would like given you like seed A, it's a good 
+separation, but there are more usages to "recommendations" than the list
+ themselves, for human consumers... </p>
+
+
+<p>How you define "relevance", especially, can affect the other two 
+aspects. Some users might want the obvious results, because they don't 
+want the list for their own discovery, but for a broader, more 
+conservative goal, where others could only want to discover new things 
+and have no interest in the common ground.</p>
+
+
+<p>You also use "familiarity" to establish a trust in the "system", but 
+these "no new information" recommendations are wasted slots once a 
+confidence in the system is established.</p>
+
+
+<p>I think the three aspects you've found are very good, but balance between them is essential.</p>
+
+
+<p>Also, I know the inevitability of metrics, but creating one is almost
+ an invitation to game it, SEO-style. How about an automated system that
+ would game the three aspects you describe? 4-5 common recommendations 
+(familiarity), 2-3 obscure/original choices (novelty), and some 
+in-between, filtered by what you already know/listen to (personal 
+relevance). Sounds a bit cynical, like the top 5 lists of High Fidelity,
+ but perhaps, in the end, not totally bad...</p>
+
+
+<p>Also, I think "personal relevance" would be a better expression than 
+"relevance" alone, since this word could be used to qualify the whole 
+quality of the recommendation.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://www.last.fm/user/NazcaHand/"><b>Marc-O</b></a>
+                
+                on October 05, 2007 at 02:34 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_music_recommender_face_off#comment-1191609246000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1192836344000" id="comment-1192836344000"></a>
+            <div class="comment odd" id="comment5">
+
+                
+<p>If you are going to use last.fm as a music recommendation, what about using pandora.com as well?</p>
+
+
+<p>The challenge with using the Beattles as a test group, is that their 
+style of music varies.  If you like one song, it may match these bands, 
+but another song, may be more like these bands over here.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Sean</b>
+                
+                on October 19, 2007 at 07:25 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/the_music_recommender_face_off#comment-1192836344000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>The Music Recommender Face-Off - Part 1</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="hardcore_music_information_retrieval.html">Hardcore Music Infor...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="last_chance_for_the_free.html">Last chance for the...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

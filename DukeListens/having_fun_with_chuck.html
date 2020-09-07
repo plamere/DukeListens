@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Having fun with ChucK - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="having_fun_with_chuck.html#content">content</a>, <a href="having_fun_with_chuck.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="having_fun_with_chuck">
+
+	<div class="entry-title entry-info">
+			<h2>Having fun with ChucK</h2>
+		</div>
+
+	<div class="entry-content">
+				<a href="http://chuck.cs.princeton.edu/"><img src="support_files/chuck_logo3.jpg" style="float: left;"></a>
+I couldn't wait until <a href="http://ismir2008.ismir.net/tutorials">Rebecca's ISMIR tutorial</a> on <a href="http://chuck.cs.princeton.edu/">ChucK</a>
+ - so I downloaded the latest ChucK distribution, fired it up and worked
+ through the reference guide.  It's a lot of fun. ChucK is a 
+strongly-timed, concurrent, and on-the-fly audio programming language 
+that presents a time-based, concurrent programming model that's highly 
+precise and expressive. In some ways, ChucK reminds me of <a href="http://www.csounds.com/whatis/index.html">CSound</a>
+ - in that you have lots of control over how to make sounds. The more 
+you know about signal processing and filters and the theory of synthesis
+ the more you can do with ChucK. But unlike CSound, ChucK is a modern 
+program language with classes, objects - all the things that make a Java
+ programmer comfortable, whereas CSound is like coding in assembler.
+<p>
+ChucK is pretty powerful too.  Here's a bit of ChucK code by Perry Cook that does a reasonable job imitating the <a href="https://en.wikipedia.org/wiki/Deep_Note">THX deep note</a> - compare this 80 lines of code to the 20,000 lines of code required to make the original.
+
+</p><pre>// THX emulator
+//   author: Perry R. Cook (Jan 8, 2007)
+// modified: Ge Wang (added parameters up top)
+
+// F-1, B1b,  F1,    B2b,   F2,    B3b,   F3,    A5,    F4,   A6
+[ 29.0, 87.5, 116.0, 175.0, 233.0, 350.0, 524.0, 880.0, 1048, 1760,
+  29.0, 87.5, 116.0, 175.0, 233.0, 350.0, 524.0, 880.0, 1048, 1760,
+  29.0, 87.5, 116.0, 175.0, 233.0, 350.0, 524.0, 880.0, 1048, 1760
+] @=&gt; float targets[];
+
+// storage
+float initials[30];
+float deltas[30];
+
+// parameters (play with these to control timing)
+10000 =&gt; int steady_samps;
+20000 =&gt; int sweep_steps;
+15000 =&gt; int hold_steps;
+8000 =&gt; int decay_steps;
+
+// UGens
+SawOsc s[30];
+Gain gl[30];
+Gain gr[30];
+JCRev rl =&gt; dac.left;
+JCRev rr =&gt; dac.right;
+
+// reverb settings
+0.025 =&gt; rl.mix =&gt; rr.mix;
+
+// variables
+0 =&gt; int i =&gt; int j;
+
+// compute stuff
+for( 0 =&gt; i; i &lt; 30; i++ )
+{
+    // random freqs
+    Std.rand2f( 200.0, 800.0 ) =&gt; initials[i] =&gt; s[i].freq;
+    // 10 sample updates
+    ( targets[i] - initials[i] ) / sweep_steps =&gt; deltas[i];
+    // initial gain
+    0.1 =&gt; s[i].gain;
+    // random
+    Std.rand2f( 0.0, 1.0 ) =&gt; gl[i].gain;
+    // panning
+    1.0 - gl[i].gain() =&gt; gr[i].gain;
+    // hook up
+    s[i] =&gt; gl[i] =&gt; rl;
+    // all the oscs
+    s[i] =&gt; gr[i] =&gt; rr;
+}
+
+steady_samps :: samp =&gt; now;                            // steady cluster
+
+while( j &lt; sweep_steps ) {
+    for( 0 =&gt; i; i &lt; 30; i++ ) {
+        initials[i] + (deltas[i]*j) =&gt; s[i].freq;       // sweep freqs.
+    }
+    j + 1 =&gt; j;
+    10 :: samp =&gt; now;
+}
+
+0 =&gt; j;
+while( j &lt; hold_steps ) {                               // hold chord
+    10 :: samp =&gt; now;
+    j + 1 =&gt; j;
+}
+
+0 =&gt; j;
+while( j &lt; decay_steps ) {
+    for( 0 =&gt; i; i &lt; 30;  i++) {
+        0.1 * (decay_steps-j) / decay_steps =&gt; s[i].gain;       // decay gains
+    }
+    10 :: samp =&gt; now;
+    j + 1 =&gt; j;
+}
+
+60000 :: samp =&gt; now;                                   // reverb tail
+
+</pre>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Aug 13, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="having_fun_with_chuck.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+        </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Having fun with ChucK</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="ismir_2008_facebook_group.html">ISMIR 2008 Facebook...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="ismir_conference_program.html">ISMIR Conference...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

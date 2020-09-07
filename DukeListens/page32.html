@@ -1,0 +1,792 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="verify-v1" content="0c/Cx6NLE4aEaOKo//DNIIJVpWqeq374fNJIL//A2wE=">
+<title>Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="weblog">
+<!-- End of StatCounter Code -->
+
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="page32.html#content">content</a>, <a href="page32.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday May 22, 2007</h2>
+	</div>
+
+	<div class="entry" id="gibro_garbage_in_bad_recommendations">
+
+	<div class="entry-title entry-info">
+			<h3><a href="gibro_garbage_in_bad_recommendations.html" title="permalink">GIBRO - Garbage In, Bad Recommendations out</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>Social music web sites like last.fm and iLike are all the rage. 
+They harness the wisdom of the crowds to make recommendations - using 
+the Amazon-esque 'people who listen to X also listen to Y' style of 
+recommendations.&nbsp; The core value for these social music sites is 
+the taste data that they collect on all of their users.&nbsp; However, 
+because this taste data is user submitted, it is fairly easy for users 
+to submit fake data.&nbsp; For instance, here's a little applescript 
+from <a href="http://dougscripts.com/itunes/itinfo/itunes41info.php">Doug's Applescripts</a>&nbsp; that sets the playcount of the first selected song in iTunes to 250,000</p><blockquote><pre><span style="color: red;">tell</span> <span style="color: blue;">application</span> "iTunes"<br>	<span style="color: red;">set</span> <span style="color: green;">t</span> <span style="color: red;">to</span> <span style="color: red;">get</span> <span style="color: blue;">item</span> 1 <span style="color: red;">of</span> <span style="color: blue;">selection</span><br>	<span style="color: red;">set</span> <span style="color: blue;">played</span> <span style="color: blue;">count</span> <span style="color: red;">of</span> <span style="color: green;">t</span> <span style="color: red;">to</span> 250000<br><span style="color: red;">end</span> <span style="color: red;">tell</span><br></pre></blockquote><p>Many
+ of the social recommender sites will sync up with the iTunes playcount 
+data. So all I have to do is select 'Perfect Me', run the script, sync 
+up with my favorite social music site and I've become Deerhoof's #1 
+fan.&nbsp;&nbsp; People really do this ...&nbsp; last.fm user <a href="https://www.last.fm/user/Kikoin/">Kikoin</a> has 'played' Metallica songs over 128,000 times.&nbsp; iLike user <a href="http://ilike.com/user/Shay_K8/most_played_artists">Shay K</a> has 'played' the White Stripes over 472,000 times.&nbsp; Take a look at the playcounts for Shay K's top ten artists:<br></p><blockquote><p>
+    
+  
+
+  </p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 472,744 The White Stripes<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 337,880 The Beatles<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 337,819 Beastie Boys<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 270,334 Stephen Malkmus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;
+ &nbsp; 270,211 Tom Petty &amp; The 
+Heartbreakers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 256,433 Ween (on tour)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 202,665 The Cure<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 137,006 The Polyphonic Spree<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 135,455 Wilco (on tour)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 135,290 Vince Guaraldi Trio</p></blockquote><p>Adding
+ up the playcounts for Shay K's top 30 tracks we get more than 5 million
+ total playcounts.&nbsp; At 3 minutes a song, if Shay K listened to 
+music 24 hours a day, we get about <i>30 years of continuous music</i>.&nbsp;
+ Imagine now, if Shay K's data goes into the iLike music recommender 
+unfiltered - Shay K's synthetic taste could dominate the similarity 
+model and we'd end up with some rather surprising recommendations like 
+"if you like the White Stripes, you may also like the Vince Guaraldi 
+Trio".</p><p>If you are going to deploy a 'wisdom of the crowds' music 
+recommender you are going to have work hard to separate the real taste 
+data from the manufactured taste data,&nbsp; or else you will generate 
+bad recommendations.&nbsp; Garbage In - Bad Recommendations out.<br></p><blockquote><p><br></p><p>&nbsp;</p></blockquote>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 22, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="gibro_garbage_in_bad_recommendations.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/gibro_garbage_in_bad_recommendations#comments.html">Comments [2]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Monday May 21, 2007</h2>
+	</div>
+
+	<div class="entry" id="music_mashups_risky_business">
+
+	<div class="entry-title entry-info">
+			<h3><a href="music_mashups_risky_business.html" title="permalink">Music Mashups == risky business</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Last week<a href="https://globallistic.blogspot.com/2007/05/music-mashups-as-business.html"> J.</a>
+ wrote about the how building a music mashup is a great model - little 
+startup risks, no liability, no licensing costs.&nbsp; Highlighting the 
+downside of a business built on the services of others ... this week 
+Amazon,&nbsp; according to Techcrunch has <a href="http://www.techcrunch.com/2007/05/21/zlio-banned-from-amazon/">banned startup Zilo</a> from collecting referral fees for Amazon products listed in the Zilo stores.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 21, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="music_mashups_risky_business.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/music_mashups_risky_business#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="more_artist_resolution_troubles">
+
+	<div class="entry-title entry-info">
+			<h3><a href="more_artist_resolution_troubles.html" title="permalink">More artist resolution troubles</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>Last week I wrote about the trouble with <a href="https://kiserai.net/DukeListens/bj%C3%B6rk_vs_bjork_vs_bork.html">resolving artist names</a>. Here's another real-life example of the trouble.&nbsp; <a href="https://en.wikipedia.org/wiki/EL-P">El-Producto</a>
+ (aka EL-P) is (according to the Wikipedia) an American rapper, producer
+ and entrepreneur from NYC who is a major driving force in alternative 
+hip hop for over a decade.&nbsp;<a href="https://www.last.fm/music/El-P?q=el-p"> Last.fm recommends</a>
+ similar artists like Canibal Ox, Company Flow, Mr. Lif, Aesop Rock, 
+Cage and Vast Aire.&nbsp; All reasonable recommendations.&nbsp; <a href="http://musicmobs.com/recommendations/el-p">Musicmobs</a> yields artists like Murs, Cage&nbsp; and Company Flow. Again reasonable.&nbsp; But<a href="http://ilike.com/artist/El-P"> iLike yields recommendations</a>
+ like: Yes, Kansas, Genesis and Superior.&nbsp;&nbsp; These are not good
+ recommendations. It looks like iLike is confusing EL-P the rapper with <a href="https://en.wikipedia.org/wiki/Emerson%2C_Lake_and_Palmer">ELP</a> the prog rock band.<br><br>Lucky
+ for many of the music recommender sites&nbsp; that it is really hard to
+ objectively evaluate how well a recommender works, otherwise I think 
+some of the high profile, well-funded sites would be embarrassed when 
+compared to some of the smaller scrappy sites. <br> </p><p><a href="https://en.wikipedia.org/wiki/United_States" title="United States"></a></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 21, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="more_artist_resolution_troubles.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="what_is_wrong_with_ilike">
+
+	<div class="entry-title entry-info">
+			<h3><a href="what_is_wrong_with_ilike.html" title="permalink">What is wrong with iLike's recommendations?</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p><a href="ilike_beta_launch.html">
+Last year I tried out iLike</a> to see how well it worked.&nbsp; I 
+didn't like their 'similar artists'&nbsp; recommendations too 
+much.&nbsp; I figured it was a cold-start problem.&nbsp; Since they were
+ a new site, they didn't have enough data to make good 
+recommendations.&nbsp; I tried iLike again this morning to see how well 
+they improved after having 6 months of data.&nbsp; I was surprised to 
+learn that I was getting the <i><b>exact same&nbsp;</b></i> 
+recommendations as I got back in October.&nbsp; It is as if they have 
+not updated their similarity data since they have launched.&nbsp; Some 
+of these recommendations are horrendous.&nbsp; Type in <a href="http://ilike.com/artist/Emerson%2C+Lake+%26+Palmer">Emerson Lake and Palmer</a> and the related artists are:</p><ul><li>Elmo and Patsy</li><li>Jose Feliciano</li><li>Vince Guaraldi Trio</li><li>Brenda Lee</li><li>Holiday Express</li><li>Bing Crosby</li><li>Burl Ives</li><li>Trans-Siberian Orchestra</li></ul><p>iLike is still thinking that the most distinctive feature of ELP is their one Christmas song.&nbsp; <br><br>Even more telling are the recommendations for <a href="http://ilike.com/artist/Rodrigo+y+Gabriela">Rodrigo y Gabriela</a>.&nbsp;
+ Even though Rod and Gab have been played 20,000 times by iLike users, 
+iLike can't offer any recommendations at all. My guess is that when they
+ built their artist similarity model back in October, Rod and Gab 
+weren't on the map yet - so they had no data. But 6 months later Rod and
+ Gab are very popular, iLike should have no trouble generating 
+recommendations for them.&nbsp; In their FAQ iLike says:</p><blockquote><p><b>How do you pick which artists are "related"?</b> <i>We use computer algorithms that figure this out using the "wisdom of crowds", i.e. "people who
+    listen to this artist also listen to these other artists". The more people use the
+    <a href="http://alpha1.ilike.com/download">iLike Sidebar for iTunes</a>,
+    the better our computer algorithms will get at figuring out which artists are related.</i> </p></blockquote><p>But
+ this doesn't seem to be happening.&nbsp; Perhaps iLike doesn't see 
+value in generating good recommendations, and just hasn't bothered to 
+push all of their social data into their recommendation engine.<br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 21, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="what_is_wrong_with_ilike.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/what_is_wrong_with_ilike#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Saturday May 19, 2007</h2>
+	</div>
+
+	<div class="entry" id="recommenders_07_deadline_extended">
+
+	<div class="entry-title entry-info">
+			<h3><a href="recommenders_07_deadline_extended.html" title="permalink">Recommenders'07 Deadline extended</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Note that the <a href="http://recsys.acm.org/research.html">deadline</a> for submission to Recommender Systems 2007 has been extended to June 3 for long papers and June 10 for short papers.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 19, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="recommenders_07_deadline_extended.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Friday May 18, 2007</h2>
+	</div>
+
+	<div class="entry" id="moody_organizing_your_music_via">
+
+	<div class="entry-title entry-info">
+			<h3><a href="moody_organizing_your_music_via.html" title="permalink">Moody - organizing your music via mood</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<a href="http://www.crayonroom.com/moody.php">Moody</a> looks pretty neat.&nbsp; You tag your personal collection via song mood on a colorful <a href="http://www.musiccog.ohio-state.edu/Huron/Talks/MIR.2000.oct25/talk.13.html">Thayer mood</a>
+ scale.&nbsp; You can play songs back based on their mood.&nbsp; What 
+puzzles me though is that they don't seem to aggregate the moods of all 
+of their users so that people can share their mood tags.&nbsp; It seems 
+to be the obvious thing to do. If they don't do it, maybe <a href="http://web.media.mit.edu/%7Emeyers/moodmachine.html">Owen</a> will.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 18, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="moody_organizing_your_music_via.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/moody_organizing_your_music_via#comments.html">Comments [4]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="name_that_tune1">
+
+	<div class="entry-title entry-info">
+			<h3><a href="name_that_tune1.html" title="permalink">Name that tune!</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p><a href="http://iden.tify.us/"><img style="margin: 10px; float: left;" src="support_files/identifyusLogo3.html" align="bottom" border="0" hspace="0" vspace="0"></a>This <a href="https://boingboing.net/2007/05/16/solve_an_internet_my.html">post on boingboing</a>
+ highlights the difficulty in identifying a song if you have no other 
+information about it.&nbsp; There are technologies such as <a href="http://www.musicdns.org/">MusicDNS</a> and <a href="https://www.shazam.com/music/portal">Shazam</a> that are designed to assist in song identification, but these technologies don't always work.&nbsp; <a href="http://iden.tify.us/">iden.tify.us</a>
+ takes a Wisdom Of the Crowds approach.&nbsp; Trying to identify a song?
+ Upload a clip&nbsp; to iden.tify.us or type in a lyric, or just 
+describe the song and let others help identify it. &nbsp; iden.tify.us 
+is a brand new site (beta 0.1) with a small number of users, so the term
+ 'wisdom of the crowds' may be relying on the "two's company three's a 
+crowd" definition of 'crowd'.&nbsp;&nbsp; iden.tify.us is trying some 
+novel ways to expand their user base. Frequent song identifiers can get 
+referral bonuses, and they make rss and podcast feeds available for the 
+content, allowing you to take song identification on the road (but would
+ you really want to?)<br> </p><p>I don't see this becoming the next 
+digg, but it might be popular enough to actually attract the crowd that 
+will be necessary to make it useful.&nbsp; (and yes, I hate the 
+del.icio.us style names - I can never remember where to put the 
+dots.&nbsp; <i>(via <a href="http://del.icio.us/toby">toby</a>).</i><br>
+</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 18, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="name_that_tune1.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/name_that_tune1#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="how_many_record_labels_are">
+
+	<div class="entry-title entry-info">
+			<h3><a href="how_many_record_labels_are.html" title="permalink">How many record labels are there?</a></h3>
+		</div>
+
+	<div class="entry-content">
+				The recent press release from Amazon about their soon to open music 
+store indicated that they had deals with 12,000 record labels.&nbsp; 
+That seemed to be an incredible number of labels - stretching the bounds
+ of believability, it left me wondering how many music labels are there.
+ &nbsp; A web search leads to this l<a href="https://en.wikipedia.org/wiki/List_of_record_labels">arge list of record labels</a>
+ on the Wikipedia.&nbsp; There's also a pointer to AllRecordLabels that 
+claims to have links to 23,000 (!) record labels or net labels.&nbsp; 
+That's a whole lotta labels.<br>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 18, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="how_many_record_labels_are.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/how_many_record_labels_are#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Thursday May 17, 2007</h2>
+	</div>
+
+	<div class="entry" id="save_the_robot_save_the">
+
+	<div class="entry-title entry-info">
+			<h3><a href="save_the_robot_save_the.html" title="permalink">Save the robot, save the world</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>My new favorite blog is <a href="https://savetherobot.wordpress.com/">Save the Robot</a>. This is the work blog of Chris Dahlen who writes about popular culture, music and gaming.&nbsp; Chris is remembered for his <a href="https://www.wired.com/wired/archive/14.09/pitchfork.html?pg=2&amp;topic=pitchfork&amp;topic_set=">pitchfork review of Travistan,</a>
+ where his 0.0 rating sent the CD straight to the seconds 
+bin.&nbsp;&nbsp; In his blog, Chris writes about things I want to read 
+about .. Hermione/Cho, The Office, quirky, <a href="https://savetherobot.wordpress.com/2007/05/08/dear-charlotte/">attractive indie pop girrls,</a>
+ parenting, and especially the tension between the old media and the 
+new.&nbsp; Good stuff, and the best part is that Chris is a real writer 
+so he can turn a phrase (Steve particularly liked the story about the 
+'swelling Harry Potter fan fiction community'.<br><br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 17, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="save_the_robot_save_the.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Wednesday May 16, 2007</h2>
+	</div>
+
+	<div class="entry" id="the_amazon_music_store_it">
+
+	<div class="entry-title entry-info">
+			<h3><a href="the_amazon_music_store_it.html" title="permalink">The Amazon Music Store - It's Official!</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>Hot off the press.&nbsp; Amazon <a href="http://home.businesswire.com/portal/site/google/index.jsp?ndmViewId=news_view&amp;newsId=20070516005337&amp;newsLang=en">has announced</a> that they will be launching a DRM free music store with music from 12,000 labels, including music from EMI.&nbsp; Back in <a href="http://blogs.sun.com/plamere/date/20070109">January I wrote</a> why I think Amazon could be a big deal in digital music.&nbsp; Two aspects that Amazon potentially brings to digital music:</p><ul><li><b>Discovery -&nbsp; </b>Amazon's focus on discovery makes Amazon a much
+better online bookstore than any other bookstore.&nbsp; They use all sorts
+of ways to connect a reader with a book.&nbsp; Collaborative filtering, book
+reviews, customer lists,&nbsp; content search,&nbsp; best seller lists , special
+deals.&nbsp; These techniques help get their readers deep into the long tail
+of books.&nbsp; Discovery is in Amazon's genes.&nbsp; When they start selling
+digital music, you can bet that they will have the same focus on
+discovery and give the listener new and interesting ways to find music
+in the long tail.&nbsp; A listener may come to Amazon to pick up the latest
+U2 track, but may find themselves happily downloading a track by an
+obscure artist.&nbsp; This is good for the listener - they will will be
+exposed to a larger variety of music and this is good for the long tail
+artists.</li><li><b>Metadata - </b>Amazon has a great set of web
+services built around their data.&nbsp; Using Amazon's web services, one can
+get access to book descriptions, book cover images, reviews, pricing
+information - just about&nbsp; any piece of data&nbsp; in Amazon's database is
+exposed via their web services.&nbsp; Exposing their data in this fashion
+places Amazon at the center of the online literary ecosystem.&nbsp;&nbsp; Any
+startup company that wants to be in a business related to books will&nbsp;
+use Amazon's API&nbsp; because it is easy, the data is of high quality and
+it is free.&nbsp; This is good for the startup, and even better for Amazon
+since all of those startups end up sending their customers to Amazon.&nbsp;
+Amazon is already a big part of the music ecosystem.&nbsp; They already have
+lots of data for music CDs that is available via their web APIs.&nbsp; They
+are probably the largest supplier of album art on the web.&nbsp; The Amazon
+part number - the ASIN - is used throughout the web as an unambiguous
+identifier for an album. Once Amazon starts to sell individual tracks,
+I would expect that Amazon will create an ASIN or an equivalent for
+each track in their database.&nbsp; This track-level identifier may become
+the primary way of identifying tracks in the music world since Amazon
+makes it so easy to get all of the information about an item once you
+have the ASIN.&nbsp; This could be a key enabler in the next generation of
+music - a&nbsp; ubiquitous song ID tied to deep metadata.</li></ul>The 
+store is set to open later this year ... I am very interested in seeing 
+what this does to the world of digital music and music discovery.<br><p>&nbsp;</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 16, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="the_amazon_music_store_it.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/the_amazon_music_store_it#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="music_at_javaone">
+
+	<div class="entry-title entry-info">
+			<h3><a href="music_at_javaone.html" title="permalink">Music at JavaOne</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>Some music highlights from JavaOne 2007:</p><ul><li><b>'Real' bumper music - </b>In
+ previous years, the music at the keynotes was canned, non-commercial 
+music.&nbsp; The type of music you could buy a license for and play 
+forever.&nbsp; I can still remember the trombone solo in one of the 
+frequently played tracks.&nbsp; This year, they played 'real' music - 
+that is, commercial music - songs by OK Go,&nbsp; U2 w. Mary J. Blige, 
+songs that most people would recognize .&nbsp; Same for the tech 
+sessions - the real music was nice.&nbsp;&nbsp; I did notice on the 
+keynote webcasts, that I've watched, they've replaced the commercial 
+music with the canned music, sigh ... such is the state of music 
+licensing on the web.</li><li><b><a href="http://www.anon-music.com/">DJ Anon </a></b>- The openining session started with electronic music by DJ Anon - the music set a good vibe for the day.<br></li><li><b>Tech Sessions -&nbsp; </b>There were only two tech session directly related to music: a talk on the fascinating <a href="http://blogs.sun.com/plamere/www.jfugue.org">jFugue,</a> and my talk on Search Inside the Music.&nbsp; <br></li><li><b>Mini music bof - </b>A
+ bunch of us that have an interest in music and Java went out for dinner
+ one evening.&nbsp; Next year, we should have a real BOF around music 
+and Java.<br></li><li><b>School of Rock </b>- one of the music 
+highlights of JavaOne was during the walk back to the hotel one 
+evening.&nbsp; There was a stage set up in the middle of Union Square, 
+and a bunch of kids were playing music.&nbsp;&nbsp; I stopped and 
+watched 3 bands play - these kids were remarkable - playing some 
+extremely difficult songs (like Zappa).&nbsp; The kids were from the 
+School Of Rock. Awesome stuff.<br><br><a href="http://schoolofrock.com/"><img src="support_files/RS06Queen337.html" align="bottom" border="0" hspace="0" vspace="0"></a><br></li></ul>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 16, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: Java</p>
+	<p class="entry-links">
+		<a href="music_at_javaone.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="musicbrainz_is_bored">
+
+	<div class="entry-title entry-info">
+			<h3><a href="musicbrainz_is_bored.html" title="permalink">MusicBrainz is bored</a></h3>
+		</div>
+
+	<div class="entry-content">
+				Robert Kaye <a href="https://blog.musicbrainz.org/archives/2007/05/move_to_new_ser.html">blogs</a> that <a href="http://blogs.sun.com/plamere/musicbrainz.org">MusicBrainz</a> is now running on the new Sun server.&nbsp; Robert says <i>"I'm pleased to announce that the new server is largely bored
+with the traffic we're throwing at it right now -- which is exactly
+what I had hoped for."&nbsp;</i> Awesome.
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 16, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="musicbrainz_is_bored.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+            <div class="day">
+
+	<div class="day-title">
+	<h2>Tuesday May 15, 2007</h2>
+	</div>
+
+	<div class="entry" id="music_influence_networks">
+
+	<div class="entry-title entry-info">
+			<h3><a href="music_influence_networks.html" title="permalink">Music Influence Networks</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>
+Mike Love <a href="https://mikelove.wordpress.com/2007/05/15/james-vasile-and-music-influence-networks/">posted this on his blog</a>:</p><blockquote><p><i>[James Vasile]&nbsp; proposed separating the recommendation from distribution of the actual
+song - either by referencing an audio fingerprint or some other unique
+id (CDDB?). Then each listener can choose a hierarchy of how they would
+like to find the audio: find the mp3s on the web, last.fm, amazon
+samples, purchase the songs, etc. This would involve the creation of
+some standardized XML style format for playlists, and we talked about
+how <a href="http://www.songbirdnest.com/">Songbird</a> seems like a
+good open platform for receiving these playlists and then using a
+diversity of networks to find the audio or at least a sample.&nbsp; (I’m
+hoping that somehow last.fm, amazon or itunes will make their samples
+more portable to benefit from click-through - maybe this is impossible
+or unlikely)</i></p></blockquote><p>I replied with this comment, but I'm not sure if it took, so I copied it here because <i>lots of copies keeps stuff safe.</i> <br></p><p>My reply ...</p><p>The
+ technologies that you suggest are necessary to promote a music 
+recommendation ecosystem are spot on.  We need universal song id and a 
+standard playlist format.  The latter already exists. There is a XML 
+playlist format called <a href="http://blogs.sun.com/plamere/xspf.org">XSPF</a>
+ (pronounced 'spiff') that captures all the information needed for 
+portable playlists. It is the product of many smart people (including 
+Lucas Gonze from <a href="http://webjay.com/">WebJay</a> and Robert Kaye from <a href="http://blogs.sun.com/plamere/MusicBrainz.org">MusicBrainz</a>).
+  Many folks are working on tools, APIs and players that generate XSPF 
+playlists, that play XSPF playlists and resolve XSPF playlists.  I think
+ XSPF has the best chance at becoming *the* universal playlist format.  
+As for SongID, there are many commercial audio fingerprinting systems 
+out there that can derive a unique (or nearly unique) ID just based upon
+ the audio.  The problem, however, is that they all cost money to 
+license, and because of that no system has become the standard (defacto 
+or otherwise).  The <a href="http://www.musicip.com/dns/index.jsp">MusicDNS</a>
+ system probably has the best chance, since it is very low cost 
+(essentially free for all but the biggest users), and it ties in with 
+the public domain music metadata being created by the MusicBrainz folk. 
+Still, the problem with a songID system is that unless it is universally
+ used, it is not too useful.  Companies like Apple have little incentive
+ to use such a system, since they already own the market. They'd rather 
+not make it easier for others to work in this space.  My hope has been 
+that a company like Amazon would come along and adopt these standard 
+formats (you can read more about this in <a href="the_top_five_things_that.html"> this post</a>) and make a&nbsp; recommendation ecosystem possible.  It hasn't happened yet.</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 15, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="music_influence_networks.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/music_influence_networks#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="pandora_puts_canada_back_inside">
+
+	<div class="entry-title entry-info">
+			<h3><a href="pandora_puts_canada_back_inside.html" title="permalink">Pandora puts Canada back inside the box.</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p><a href="http://blog.pandora.com/pandora/archives/2007/05/canada.html"></a>Starting&nbsp; tomorrow, Pandora will no longer stream audio to Canada.&nbsp; From the<a href="http://blog.pandora.com/pandora/archives/2007/05/canada.html"> Pandora blog</a></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 15, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="pandora_puts_canada_back_inside.html">Permanent link to this entry</a>
+																| Comments [0]
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+	<div class="entry" id="summer_reading_list">
+
+	<div class="entry-title entry-info">
+			<h3><a href="summer_reading_list.html" title="permalink">Summer Reading List</a></h3>
+		</div>
+
+	<div class="entry-content">
+				<p>Right before JavaOne, I ordered a few books from Amazon to read 
+on the airplane.&nbsp; Unfortunately, they arrived to late for my trip 
+to SFO, so I was left reading an old novel.&nbsp; But now my reading 
+queue is filled with three books. This should keep me reading for a 
+while.&nbsp; On the list:</p><p><b><a href="https://www.amazon.com/Everything-Miscellaneous-Power-Digital-Disorder/dp/0805080430/ref=pd_bbs_1/103-5731364-9108608?ie=UTF8&amp;s=books&amp;qid=1179224316&amp;sr=8-1"><img src="support_files/51CImn6oEBL.jpg" align="bottom" border="0" hspace="0" vspace="0"></a></b><a href="https://www.amazon.com/Cluetrain-Manifesto-End-Business-Usual/dp/0738204315/ref=pd_bbs_sr_1/103-5731364-9108608?ie=UTF8&amp;s=books&amp;qid=1179225238&amp;sr=1-1"><img src="https://kiserai.net/DukeListens/page32_files/41TABDACKHL.jpg" align="bottom" border="0" hspace="0" vspace="0"></a><b>&nbsp;</b><b><a href="https://www.amazon.com/Wikinomics-Mass-Collaboration-Changes-Everything/dp/1591841380/ref=pd_bbs_sr_1/103-5731364-9108608?ie=UTF8&amp;s=books&amp;qid=1179225308&amp;sr=1-1"><img src="https://kiserai.net/DukeListens/page32_files/51M9MTN5QFL.jpg" align="bottom" border="0" hspace="0" vspace="0"></a></b>&nbsp;</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 15, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="summer_reading_list.html">Permanent link to this entry</a>
+																| <a href="https://kiserai.net/DukeListens/summer_reading_list#comments.html">Comments [1]</a>
+								| Comments have been disabled.
+						</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are browsing the main weblog
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="page31.html">Previous page</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="page33.html">Next page</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="support_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-187070-1");
+pageTracker._trackPageview();
+</script>
+</body></html>

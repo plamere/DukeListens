@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ghanni music - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="ghanni_music.html#content">content</a>, <a href="ghanni_music.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="ghanni_music">
+
+	<div class="entry-title entry-info">
+			<h2>ghanni music</h2>
+		</div>
+
+	<div class="entry-content">
+				<p><a href="http://www.ghannimusic.com/">Ghanni music</a> is a 
+content-based music recommender.&nbsp; Type in the name of an artist or a
+ song, and you get recommendations based on music that sounds similar to
+ that song or artist.&nbsp; According to their FAQ, Ghanni&nbsp; uses "<em>advanced pattern recognition and music signal analysis
+techniques to estimate the similarities between your query and the
+songs in our database. The similarity is a function of the rhythm,
+timbre, instrumentation, vocals, and the music surface information we
+automatically extract from a song</em>."</p><p>The web interface to 
+Ghanni, unlike the latest round of social music recommenders,&nbsp; is 
+focused totally on music recommendation. There are no friends, 
+playlists, charts, games, users profiles or any of the seemingly 
+standard features of a Music 2.0 site,&nbsp; just recommendations.</p><p><img src="support_files/ghanni.jpg" align="bottom" border="0" hspace="0" vspace="0" width="95%">&nbsp;</p><p>&nbsp;Ghanni actually gives you 3 types of recommendations:</p><ul><li><strong>Song level recommendation</strong>s - this is something that a content-based site like Ghanni can in theory, do better than a social system,</li><li><strong>Think about artists</strong> - these are similar artists</li><li><strong>Playlist within the same atmosphere</strong></li></ul><p><strong>The Recommendations</strong></p><p>
+ So how are the Ghanni recommendations?&nbsp; I found them to be rather 
+curious.&nbsp; I've worked with enough content-based recommenders to 
+know what to expect.&nbsp; Content-based recommenders will often 
+recommend music by different artists, different genres and era.&nbsp; 
+Content-based recommenders will do things like put&nbsp; Eleanor Rigby 
+closer to a string quartet than to Helter Skelter.&nbsp;&nbsp; Since 
+unlike social recommenders, content-based recommenders don't care about 
+popularity, content-based recommendations will tend to include many more
+ unknown artists than a social recommender. </p><p>The curious thing 
+about Ghanni is that their recommendations seemed more like social 
+recommendations than content-based recommendations.&nbsp;&nbsp;</p><p>I 
+started with the song 'Hey Jude' by the Beatles.&nbsp; Recommendations 
+received were 'Surfer Girl' by the Beach Boys, 'Dear Prudence' by the 
+Beatles,&nbsp; 'Laughter in the Rain' by Neil Sedaka, 'Tangerine' by Led
+ Zeppelin, and 'Fight for your honor' by Chicago.&nbsp; All classic rock
+ from the same era by very popular artists.</p><p>Next up, I tried a 
+song by 'Clap your hands say yeah' called 'Is this Love?'.&nbsp; I 
+received recommendations for songs by Razorlight, Catatonia, Rilo Kiley,
+ Stellstarr, and Bloc Party.&nbsp; All indie artists that have been 
+popular in the last 5 years or so.</p><p>Final test - '<a href="https://en.wikipedia.org/wiki/Revolution_9">Revolution #9</a>'
+ by the Beatles.&nbsp; This song is so unlike any other song by the 
+Beatles, or for that matter any other pop song released during the 60s 
+or 70s. I'd expect recommendations for songs by artists such as&nbsp; <a href="https://en.wikipedia.org/wiki/Karlheinz_Stockhausen" title="Karlheinz Stockhausen">Karlheinz Stockhausen</a> and <a href="https://en.wikipedia.org/wiki/John_Cage" title="John Cage">John Cage</a>.&nbsp; Instead, Ghanni gives me more Beatles, Ike and Tina Turner, Bo Diddley, and Tom McRae.&nbsp; Not a single example of <a href="https://en.wikipedia.org/wiki/Musique_concr%C3%A8te">Music Concrete</a>.&nbsp;&nbsp;
+ When I ask for a playlist within the same atmosphere, it looks like 
+playlist from the latest classic rock radio station: Beatles, Led 
+Zeppelin, Cream, Eagles, Doors, Ike and Tina.</p><p><em>Update: </em>Oscar points out that if you ask for <a href="http://www.ghannimusic.com/ghanni-music-selection.php?id=70216">recommendations related to a French song</a>,
+ all of the recommendations are&nbsp; French songs.&nbsp; Although very 
+desirable, this type of recommendation is far beyond the 
+state-of-the-art for content-based recommendations.<br></p><p>So what is
+ going on here? These don't seemed to be content-based recommendations 
+at all!&nbsp; Are they trying to pull the wool over our eyes? My guess 
+is that the scientists at Ghanni decided to use all data that was 
+available to them to build their similarity models. So in addition to 
+their content-based features related to timbre, pitch and tempo, they 
+are including features that are typically found in a song's metadata. 
+This include&nbsp; the year of release and the genre of the song.&nbsp; 
+This is a perfectly reasonable thing to do, any machine learning 
+scientist will tell you to use all of the data that you can.&nbsp; 
+However, it appears that these features derived from the metadata are 
+overwhelming the content based features.&nbsp; The resulting 
+recommendations lack the 'aha' factor that come with content-based 
+recommenders.&nbsp; There are no surprise linkages across genres. Just 
+rather pedestrian recommendations that you could easily get from the All
+ Music guide.</p><p>Ghanni seems to have some <a href="http://www.ghannimusic.com/ghanni-music-about1.php?an=3">smart people</a>
+ on their team, so we can expect them to improve their recommendations. 
+But for&nbsp; right now, the recommendations don't seem to be any better
+ than what you could get from the many other music recommenders that are
+ out there.&nbsp;&nbsp;&nbsp; <em>Thanks yet again&nbsp; for the tip, Oscar!</em><br></p><p><br></p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 10, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="ghanni_music.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1176206345000" id="comment-1176206345000"></a>
+            <div class="comment odd" id="comment1">
+
+                Nice analysis! :-)
+
+Btw, how does Oscar always come up with these cool sites?
+
+I also gave it a quick try. I mainly used Jack Johnson and Ani DiFranco 
+as queries. Some of the recommendation results look similar to 
+content-based results I've seen... 
+However, the list of similar artists does seems to use (at least some) 
+non audio based information. 
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>elias</b>
+                
+                on April 10, 2007 at 07:59 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/ghanni_music#comment-1176206345000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1176207276000" id="comment-1176207276000"></a>
+            <div class="comment even" id="comment2">
+
+                The examples: 
+<ul>
+<li>The Beatles, Revolution #9 <a href="http://www.ghannimusic.com/ghanni-music-selection.php?id=32803" rel="nofollow">example</a>.</li>
+<li>Some (content-based?) music based on <a href="http://www.ghannimusic.com/ghanni-music-selection.php?id=69557" rel="nofollow">Madeleine (Jaques Brel)</a>. Only French artists! well done CB-recommender :-)
+</li>
+</ul>
+
+<p>So, it is clear that, at least, they do some 
+filtering/reordering/tweaking after the content-based proposed songs. Or
+ maybe merging two approaches: CB plus editorial metadata. Who knows?
+<br>
+But then, is not a CB recommender but a Hybrid one.
+</p>
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://mtg.upf.edu/"><b>Oscar</b></a>
+                
+                on April 10, 2007 at 08:14 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/ghanni_music#comment-1176207276000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>ghanni music</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="the_king_on_drums.html">The King - on drums</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="quick_and_dirty_persistence.html">quick and dirty...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

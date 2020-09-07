@@ -1,0 +1,430 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>out of the nest - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="out_of_the_nest.html#content">content</a>, <a href="out_of_the_nest.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="out_of_the_nest">
+
+	<div class="entry-title entry-info">
+			<h2>out of the nest</h2>
+		</div>
+
+	<div class="entry-content">
+				The Echo Nest has released their <a href="http://the.echonest.com/recommend/">new recommendation API</a>.
+  The API will give you recommendations based upon a single artist or a 
+set of recommended artists.  Echo Nest is one of the few commercial 
+recommenders that doesn't rely on collaborative filtering for 
+recommendations.  Instead, the Echo Nest combines information from 
+"online cultural data, text analysis, audio analysis and user activity".
+
+The API is very easy to use.  You make queries like this to lookup 
+artist IDs:
+
+<pre>http://api.echonest.com/lookup?api_key=MY_KEY&amp;names=the+beatles
+</pre>
+Once you get an artist ID you can get recommendations with this request:
+
+<pre>http://api.echonest.com/recommendations?api_key=MY_KEY&amp;ids=AR6XZ861187FB4CECD
+</pre>
+
+Some recommendations using the new Echo Nest Recommendation API
+
+Seed Artist of Jimi Hendrix:
+
+<ul>
+<li>Cream,
+</li>
+<li>HendriX
+</li>
+<li>Stevie Ray Vaughan
+</li>
+<li>Jeff Beck
+</li>
+<li>The Jimi Hendrix Experience
+</li><li>Eric Clapton
+</li>
+<li>Funkadelic
+</li>
+<li>Buddy Miles
+</li>
+<li>Michael Hill
+</li>
+<li>Doyle Bramhall II</li>
+</ul>
+
+Seed artist of Led Zeppelin:
+
+<ul><li>LED</li>
+<li>Deep Purple
+</li>
+<li>Bonham</li>
+<li>Page and Plant</li>
+<li>Black Sabbath</li>
+<li>Aerosmith</li>
+<li>The Who</li>
+<li>Bad Company</li>
+<li>AC/DC</li>
+<li>Cream</li></ul>
+
+Seed artist of Miles Davis:
+
+<ul><li>Miles David and John Coltrane</li>
+<li>Miles Davis Sextet</li>
+<li>Miles Davis Quintet</li>
+<li>John Coltrane</li>
+<li>Charlie Parker</li>
+<li>Kenny Dorham</li>
+<li>Wayne Shorter</li>
+<li>Wynton Marsalis</li>
+<li>Bill Evans</li>
+<li>Thelonious Monk</li></ul>
+
+Seed artist of the Beatles
+
+<ul><li>Badfinger</li>
+<li>George Harrison</li>
+<li>The Hollies</li>
+<li>The Animals</li>
+<li>John Lennon and Paul McCartney</li>
+<li>Paul McCartney</li>
+<li>The Beau Brummels</li>
+<li>The fourmost</li>
+<li>Peter and Gordon</li>
+<li>George Martin</li></ul>
+
+Seed artist of Emerson Lake and Palmer
+
+<ul><li>Rick Wakeman</li>
+<li>Emerson, Lake &amp; Palmer</li>
+<li>Patrick Moraz</li>
+<li>Yes</li>
+<li>Gentle Giant</li>
+<li>Steve Hackett</li>
+<li>King Crimson</li>
+<li>Colosseum</li>
+<li>Tony Banks</li>
+<li>Graham Bond</li></ul>
+
+<p></p>
+The recommendations, for the most part look pretty good. There's less 
+popularity bias than you'd typically see with a collaborative filtering 
+algorithm.  Still, there are some funny bits.  If you like Miles Davis, 
+there are 3 other types of Miles Davis that you might like (but I bet 
+you could have figured that out without a fancy recommender). Also, 
+cover and tribute bands seem to feature prominently.
+<p></p>
+There were a few little glitches with the web services.  The returned 
+XML was not always well formed ('&amp;' characters were not properly 
+turned into entities), some artist searches failed for no apparent 
+reason (I couldn't find 'the beatles' or 'weezer' with the 'suggest' 
+call).
+<p></p>
+ I'm not sure if these recommendations would pass the <a href="music_recommender_turing_test_results.html">recommender Turing test</a>.
+ Not too many people would offer a recommendation of Lennon and 
+McCartney for Beatles
+fans - it is too obvious.  Same with Jimi Hendrix and the Jimi Hendrix 
+Experience. However, the Graham Bond recommendation for Emerson Lake and
+ Palmer is brilliant and one that I've never seen made by any other 
+recommender (human or machine).
+<p></p>
+The Echo Nest gives these recommendations for free (for up to a certain 
+amount per day). If you want to make many requests, you can buy a 
+license from the nest.  Also, the Echo Nest is offering free unlimited 
+recommendations to the first 100 small music sites that register for the
+ API.  You can't beat free, <a href="http://the.echonest.com/recommend/earlybird.html">so sign up quick</a>!
+<p></p>
+I'm really pleased to see the Echo Nest releasing these services.  This 
+is just the type of service that the next generation web companies that 
+are trying new ways to deliver music really need.
+
+
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: May 11, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="out_of_the_nest.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1210592551000" id="comment-1210592551000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>hi paul, thanks for checking it out and for the feedback. The API 
+level issues (encodings and search issues etc) will be fixed shortly.</p>
+
+
+<p>Regarding the recommendations themselves: not sure if you've noticed 
+but aside from "anonymous" recommendations/similarity (which in my mind 
+will always be generic for top-5000 artists to the point of useless -- 
+return Lennon etc for the Beatles) we are also offering "registered" 
+recommendation services. The registered service only returns results 
+from the world of artists you've registered so you'll see less of the 
+obvious results. It's meant for sites that want to lead people to 
+content they know about (sell, provide content, or talk about.)</p>
+
+
+<p>Also, not sure if you've checked out the Echotron beta yet but on 
+there we are planning to provide a "popularity slider" that will show 
+recommendations along different strata of familiarity. I always have 
+mine on "obscure" :)</p>
+
+
+<p>As always, and I say this every time I post on your blog, but stay 
+tuned for more stuff. This is the first of a lot more in the queue. </p>
+
+
+<p>-brian</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://the.echonest.com/"><b>Brian Whitman</b></a>
+                
+                on May 12, 2008 at 07:42 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/out_of_the_nest#comment-1210592551000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1210613929000" id="comment-1210613929000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>ps the beatles/weezer and encoding stuff should be fixed up as of now. -B</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://the.echonest.com/"><b>Brian Whitman</b></a>
+                
+                on May 12, 2008 at 01:38 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/out_of_the_nest#comment-1210613929000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>out of the nest</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="javaone_take_home_1_hudson.html">JavaOne take home #1...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="state_of_the_music_industry.html">State of the Music...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

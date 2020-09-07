@@ -1,0 +1,889 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Content analysis and the cold-start problem - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="content_analysis_and_the_cold.html#content">content</a>, <a href="content_analysis_and_the_cold.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="content_analysis_and_the_cold">
+
+	<div class="entry-title entry-info">
+			<h2>Content analysis and the cold-start problem</h2>
+		</div>
+
+	<div class="entry-content">
+				A classic problem in traditional collaborative filtering 
+recommendation is the 'cold start' problem.  It is hard to generate 
+recommendations for new items because there isn't enough taste data 
+about the new items to make reliable correlations with other items.  
+That's where content analysis comes in. The cold start problem can be 
+alleviated by basing recommendations on similarity of content as well as
+ the wisdom of the crowds.  New items can be analyzed and enrolled into a
+ recommender, making these items available and recommendable. 
+<p>
+However, using content-based techniques doesn't guarantee the 
+elimination of the cold-start problem.  Pandora, everyone's favorite 
+Internet Radio, uses content-analysis to drive their customized radio. 
+However, since Pandora performs all of their analysis by hand, there may
+ be some lag before your favorite artist makes it into the Pandora 
+catalog.
+</p><p>
+There's another content-based recommender - <a href="http://beta.booklamp.org/">BookLamp.org</a>.  The BookLamp F.A.Q describe BookLamp as a
+</p><blockquote>"book recommendation system that uses the full text of a
+ book to match it to other books based on scene-by-scene measurements of
+ elements such as pacing, density, action, dialog, description, 
+perspective, and genre, among others. In other words, BookLamp.org is a 
+Pandora.com for books, based on an author's writing style. If you match 
+against multiple books, the self-learning system adjusts your formulas 
+to make the match specific to your tastes. As the system moves out of 
+beta, it will also incorporate human feedback into the recommendation 
+systems, blending the strengths of social networks with the strengths of
+ computer analysis. Ultimately, we want users to be able to create and 
+share their own formulas, creating a community of book lovers that have 
+tools to discover and share books in a way never before possible.
+
+Because the system matches books through objective data from the text 
+itself instead of relying solely on social networks to generate 
+recommendations, the recommendations are impervious to outside 
+influences such as advertising or author marketing. It also allows you 
+to match to a far greater detail than alternative systems. With 
+BookLamp, you can request a book similar to Stephen King's The Stand, 
+but half the length, first person, literary mainstream fiction, with 
+slightly more dialog, less description, and a rising action level across
+ the first 10 scenes. If that's what you're looking for".</blockquote>
+<p>
+It is a neat idea, and sounds very similar to the types of things we are
+ doing with Search Inside the Music and Project Aura.  Using content 
+analysis gives you better ways to help people discover new items. 
+However, BookLamp has its own cold start problem.  Again, from the 
+BookLamp FAQ:
+</p><p>
+</p><blockquote><strong>Does BookLamp Work? Can I use it right now to find a book to read?
+</strong><p>
+	The simple answer to this question is that while BookLamp works, it 
+doesn't have enough books in the database to work well. While the 
+technology behind the system is capable of finding you books to read 
+right now, BookLamp will remain a technology demonstration until we have
+ a large enough database of books to give the system enough data to make
+ realistic recommendations. Without more books, not only will most users
+ have a hard time finding a book to match against, but the system will 
+have a limited number of books that are capable of being matches. In 
+other words, if we don't have a book in the database that matches, we 
+won't be able to recommend a book for you. Additionally, with so few 
+books in the database, we're not able to match against all the metrics 
+that we would like. In order to be the most effective, BookLamp needs to
+ match against 7 to 8 metrics; with less than 300 books in the database,
+ we're having to make recommendations after matching against only 3 or 4
+ metrics. To get any matches at all, we've had to turn down the 
+sensitivity of the measures (see the next question) a bit already.We 
+estimate that it will take a database of at least 10,000 books to make 
+BookLamp a usable system. The more, the better.</p></blockquote>
+<p>
+So BookLamp has a bit of a problem, with only 300 books in its database,
+ it is not going to be the best book recommender.  And unlike music, it 
+is not so easy to enroll a new book - scanners and page turners are 
+involved.  So BookLamp is trying to figure out its next step. If I were 
+them, I'd build a recommender for the  <a href="https://www.gutenberg.org/wiki/Main_Page">Gutenberg project</a>
+ with its over 25,000 titles. Of course there are no NY Times best 
+sellers in the bunch, but it would be a great way to fine tune the 
+content-analysis while providing a service to a worthy project.
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Apr 25, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: recommendation</p>
+	<p class="entry-links">
+		<a href="content_analysis_and_the_cold.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1209145402000" id="comment-1209145402000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Sure, Pandora is content-analysis.. but not really.  Pandora is more 
+of a tag or label approach.  The tags come from musical properties of 
+the content of the song, yes that is true.  But they are very coarse, 
+blunt hammers.  Reducing the content analysis of a song to a 1 through 5
+ label of the amount of vibrato robs the recommender of the ability to 
+actually map out a complex vibrato acoustic space, and compare the 
+vibrato of two different songs directly, within that space.  By making 
+that final label decision/classification, it robs the system of a lot of
+ the subtlety that could really make the difference in content-based 
+systems.  Same thing with lots of the other Pandora labels.. when things
+ like rhythm or voice gender or etc. get tagged.  A decision gets made 
+too early, which limits the search space.</p>
+
+
+<p>A better analogy might be to the color space.  Suppose I am trying to
+ compare / assess the similarity of two images, via a color histogram.  
+The best way to do this is to start with a color histogram of every RGB 
+pixel value.  In this manner, you can learn functions over the entire 
+color space (all 16 million values).  </p>
+
+
+<p>The Pandora approach, on the other hand, starts by reducing these 16 
+million values to a very small set, say {red, orange, yellow, green, 
+blue, indigo, violet}.  They use human experts to label the content of 
+an image with these seven color labels, and then they do their 
+similarity calculations in this impoverished space.</p>
+
+
+<p>What I would really like to see, what no one has still yet managed to
+ create, is a content-based system that uses hundreds of features 
+(rhythm, vibrato, vocal timbre, harmony, etc.), each feature in its 
+*full* musicological function space, to do recommendation.</p>
+
+
+<p>I wonder how many of these problems we could overcome, if we were able to take things to that level.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 25, 2008 at 01:43 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209145402000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209401297000" id="comment-1209401297000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>I don't like how you present content-based as a solution to 
+collaborative cold-start problem. Sounds as if it's only a fallback 
+solution. I think it deserves to be considered as a whole different 
+approach that doesn't need to exist solely to alleviate the problems of 
+collaborative engines.</p>
+
+
+<p>I know, it's not what you really think of content-based system; I just have a gripe with the introduction.</p>
+
+
+<p>...</p>
+
+
+<p>About the dataset coldstart problem, it's something we've faced in 
+our research, though digital music is easier to come by than digital 
+books. Our official solution is to deal with the content owners 
+themselves, and without having to get a direct access to the digital 
+files (copyrights maze), you can get the "features" you want with a 
+simple standalone analyzer program. Makes testing the system difficult, 
+but </p>
+
+
+<p>Gutenberg project is obviously a very interesting dataset to 
+bootstrap BookLamp.org, and once they show their recommendation's 
+quality on this dataset, perhaps they'll convince some editing companies
+ to run the "feature extractor" on their books, so NYTimes best sellers 
+finally make their way into the BookLamp database.</p>
+
+
+<p>---</p>
+
+
+<p>@Jeremy</p>
+
+
+<p>WhileI tend to share your interest for full-space feature scales, I 
+think the Pandora approach has some redeeming qualities. Human 
+involvement, I think, is adding a layer of editoriality, authority to 
+the real features, something an automated system could hardly ever get. 
+Also, while you can get hundreds of automatic features for a song, a 
+human listener can select which are the important features and which are
+ not. This can be both good and bad, but I'm not sure Pandora's approach
+ is so much on the bad side...</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Marc-O</b>
+                
+                on April 28, 2008 at 12:48 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209401297000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209406640000" id="comment-1209406640000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Marc-O: I apologize if I implied that the Pandora approach is "so 
+much" on the bad side.  There is a lot of merit to what Pandora does, 
+most of all for the fact that they actually have a working system out 
+there, in mass use.  That by itself is 90% of the solution, and they 
+should be commended for it, most definitely.  </p>
+
+
+<p>My comment was targeted mostly at the notion that the feature space 
+that Pandora uses is impoverished.  I mean, they represent vibrato on a 
+5-point scale (or at least they did, back in 2005, when I attended a 
+talk by Tom Conrad).  </p>
+
+
+<p>I just don't think you can accurately represent music on such an 
+impoverished level.  And that fact is independent of the issue of "human
+ involvement and editoriality" versus automated machine methods.  </p>
+
+
+<p>First of all, it ignores the fact that even automated methods can 
+have "authority to the real features", as you say.  Even automated 
+methods are designed by humans, and the intelligence that goes into 
+algorithms are imbued with human authority and editoriality.  Juan Bello
+ and I have a good example of this, our ISMIR 2005 paper (Robust 
+Mid-Level Representation for Harmonic Content in Music Signals) in which
+ we use automated, machine learning methods (HMMs).  But rather than 
+just use the machine learning methods as pure number crunchers, as had 
+been done for years previously, we imbue the machine learning methods 
+with musicological, human-centered intelligence.  Ie., we use 
+human-based musical knowledge to constrain and guide the algorithms.  </p>
+
+
+<p>But again, that is not the main issue.  The main issue is that, in 
+order to allow humans to label hundreds of thousands of songs in a 
+reasonable amount of time, Pandora uses an impoverished feature space.  
+Representing vibrato on a 5-point scale is like representing color with 
+the 7 ROYGBIV colors of the rainbow.  Sometimes there are colors, such 
+as blue-green (aka cyan aka teal) that don't really fit anywhere into 
+this label set.  Cyan is not really blue, and it is not really green.  
+But a human, doing a Pandora-style labeling of colors in an image, is 
+going to have to pick one or the other.  And that is just not as good as
+ having a richer representational space for a feature.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 28, 2008 at 02:17 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209406640000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209407299000" id="comment-1209407299000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>Marc-O: FWIW, even automated methods rely on humans to judge which 
+features are important and which are not.  Humans build into the 
+intelligence of the algorithms a certain preference for some features 
+and not for others.  </p>
+
+
+<p>Conversely, even human methods rely on machine learning to judge 
+which features are important and which are not.  At that same 2005 
+presentation I attended, where Tom Conrad explained the inner workings 
+of Pandora, he talked about how Pandora uses your thumbs up/down 
+feedback to automatically adjust and re-weight certain feature values, 
+so as to steer Pandora's recommender engine toward song with the types 
+of features that you like, and away from ones that you don't.  </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 28, 2008 at 02:28 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209407299000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209412540000" id="comment-1209412540000"></a>
+            <div class="comment odd" id="comment5">
+
+                
+<p>Jeremy:<br>
+The involvement of machine learning you speak of is beside the point of 
+tagging, which it what I was referring to. Yes, Pandora (I guess) does 
+some machine learning to model users against the tags. I was referring 
+to machine learning for the tagging process, which they don't seem to do
+ (yet).</p>
+
+
+<p>As for the human involvement in machine learning, yes, it's often 
+present. The "human authority" I spoke of still differentiate the 
+tagging process though. I think the fact that a tag was applied by a 
+human rather than by a machine is important information for the user. 
+That is of course, debatable, but for the general public, I think this 
+information (human tagging) is worth something. A human decision (and 
+error) is easier to explain, and to forgive, than the result of a neural
+ network... </p>
+
+
+<p>Or perhaps I'm wrong, and people judge primarilly from the quality of the results, whatever created them... </p>
+
+
+<p>I agree the 5-point scaling system is weak. It's most possibly a 
+trade-off to accelerate things in the labelling. However, is the 
+absolute accuracy of the tagging really that relevant to the use Pandora
+ makes of it? So far I don't see Pandora (which I actually don't know 
+very much I admit) trying to really classify things precisely as much as
+ making good content-based recommendations. Perhaps even if the 
+precision of the tagging ain't great, it's possible to make good 
+recommendations. Perhaps a gain in precision isn't that important to the
+ recommendations anymore.</p>
+
+
+<p>Also, how precise can the scale be so that human taggers still do the
+ job consistently (among themselves)? A 5-point scale is simpler to use,
+ and probably hides just fine the fact that one person's 7.1 is 
+another's 8.4.</p>
+
+
+<p>It's still beside the point. Pandora's pretty much stuck with the 
+system they've created in the first place; they're mostly prisoners of 
+the state of their database so far, because re-tagging would cost too 
+much. I think in the end, that might be the biggest flaw in their 
+method: the inherent inertia of the dataset.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Marc-O</b>
+                
+                on April 28, 2008 at 03:55 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209412540000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209417009000" id="comment-1209417009000"></a>
+            <div class="comment even" id="comment6">
+
+                
+<p>&gt;I think the fact that a tag was applied by a human rather than by
+ &gt;a machine is important information for the user. That is of 
+&gt;course, debatable, but for the general public, I think this 
+&gt;information (human tagging) is worth something. A human decision 
+&gt;(and error) is easier to explain, and to forgive, than the result 
+&gt;of a neural network...</p>
+
+
+<p>Yes, I certainly agree with you that, in terms of explanatory 
+analysis, having a human tag is better than having a machine-generated 
+tag.</p>
+
+
+<p>The main point of my original comment, however, was to suggest moving
+ beyond tags for content-based analysis.  My point was to suggest that 
+(human-driven machine-learning) algorithms should (1) map raw acoustic 
+data into a large musicological representational space, and then (2) do 
+the matching directly, in that representational space.</p>
+
+
+<p>Why use tags as an intermediary?  Why use tags at all, either human OR machine-driven?  </p>
+
+
+<p>For example, if I am trying to match the rhythmic constructs of two 
+songs, one approach would be to label the rhythmic genre of each song 
+(e.g. "cha cha" or "bossa nova"), and then match two songs if their 
+labels match.  I do not distinguish between a human-labeled rhythm, or a
+ machine-labeled rhythm.  At this level of abstraction, it doesn't 
+matter how the label was arrived at.  What matters is that you've 
+collapsed your representation of the entire song to a single label.</p>
+
+
+<p>I contrast that approach with one that NEVER tags or labels the 
+music.  It only looks at the music itself.. the beats, the timbres of 
+the beats (was this a high hat? Was that a snare? was that a bass 
+kick?), and it looks at the metric levels of the beats.  And then to 
+determine the rhythmic similarity of two songs, it looks at whether 
+various kicks and hits and syncopations occur in similar periodicities. 
+ </p>
+
+
+<p>In other words, it never bothers assigning a semantic label to the 
+song at all.  It just looks at the actual content of two songs, and does
+ a direct, musically-meaningful match.  </p>
+
+
+<p>That's the sort of recommendation engine that I would like to see more of. </p>
+
+
+<p>&gt;Or perhaps I'm wrong, and people judge primarilly from the &gt;quality of the results, whatever created them...</p>
+
+
+<p>I agree with you here.  At the end of the day, it shouldn't matter to
+ the end user whether or not human labels, machine labels, or no labels 
+are used.  What matters is the final quality, yes.  </p>
+
+
+<p>I'm just saying that, overall, I think it is a more productive 
+research path, I think that we are going to get more from content-based 
+methods, by relying on direct similarity measures rather than going 
+through lots of labeling.  </p>
+
+
+<p>&gt;I agree the 5-point scaling system is weak. It's most possibly a &gt;trade-off to accelerate things in the labelling. </p>
+
+
+<p>Yes, that is my guess as to why it is used, too.</p>
+
+
+<p>&gt;However, is the absolute accuracy of the tagging really that &gt;relevant to the use Pandora makes of it? </p>
+
+
+<p>I don't think it is.  Like you say, what matters is the final results.  </p>
+
+
+<p>But this is the whole reason for my original comment.  Why bother 
+tagging at all, if the accuracy of the tags don't matter, or only matter
+ a little bit?  Why not just match up all the beats and timbres, 
+directly?  Why go through this tagging step, with its inherent 
+inaccuracies, at all?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 28, 2008 at 05:10 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209417009000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209419282000" id="comment-1209419282000"></a>
+            <div class="comment odd" id="comment7">
+
+                
+<p>To draw this back to my other example, in the colorspace domain, check out this entry on the blue-green label for color:</p>
+
+
+<p><a href="https://en.wikipedia.org/wiki/Blue-green_across_cultures" rel="nofollow">http://en.wikipedia.org/wiki/Blue-green_across_cultures</a></p>
+
+
+<p>This is, and has always been, the main difficulty of using labels or 
+tags.  In some cultures, blue == green ("grue").  In others, blue, green
+ and cyan are all different colors.  </p>
+
+
+<p>So instead of relying on labels at all, why not just describe colors 
+in terms of their absolute color-space values, regardless of what we as 
+humans label the colors?  </p>
+
+
+<p>"Blue" becomes RGB(0, 0, 255)<br>
+"Green" becomes RGB(0, 128, 0), <br>
+"Cyan" becomes RGB(0, 255, 255), and<br>
+"Teal" becomes RGB(0, 128, 128)</p>
+
+
+<p>So now, worrying about whether the label "blue" matches with the 
+label "green", or with "teal" or whatever, we just look at the distance 
+in color space between RGB values.  Blue and green are a lot closer to 
+each other than to, say, deep pink: RGB(255, 20, 147).  </p>
+
+
+<p>So again, why use labels at all?  Why not just measure similarity, directly?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 28, 2008 at 05:48 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209419282000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209430009000" id="comment-1209430009000"></a>
+            <div class="comment even" id="comment8">
+
+                
+<p>Sorry, I mean "Green" is RGB(0, 255, 0).</p>
+
+
+<p>Silly me.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 28, 2008 at 08:46 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209430009000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209488289000" id="comment-1209488289000"></a>
+            <div class="comment odd" id="comment9">
+
+                
+<p>alright, let me state first that, on a content-based level, I want 
+the same thing as you. I'm all for matching real measures instead of 
+tag-approximations. Actually, that's what we try to do/want to do (at my
+ job).</p>
+
+
+<p>I think in the end, it comes down to Pandora's decision to choose 
+humans over computers to put information on the songs. They're locked in
+ the pattern they chose. While I think there is great power attainable 
+via the machines, it's a choice that asks for more work, that is more 
+uncertain as to what is possible and what isn't (a priori AND a 
+posteriori - sometimes, what the machine says is difficult to 
+understand, and to explain).</p>
+
+
+<p>Still, and I don't plan here to draw this argument much longer 
+because I think we agree on all that matters, I think that sometimes, 
+the human tags, the discretization of a real-value scale, can gather 
+some precious value, mostly invisible to the machine.</p>
+
+
+<p>Because it's, in the end, a human that applies the tag, that person 
+is passing the information through it's own ears/brain, and what exits 
+might be sometimes more than what a machine can hear/compute. The 
+real-value scale of musical features might not always matter in a simple
+ linear or logarithmic scale (hell, it could even be non-monotonic), and
+ the discretization used via tags might map the real-value scale to a 
+discrete tag-scale that is more likely to make sense to whatever 
+algorithm we use for the final recommendations.</p>
+
+
+<p>If I take your color example, yes, in the end I'd prefer to use RGB 
+myself. But passing through color names (tags) instead of the real color
+ might have some gain. We could simply assume that the tags are simple 
+approximation, discretization of the 3D color space, but what if they 
+are not. What if some color tags represent large zones while others are 
+very small? In that case maybe a large difference in numbers on the RGB 
+scale might mean almost nothing to the end users, the human, and that 
+assumed meaningless difference is correctly squiched by the human 
+tagging process!</p>
+
+
+<p>Take infrared for instance. A machine could see it just fine, and 
+care about it a lot (if you let it), while it's totally invisible to the
+ humans. Same for sounds. There are things physically present that 
+people do not hear. The cultural differences for tagging might actually 
+mean that the physical-to-label tagging is different from one culture to
+ another, and that different cultures do not care the same about 
+different features.</p>
+
+
+<p>Ok, here I said "might" a lot, and I lack the knowledge to really 
+make valid hypotheses out of that. I also only assumed the upsides of 
+human tagging, without mentionning all the problems it can cause, 
+especially the one that caused this post (hence this discussion) in the 
+first place, the "cold-start" time it takes for one element to be added.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Marc-O</b>
+                
+                on April 29, 2008 at 12:58 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209488289000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209518199000" id="comment-1209518199000"></a>
+            <div class="comment even" id="comment10">
+
+                
+<p>I think I get where you're coming from.  Just like you agree that 
+working in raw/pure ("RGB") content space is more interesting, I also 
+agree that there is a strong need for "explanatory" information 
+retrieval and recommendation.  I want search engines and recommenders to
+ not only give me information, but tell me why they gave me that 
+information.  And perhaps having human tags on attributes is a good way 
+to do it.</p>
+
+
+<p>Maybe this is a discussion best suited for in-person, at a cafe or in
+ between sessions at a conference.  Will you be at ISMIR this year?  Can
+ we continue the discussion there?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 29, 2008 at 09:16 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209518199000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209563714000" id="comment-1209563714000"></a>
+            <div class="comment odd" id="comment11">
+
+                
+<p>ISMIR yes. I'm really interested in going there, so yes, we could probably continue the discussion there.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Marc-O</b>
+                
+                on April 30, 2008 at 09:55 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209563714000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1209577324000" id="comment-1209577324000"></a>
+            <div class="comment even" id="comment12">
+
+                
+<p>Sounds good.  Who are ya/where do you work?  (So I know who to approach :-)</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on April 30, 2008 at 01:42 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/content_analysis_and_the_cold#comment-1209577324000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Content analysis and the cold-start problem</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="the_only_2nd_generation_search.html">The only 2nd-generat...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="freakomendations.html">Freakomendations</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

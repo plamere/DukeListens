@@ -1,0 +1,757 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Going where no collaborative filter can go - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="going_where_no_collaborative_filter.html#content">content</a>, <a href="going_where_no_collaborative_filter.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="going_where_no_collaborative_filter">
+
+	<div class="entry-title entry-info">
+			<h2>Going where no collaborative filter can go</h2>
+		</div>
+
+	<div class="entry-content">
+				Most music recommenders use some form of collaborative filtering to 
+connect listeners with new music. That's not a surprise, CF works really
+ well for popular music (which, of course, is what most people are 
+listening to).  But if you are interesting in long tail music, music 
+that is unpopular (or perhaps music that is brand new and doesn't have 
+any listeners), then you are out of luck A collaborative filtering 
+algorithm cannot help you -- CF recommenders rely on the wisdom of the 
+crowds, but that leaves them impotent when there are no crowds.  One 
+approach to the  problem of dealing with new (or unpopular) content is 
+to use a content-based recommender - instead of making recommendations 
+based upon who is listening to a song, the recommendations are made 
+based on what the song sounds like. 
+<p> We've seen a few commercial music recommenders that rely on 
+content-based techniques - MusicIP, Echo Nest, Ghanni, One Llama, 
+Audiobaba,  Owl,  SoundFlavor and Pandora have all had some aspect of 
+content-based recommendation at the core of their systems.  Now there's 
+another content-based recommender to add to the list of contenders - 
+mufin. <a href="http://beta.mufin.com/"><img src="support_files/_mufin-logo.png" alt="mufin-logo.png" style="float: left; margin: 10px;" border="0" height="94" width="356"></a>
+</p><p>
+<a href="http://beta.mufin.com/">Mufin</a> (which stands for <b>Mu</b>sic<b>Fin</b>der) is a content-based recommender that (<a href="http://www.techcrunch.com/2008/10/08/mufin-an-automated-music-recommendation-engine-that-actually-works/">according to Techcrunch</a>) is an offshoot of Fraunhofer (the folks who invented the MP3). Given this pedigree, I had very high expectations for Mufin.
+</p><p>
+</p><h2> The Technology</h2>
+From the<a href="http://business.mufin.com/uk/mufin/technology/"> Mufin Technology page</a>: 
+<p>
+</p><ul><i>mufin uses mathematical extraction of specific details from a
+ music title to create an objective desciption of the title’s 
+characteristics which is independent of human influences. Using this 
+description, songs which are similar to one another can be filtered out 
+of a large database.  Rhythmical characteristics (e.g. intensity of the 
+rhythm, tempo, percussion in the piece), sound colour, harmonic and 
+melodic qualities are weighted differently for the result.
+</i>
+</ul> 
+<h2> My Impressions</h2>
+I was lucky enough to get a invitation to the Mufin private beta - so I took it for a spin - here are my impressions.
+<p>
+<img src="support_files/_mufin-search.png" alt="mufin-search.png" border="0">
+</p><p>
+The Mufin site is very simple to understand.  It has a classic search 
+box where you can search for an artist, album or track.  Since there are
+ nearly 5,000,000 tracks in the catalog you are bound to find what you 
+are looking for.  I searched for bands like Deerhoof, ELP, The Beatles, 
+Hannah Montana, The Feelies, and the Rheostatics.  Mufin had them all.  
+Unfortunately, Mufin won't let you play back all of the songs in the 
+catalog - some songs can be played all the way through, some you can 
+play 30 second excerpts, and some are not playable at all - this is, no 
+doubt due to the crazy licensing issues that plague digital music.  
+Mufin also lets you purchase tracks from iTunes - (allowing Mufin to 
+make some money via referrals).
+</p><p>
+</p><h2> The Recommendations </h2>
+Of course, searching for music is no big deal - what we are interested 
+in are the content-based recommendations.   So lets check them out.
+<p>
+Whenever I try out a new content-based recommender, the first track I usually try is  <a href="https://en.wikipedia.org/wiki/Revolution_9">Revolution #9 </a>by the Beatles. This is a good way to find out if a recommender is really <a href="ghanni_music.html">a CF recommender trying to pose as a content-based recommender</a>.
+  Revolution 9 is so unlike any other Beatles song (or any other Rock or
+ Pop song recorded in the 70s)  - that recommendations from a 
+content-based recommender will yield very different results than what 
+you'd get from a CF recommender.  Using Mufin to find music similar to 
+Revolution #9 yielded a rather strange grab bag of music: Some Wagner, 
+Engelbert Humperdink, UFO, Gershwin, The Disney Aladin Soundtrack, Frank
+ Sinatra, and Ella Fitzgerald. No 70s pop, which is a good sign, but the
+ results seemed to be strongly under the influence of a random number 
+generator.  Not a very good start - but since Revolution #9 is not your 
+typical track perhaps these results were an aberration.
+</p><p>
+<img src="support_files/_muf-rev9.png" alt="muf-rev9.png" border="0">
+</p><p>
+So I moved on to something a bit more conventional - some power pop with from Weezer. I tried the track 'My Name is Jonas'
+</p><p>
+<img src="support_files/_mufin-weezer.png" alt="mufin-weezer.png" border="0">
+</p><p>
+These results looked better with tracks by Foreigner, Cell Division, 
+Guano Apes, Dream Theater. However, there was also quite a bit of heavy 
+metal - Rhapsody, Kamelot, Dio - that didn't really seem to fit to well.
+</p><p>
+Next up was some cool jazz - Take Five by Dave Brubeck. For similar 
+tracks I did get some cool jazz like McCoy Tyner, but also some salsa, 
+some crash test dummies, some blues by McCracklin and Louisiana Red 
+(good stuff, but not anywhere near the cool jazz and syncopated rhythms 
+of Brubeck), some female vocalist/country music by Frances Black, Gospel
+ music by the Jackon Southernaires.  Again it seemed like the random 
+number generator was working overtime on this set of recommendations.
+</p><p>
+<img src="support_files/_muf-takefive.png" alt="muf-takefive.png" border="0">
+</p><p>
+Next up was Led Zeppelins venerable classic Stairway to Heaven:
+</p><p>
+<img src="support_files/_mufin-sw.png" alt="mufin-sw.png" border="0">
+</p><p>
+The recommendations included soul music by Aaron Neville, minimalist 
+electronica (tubular bells), classical piano (Mussorgsky), easy 
+listening (Englebert Humperdink, Paul Anka).  There was no need to 'get 
+the led out' of this list.  One has to wonder about a recommender that 
+puts Engelbert Humperdink in the same list as Mussorgsky's Pictures at 
+an Exhibition.
+</p><p>
+Finally I tried some classical music - with Beethoven's Fifth symphony.
+</p><p><img src="support_files/_muf-beet.png" alt="muf-beet.png" border="0">
+</p><p>
+These recommendations seem to be much better - the recommendations 
+include some more Beethoven, there's Hayden, Handel, Tschaikovksy, 
+Mozart, Chopin, Dvorak and a number of classical film scores.
+</p><p>
+</p><h2> Summmary</h2>
+The Mufin folks have done a good job putting together the Mufin site.  
+They've indexed an incredible amount of music. The search engine and the
+ recommender engine are fast. The site design is clean, and easy to use.
+ However, the content-based recommendations provided by Mufin don't fair
+ well when compared to the type of recommendations one can get from a CF
+ filtering recommender. There is a very high rate of 'clunker' tracks 
+that no human would ever recommend based upon the seed track.  For some 
+seed tracks, the recommendations seemed no better than shuffle play 
+-while for others especially classical, the recommendations seemed to be
+ pretty good.
+<p> The Mufin team are <a href="http://blog.mufin.com/rollercoaster/2008/10/09/en/">working hard</a>
+ to improve their recommendations - I hope they get the kinks out - it 
+would be nice to see long tail, content-based recommendation become a 
+reality.
+
+
+
+
+
+		</p></div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Nov 17, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: General</p>
+	<p class="entry-links">
+		<a href="going_where_no_collaborative_filter.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1227019952000" id="comment-1227019952000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>There are clear stylistic similarities between Beethoven and Haydn, 
+but Handel, Tchaikovsky, Mozart, and Chopin represent *huge* misses for 
+Mufin.  </p>
+
+
+<p>Lumping these disparate composers together says little about the 
+success (or failure) of Mufin, however it boldly proclaims your 
+ignorance of non-popular music -- a common theme I find throughout the 
+MIR community.  </p>
+
+
+<p>And if we humans don't know what we're talkin' 'bout, how we gonna teach the machines?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>70.110.247.5</b>
+                
+                on November 18, 2008 at 09:52 AM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227019952000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227021854000" id="comment-1227021854000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>@anonymous commenter - about  Beethoven, Hayden, Handel, 
+Tschaikovksy, Mozart, Chopin, Dvorak - I wasn't saying these were great 
+recommendations - my point was that at least this set of similar pieces 
+were from the same top level genre (classical), which was better than 
+all of the other sets of similar artists which would span across a 
+number of top level genres.  </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Paul Lamere</b>
+                
+                on November 18, 2008 at 10:24 AM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227021854000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227047728000" id="comment-1227047728000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>But is the way to evaluate these sorts of systems really to feed the 
+algorithm only a single seed track?  I would say that there is so little
+ information contained in a single track that it says more about the 
+quantity of data than it does about the power of the recommender.</p>
+
+
+<p>If I were building a content-based music recommendation engine, I 
+would (1) crawl someone's 1000+ song collection, (2) filter out the more
+ popular tunes, (3) run my content-based feature extraction algorithms 
+and find common features across *all* the songs (not just one song), and
+ then (4) use those features as the basis or input to the recommendation
+ engine.</p>
+
+
+<p>Because otherwise, it is unclear what you really mean when you say 
+"find me something like this one".  The Engelbert Humperdink song might 
+have the same phrase structure as the Mussorgsky piece (e.g. 
+ABABCCAA'BB').  And unless you've specified otherwise, that is as good a
+ match as any.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on November 18, 2008 at 05:35 PM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227047728000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227107480000" id="comment-1227107480000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>Not to beat a dead horse, but I do find this kind of naive misstatement to be an all-to-common occurrence within the community.</p>
+
+
+<p>I come to MIR with an "upside down" resume -- 30+ years in academic 
+music performance and conservatory study with only a decade or so of 
+"self-taught" CS.  And nothing looks more ridiculous than a well formed 
+process producing musically incoherent results that has dozens of MIR 
+research engineers jumping for joy.  (I realize this is not the case 
+here, but I've seen it happen plenty of times...)</p>
+
+
+<p>The "secret ingredient" so often missing from these evaluations is an
+ intimate awareness of the mechanics of musical language.  A true 
+understanding of exactly how musical events can function and be 
+interpreted in various contexts.</p>
+
+
+<p>Put another way, relying on a 200-course-level music theory knowledge
+ base to unravel the complexities involved in understanding music genre 
+classification is about as clever as trying to determine the potential 
+of neural network based approaches to machine learning with only a few 
+months experience hacking around on cgi-perl scripts.</p>
+
+
+<p>So when will the musical scholars show up to shed some light on this otherwise potentially fascinating subject?</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>70.110.247.5</b>
+                
+                on November 19, 2008 at 10:11 AM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227107480000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227111739000" id="comment-1227111739000"></a>
+            <div class="comment odd" id="comment5">
+
+                
+<p>@anonymous - your point is well taken. However, the state-of-the-art 
+for automatic music similarity and classification is such that even 
+simple tasks such as classifying music as 'classical' or 'not classical'
+ (a task that an eight year old, without any music training can do 
+easily) can be challenging for computers. I certainly agree that the MIR
+ field will benefit from deep music theory knowledge, but I don't think 
+it is necessary for every MIR task. </p>
+
+
+<p>I'll stand by my "naive misstatement" - that Mufin's  playlist based 
+on Beethoven's Fifth  is much better than the 'Stairway to Heaven' 
+playlist.  I use the simplest evaluation metric - how many tracks in the
+ top 5 are in the same high level genre of the seed track. For the 
+Stairway list, I would expect similar tracks to be 'rock'  - the Mufin 
+list has  3 'easy listening' tracks, 1 'minimalist / experimental' and 1
+ 'classical' - for a score of zero. For the Fifth symphony playlist, I'd
+ expect 'classical' tracks in the similarity list. Mufin gives me 4 out 
+of 5.  With this basic metric, the Beethoven list is better. I don't 
+think one needs even music theory 101 to make that evaluation.</p>
+
+
+<p>It is still early days for content-based music similarity. These 
+systems make errors that no humans would make - they'll put Led Zeppelin
+ and Englebert Humperdinck in the same bucket, likewise they'll put 
+Beethoven and Chopin in the same bucket. I think it will be a long time 
+before these systems are capable of recognizing musical nuances that 
+someone with your music expertise is capable of recognizing.  </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Paul Lamere</b>
+                
+                on November 19, 2008 at 11:22 AM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227111739000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227123648000" id="comment-1227123648000"></a>
+            <div class="comment even" id="comment6">
+
+                
+<p>Apologies for posting anonymously, but we attend the same conferences
+ and I've often found my views to be unwelcome in certain circles.  That
+ said, I *very much* appreciate your having this conversation with me...</p>
+
+
+<p>And so it appears I haven't made myself entirely clear.  My condensed
+ point (as it applies to your original post) is this: while it may not 
+ring true to an 8-year-old, there may well exist a great deal of musical
+ similarity between Led Zeppelin and Englebert Humperdinck...</p>
+
+
+<p>For example, the instrumental combinations found in both samples are 
+drawn from an awfully short list of candidates.  Both are likely to 
+contain a strong sense of similar (and easily detectable) metric 
+regularity.  It's also very likely that the harmonic structure will be 
+made up of very similar (possibly even the same, in instances like the 
+"blues") diatonic/modal progressions.  </p>
+
+
+<p>*None* of this is at all likely to be the case when comparing Handel to Brahms.</p>
+
+
+<p>So if you're willing to assert that 100+ of years of evolutionary 
+language development throughout numerous (and often disparate) ensemble 
+configurations (solo, choral, chamber, orchestral, etc.) can be lumped 
+into a single genre label, then you'd better accept the fact that 
+"easy-listening" and "heavy metal" belong together as well.  </p>
+
+
+<p>Throughout the MIR community, I see dozens of efforts attempting to 
+organize popular music collections into record industry created genre 
+terms like electronica, trance, synth-pop, and dub.  </p>
+
+
+<p>It seems to me that getting beyond this simplistic view will require 
+experienced investigation into the musical language of specific 
+composers as well as the tendencies of performers.  Experience and 
+awareness that is frequently (and mysteriously) lacking in these 
+circles.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>70.110.247.5</b>
+                
+                on November 19, 2008 at 02:40 PM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227123648000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227148824000" id="comment-1227148824000"></a>
+            <div class="comment odd" id="comment7">
+
+                
+<p>anonymous: Paul does have a point, but I'm also kinda on your side on
+ this one.  There are more ways of organizing music information, and 
+measuring similarity, than just genre.</p>
+
+
+<p>For example, one information need that I've long had, ever since I 
+started social dancing 15 years ago, is the need to find songs that have
+ not only similar rhythmic structures, but also have the right harmonic 
+structure and overall "feel", such that I can dance the same types of 
+dance to those songs.</p>
+
+
+<p>For example, suppose I want to do a cha-cha.  Typically, you would 
+think of cha-chas as more some sort of latin genre.  But there are also 
+songs by Madonna that are wonderful cha-chas.  And I know of at least 
+one song by the post-punk/mod godfather Paul Weller that is a fun 
+cha-cha.  They would not technically fall into the cha-cha genre, but 
+they could very much be used to teach and to dance a cha-cha.</p>
+
+
+<p>And so even though all these song are from different "genres" (who in
+ their right mind would lump Latin with Madonna with post-punk?), they 
+are all similar by means of some deeper, musical structure.  And by 
+means of a specific user information need.</p>
+
+
+<p>I really think that MIR needs more of this sort of processing, the 
+deeper, musical knowledge processing.  And MIR really needs to think 
+longer and harder about what information needs somebody really has.. 
+what they're really after when looking for music.  </p>
+
+
+<p>Because ultimately, what it comes down to is the information need.  
+For some types of information need, Paul is completely correct with his 
+approach.  The surface-timbral, social genres that one gets by throwing 
+bag-of-features machine learning approaches at the content does solve a 
+particular kind of information need.  The deeper rhythmic approach 
+solves another, different need.  And so on.  Both of you are right -- 
+and it really all comes down to the user.  </p>
+
+
+<p>Believe it or not ISMIR was actually founded/started by musicologists
+ and deeper music theorists.  I know.  I was there, back in 2000, 2001, 
+2002.  I saw it.  </p>
+
+
+<p>And in the early days, there was a lot more discussion around 
+musicological approaches.  There have been papers on 
+musicologically-inspired processing and similarity.  There have been 
+papers on performance analysis.  In the last 3-4 years that part of the 
+community has shrunk in size, while the social genre and bag-of-MFCC 
+machine learners have grown in size.  That's ok.  The community is 
+dynamic.  But the musicologists have not disappeared completely.  
+They're still around.  You can find them, discuss with them.  And I 
+would strongly encourage you to do so, and to do your best to 
+publish/share/evangelicize your thoughts and results.  I know there are 
+certain program committee members, from year to year, that share a 
+desire for more of the musicological papers to be accepted, and their 
+voice does hold some sway.  </p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>jeremy</b>
+                
+                on November 19, 2008 at 09:40 PM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227148824000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1227610874000" id="comment-1227610874000"></a>
+            <div class="comment even" id="comment8">
+
+                [Trackback] Bookmarked your post over at Blog Bookmarker.com!
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.blogbookmarker.com/tags/filter"><b>filter</b></a>
+                
+                on November 25, 2008 at 06:01 AM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1227610874000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1228618098000" id="comment-1228618098000"></a>
+            <div class="comment odd" id="comment9">
+
+                [Trackback] Bookmarked your post over at Blog Bookmarker.com!
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.blogbookmarker.com/tags/the-feelies"><b>the feelies</b></a>
+                
+                on December 06, 2008 at 09:48 PM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1228618098000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1228857261000" id="comment-1228857261000"></a>
+            <div class="comment even" id="comment10">
+
+                
+<p>You're right, the recs are quite bad.  Also you're right that Tubular
+ Bells is a wack rec for Stairway to Heaven, but, Tubular Bells is *not*
+ minimalist electronica.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>anonymous</b>
+                
+                on December 09, 2008 at 04:14 PM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1228857261000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1228858111000" id="comment-1228858111000"></a>
+            <div class="comment odd" id="comment11">
+
+                
+<p>@anonymous .. "but, Tubular Bells is *not* minimalist electronica."  -
+ oh sure it is! I was relying on the expertise of none other than Ishkur
+ himself.</p>
+
+
+<p>To see for yourself go to <a href="http://techno.org/electronic-music-guide/" rel="nofollow">http://techno.org/electronic-music-guide/</a></p>
+
+
+<p>Click on 'downtempo', and then click on 'minimalism' and Tubular Bells is the first example.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <b>Paul Lamere</b>
+                
+                on December 09, 2008 at 04:28 PM EST
+
+                <a href="https://kiserai.net/DukeListens/going_where_no_collaborative_filter#comment-1228858111000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Going where no collaborative filter can go</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="visualizing_last_fm.html">Visualizing last.fm</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="be_a_javaone_rock_star.html">Be a JavaOne Rock...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

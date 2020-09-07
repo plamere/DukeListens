@@ -1,0 +1,510 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web performance of Music 2.0 - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="web_performance_of_music_2.html#content">content</a>, <a href="web_performance_of_music_2.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="web_performance_of_music_2">
+
+	<div class="entry-title entry-info">
+			<h2>Web performance of Music 2.0</h2>
+		</div>
+
+	<div class="entry-content">
+				<p><a href="https://www.amazon.com/High-Performance-Web-Sites-Essential/dp/0596529309"><img style="margin: 10px; float: left;" src="https://kiserai.net/DukeListens/support_files/51oxoWmO7AL.html" align="bottom" border="0" hspace="0" vspace="0"></a>I just read the book High Performance Web Sites - which is an excellent
+O'Reilly book about how to improve the performance of your website by
+focusing on the frontend.  This book gives 14 weighted rules to follow
+that will improve the load time of your web page. Reducing the number
+of HTTP requests, gzipping components, adding far-in-the-future expire
+headers all lead to pages that load much faster.
+
+</p><p>The author also describes a tool called <a href="https://developer.yahoo.com/yslow/">YSlow</a> that measures a number
+of performance aspects of your page.  It reports the total load time,
+the page weight, a detail of component loading times, as well as an
+overall score that indicates how well optimized a page is. A score of
+A means that the website is doing all it can to eek out performance,
+while a score of F means that there is plenty of room for improvement. <br></p><p>I applied this tool to 50 well known Music 2.0 sites and recorded the
+front page load time, the YSlow score, the page weight (the amount of
+data downloaded) and the total number of http requests needed to
+download the page.&nbsp;  As you can see from the table, Music 2.0 sites have
+much room for improvement.  The average load time for a Music 2.0 page
+is 6.6 seconds, Ruckus was the worst with a load time of over 30
+seconds. Ruckus also has the lowest YSlow score of 30, showing that
+there are lots of things Ruckus can do to improve its page loading
+time.  According to YSLow, for starters, Ruckus could combine its 23
+javascript files into one, saving 22 very expensive HTTP requests.
+
+</p><p>Note that flash-heavy sites like Musicovery, MusicLens appear to do
+well here, but they've just shifted the loading times into a flash app
+that is not measured by YSlow.
+
+<br><br></p><table><tbody><tr><th>name         </th><th> load time<br> (secs) </th><td style="vertical-align: top;"><br></td><th> score </th><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><th> Page <br>Weight (K)  </th><th><p>&nbsp;HTTP<br>Requests
+</p></th></tr><tr><td>Amazonmp3       </td><td> 4.722  </td><td style="vertical-align: top;"><br></td><td> D (65) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 325.3 </td><td> 57
+</td></tr><tr><td>Aol music       </td><td> 7.6   </td><td style="vertical-align: top;"><br></td><td> F (36) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 306.9 </td><td> 91
+</td></tr><tr><td>All music guide </td><td>12.013 </td><td style="vertical-align: top;"><br></td><td> F (37) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 479.2 </td><td> 113
+</td></tr><tr><td>Amie street     </td><td> 3.291 </td><td style="vertical-align: top;"><br></td><td> F (39) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 576.3 </td><td> 51
+</td></tr><tr><td>Artistserver    </td><td> 5.537 </td><td style="vertical-align: top;"><br></td><td> F (44) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 173.3 </td><td> 39
+</td></tr><tr><td>blogs.sun.com   </td><td> 2.4 </td><td style="vertical-align: top;"><br></td><td> F (58) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 103.3 </td><td> 22
+</td></tr><tr><td>Cruxy           </td><td> 3.491 </td><td style="vertical-align: top;"><br></td><td> F (53) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 707.3 </td><td> 43
+</td></tr><tr><td>Facebook        </td><td> 6.45 </td><td style="vertical-align: top;"><br></td><td> F (43) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 197 </td><td> 110
+</td></tr><tr><td>Finetune        </td><td> 10.6  </td><td style="vertical-align: top;"><br></td><td> F (53) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 129.6 </td><td> 22
+</td></tr><tr><td>Goombah         </td><td> 5.269 </td><td style="vertical-align: top;"><br></td><td> F (49) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 185.2 </td><td> 33
+</td></tr><tr><td>Grabb.it        </td><td> 3.398 </td><td style="vertical-align: top;"><br></td><td> D (67) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 77.4  </td><td> 32
+</td></tr><tr><td>Grooveshark     </td><td> 2.303 </td><td style="vertical-align: top;"><br></td><td> D (60) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 254.4 </td><td> 30
+</td></tr><tr><td>Haystack        </td><td> 5.796 </td><td style="vertical-align: top;"><br></td><td> F (50) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 495.7 </td><td> 71
+</td></tr><tr><td>iLike           </td><td> 4.71  </td><td style="vertical-align: top;"><br></td><td> D (62) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 190.8 </td><td> 24
+</td></tr><tr><td>Lala            </td><td> 5.548 </td><td style="vertical-align: top;"><br></td><td><span style="background-color: rgb(2, 255, 0);"> B (83)</span> </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 33.8K </td><td> 19
+</td></tr><tr><td>Last.fm         </td><td> 3.544 </td><td style="vertical-align: top;"><br></td><td> C (71) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 408.3 </td><td> 59
+</td></tr><tr><td>MP3 Realm       </td><td> <span style="background-color: rgb(87, 255, 0);">.802</span>  </td><td style="vertical-align: top;"><br></td><td><span style="background-color: rgb(2, 255, 0);"> B (83)</span> </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 18.3k </td><td> 7
+</td></tr><tr><td>Midomi          </td><td>29.872 </td><td style="vertical-align: top;"><br></td><td> D (63) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 238   </td><td> 34
+</td></tr><tr><td>Mog             </td><td> 14.712</td><td style="vertical-align: top;"><br></td><td> B (80) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 293.3 </td><td> 53
+</td></tr><tr><td>Mp3tunes        </td><td> 10.886 </td><td style="vertical-align: top;"><br></td><td> F (56) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 439.9 </td><td> 45
+</td></tr><tr><td>MusicBrainz     </td><td> 7.8   </td><td style="vertical-align: top;"><br></td><td> F (44) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 369   </td><td> 35
+</td></tr><tr><td>MusicIP         </td><td> 1.517 </td><td style="vertical-align: top;"><br></td><td> C (72) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 80.3  </td><td> 11
+</td></tr><tr><td>MusicLens       </td><td> .965  </td><td style="vertical-align: top;"><br></td><td> A (96) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 5     </td><td> 2
+</td></tr><tr><td>MusicMobs       </td><td> 2.372 </td><td style="vertical-align: top;"><br></td><td> D (62) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 161.4 </td><td> 31
+</td></tr><tr><td>music.of.interest</td><td>2.239 </td><td style="vertical-align: top;"><br></td><td> C (79) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 105.2 </td><td> 7
+</td></tr><tr><td>Musicovery      </td><td> 1.315 </td><td style="vertical-align: top;"><br></td><td> A (92) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 144.6 </td><td> 5
+</td></tr><tr><td>MyStrands       </td><td> 5.463 </td><td style="vertical-align: top;"><br></td><td> F (55) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 222.5 </td><td> 33
+</td></tr><tr><td>Napster         </td><td> 3.876 </td><td style="vertical-align: top;"><br></td><td style="background-color: rgb(255, 0, 0);"> F (27) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 374.9 </td><td> 58
+</td></tr><tr><td>OWL Multimedia  </td><td> 3.963 </td><td style="vertical-align: top;"><br></td><td> F (36) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 469.2 </td><td> 49
+</td></tr><tr><td>OneLLama        </td><td> 11.777</td><td style="vertical-align: top;"><br></td><td> F (40) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 341.4 </td><td> 59
+</td></tr><tr><td>Pandora         </td><td> 5.732 </td><td style="vertical-align: top;"><br></td><td> D (63) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 957.5 </td><td> 17
+</td></tr><tr><td>QLoud           </td><td> 1.336 </td><td style="vertical-align: top;"><br></td><td> F (52) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 206.7 </td><td> 38
+</td></tr><tr><td>Radio Paradise  </td><td> 2.445 </td><td style="vertical-align: top;"><br></td><td> F (55) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 254   </td><td> 60
+</td></tr><tr><td>Rate Your Music </td><td> 7.951 </td><td style="vertical-align: top;"><br></td><td> C (71) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 634.9 </td><td> 71
+</td></tr><tr><td>Rhapsody        </td><td> 7.183 </td><td style="vertical-align: top;"><br></td><td> F (31) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 782.1 </td><td> 121
+</td></tr><tr><td>Ruckus          </td><td><span style="background-color: rgb(255, 0, 0);">34.039</span> </td><td style="vertical-align: top;"><br></td><td> F (30) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 766.2 </td><td> 73
+</td></tr><tr><td>Shoutcast       </td><td>2.452  </td><td style="vertical-align: top;"><br></td><td> D (61) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 96.4  </td><td> 22
+</td></tr><tr><td>Shazam          </td><td> 10.442</td><td style="vertical-align: top;"><br></td><td> F (56) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 507.8 </td><td> 46
+</td></tr><tr><td>Slacker         </td><td> 16.803</td><td style="vertical-align: top;"><br></td><td> F (48) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 373.5 </td><td> 25
+</td></tr><tr><td>Snapp Radio     </td><td> 11.747</td><td style="vertical-align: top;"><br></td><td> C (78) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 38.6  </td><td> 8
+</td></tr><tr><td>Snapp Radio2    </td><td> .986  </td><td style="vertical-align: top;"><br></td><td> B (85) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 68.2  </td><td> 5
+</td></tr><tr><td>Songbird        </td><td> 5.636 </td><td style="vertical-align: top;"><br></td><td> D (61) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 621.2 </td><td> 37
+</td></tr><tr><td>Soundflavor     </td><td> 7.879 </td><td style="vertical-align: top;"><br></td><td> F (44) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 559.1 </td><td> 60
+</td></tr><tr><td>Spiral Frog     </td><td> 3.535 </td><td style="vertical-align: top;"><br></td><td> F (46) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 407.6 </td><td> 90
+</td></tr><tr><td>The Filter      </td><td> 8.229 </td><td style="vertical-align: top;"><br></td><td> F (37) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 710.3 </td><td> 61
+</td></tr><tr><td>The Hype Machine</td><td> 6.395 </td><td style="vertical-align: top;"><br></td><td> F (48) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 159.2 </td><td> 32
+</td></tr><tr><td>Hype Machine(beta) </td><td> 3.92  </td><td style="vertical-align: top;"><br></td><td> F (56) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 233.2 </td><td> 49
+</td></tr><tr><td>Tune core       </td><td> 5.945 </td><td style="vertical-align: top;"><br></td><td> F (47) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 222.3 </td><td> 56
+</td></tr><tr><td>Yahoo Music     </td><td> 5.211 </td><td style="vertical-align: top;"><br></td><td> F (55) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 481.6 </td><td> 35
+</td></tr><tr><td>Youtube.com     </td><td> 4.955 </td><td style="vertical-align: top;"><br></td><td> D (65) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 204.2 </td><td> 65
+</td></tr><tr><td>YottaMusic      </td><td> 2.127 </td><td style="vertical-align: top;"><br></td><td> C (76) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 51.3  </td><td> 42
+</td></tr><tr><td>ZuKool Music    </td><td> 4.046 </td><td style="vertical-align: top;"><br></td><td> D (67) </td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td style="vertical-align: top;"><br></td><td> 244.3 </td><td>20</td></tr></tbody></table><p>&nbsp;I've
+ also included SnappRadio (a mashup that I wrote a while back) along 
+with a rewrite (snappradio2) that uses the Google web toolkit.  One of 
+the primary goals of the GWT is to make sure that your web app performs 
+well.  This is evident, as the load time for my app went from a laggy 12
+ seconds to a snappy one second.</p><p>Looking at this data, it looks 
+like just about all of the music 2.0 sites could cut their page load 
+times in half with just a few simple techniques.&nbsp; Combining 
+javascript code into a single file, adding far-future expiration headers
+ to javascript and images - take little time to implement but can have 
+surprisingly large positive impact on performance.&nbsp;&nbsp; </p><p>I highly recommend the book along with the Yahoo's<a href="https://developer.yahoo.com/performance/"> exceptional performance team's website</a>. Both are filled with techniques and tools for improving web site performamnce.<br>&nbsp;</p>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Oct 15, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="web_performance_of_music_2.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1192488365000" id="comment-1192488365000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>The most important aspect of optimizing front-end web development is 
+making the entire user experience seem as fast as possible.  At 
+Grooveshark, we used a two-pronged attack to make the site as responsive
+ as possible for our users (given, of course, that we’re still in beta 
+and have a little while to go with our optimization work).</p>
+
+
+<p>The first step is making pages load faster.  On the front-end side, 
+we accomplish this by using sprites for bullet-sized images, putting all
+ of the javascript in one file, manipulating CSS and JavaScript 
+positioning, and compressing files to decrease their size.  One of the 
+biggest killers of website performance is the number of HTTP request and
+ for todays fast internet connection, setting up the request usually 
+takes longer than downloading the actual file—spriting images and 
+combining files really increase page loads because they both decrease 
+the number of requests.  We also found that when you compress those 
+combined files, you achieve a better compression rate than when they 
+were separated.</p>
+
+
+<p>For actual JavaScript optimizations, Grooveshark tries to access the 
+DOM as little as possible. For repeatedly used elements, caching 
+drastically improves performance.  Another way of decreasing DOM 
+accesses is to put direct event handlers as attributes in the HTML 
+itself.  This breaks the barrier between logic and content, but the user
+ only cares about fast, easy-to-use websites, and this helps take a big 
+step in that direction.  Another optimization technique that is not 
+always obvious is to always put off any JavaScript action until 
+absolutely necessary—this makes it so that any intensive page processing
+ doesn't slow down the initial page load.</p>
+
+
+<p>These techniques have served us well but we still have some more work
+ to do before we’ll be content with optimization and load times.  
+Reading up on basic code optimization is always a priority.  Doing as 
+much processing on the server as possible also helps in generating a 
+faster experience for the user.  Plus, any of these optimizations are 
+useless without proper benchmarking, because optimizations are useless 
+without any numbers backing them up.</p>
+
+
+<p>As for the future of Grooveshark, there are still more improvements 
+to be made, and new features will be developed that will add value to 
+the user, while keeping any excessive loadtime away from the front-end 
+experience.</p>
+
+
+<p>Anyway, thanks for the writeup!  That comparison chart already helped
+ us gauge some good metrics about the frontend optimization of many of 
+the other sites out there in the digital music scene.  And hopefully 
+next time you check us out, we’ll have a passing YSlow grade.  Keep an 
+eye out. :-)</p>
+
+
+<p>Chanel Munezero<br>
+Web Developer<br>
+<a href="http://www.grooveshark.com/" rel="nofollow">http://www.grooveshark.com/</a></p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.grooveshark.com/"><b>Chanel Munezero</b></a>
+                
+                on October 15, 2007 at 06:46 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/web_performance_of_music_2#comment-1192488365000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1192494635000" id="comment-1192494635000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>I used YSlow when building the ZuKool front end for profiling and we 
+had worked hard on optimization due to the very large download size of 
+the front end web application.Interestingly I would get a B or a C for 
+performance and you got a D? Perhaps that is due to your network 
+bandwidth (my tests were on a 100mb fibre line common to Japanese 
+homes)?</p>
+
+
+<p>One point to bear in mind is that one of YSlows marking points is to 
+use a content distribution network like Akamai and you are docked a mark
+ for not using this. I am not sure of their current rates but this is 
+probably only possible for sites with very high traffic and deep 
+pockets. Without that point everyone might move up a notch. No excuse 
+for Rhapsody however.</p>
+
+
+<p>Another point to bear in mind, and could be added to your handy list,
+ is what nature of site are you accessing. While my front end is very 
+heavy in the first instance it is only to download once and being a web 
+application, as opposed to a web site, there are no more pages and no 
+more downloads (except updated content data) after the initial download.</p>
+
+
+<p>A small word of caution to readers, if you are buying a web 
+performance book make sure you read the date! I bought a similar 
+O'Reilly book but failed to see that the publish date was 2002 and as 
+such was desperately out of date, talking about the web 1.0 world of 
+static text pages, ouch!</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://www.zukool.com/"><b>Ian</b></a>
+                
+                on October 15, 2007 at 08:30 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/web_performance_of_music_2#comment-1192494635000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1192495334000" id="comment-1192495334000"></a>
+            <div class="comment odd" id="comment3">
+
+                
+<p>Ian:  Yep, Zukool gets a D (and still does).  The YSlow benchmark is 
+independent of actual download speed.  Here's the report for zukool:</p>
+
+
+<p>A	1. Make fewer HTTP requests<br>
+F	2. Use a CDN<br>
+F	3. Add an Expires header<br>
+B	4. Gzip components<br>
+A	5. Put CSS at the top<br>
+A	6. Put JS at the bottom<br>
+A	7. Avoid CSS expressions<br>
+n/a	8. Make JS and CSS external<br>
+A	9. Reduce DNS lookups<br>
+A	10. Minify JS<br>
+A	11. Avoid redirects<br>
+A	12. Remove duplicate scripts<br>
+F	13. Configure ETags</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on October 15, 2007 at 08:42 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/web_performance_of_music_2#comment-1192495334000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1192555095000" id="comment-1192555095000"></a>
+            <div class="comment even" id="comment4">
+
+                
+<p>Paul,</p>
+
+
+<p>Thanks for running this test. I'm going to order this and a couple of
+ other books and disperse them in my community and see if our next 
+release can get us to a C or better. :)</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="https://musicbrainz.org/"><b>Mayhem</b></a>
+                
+                on October 16, 2007 at 01:18 PM EDT
+
+                <a href="https://kiserai.net/DukeListens/web_performance_of_music_2#comment-1192555095000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Web performance of Music 2.0</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="the_taste_blog.html">The Taste Blog</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="new_hype_machine.html">New hype machine</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

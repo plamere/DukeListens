@@ -1,0 +1,313 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Songs that make you swing - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="songs_that_make_you_swing.html#content">content</a>, <a href="songs_that_make_you_swing.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div class="shorter" id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="songs_that_make_you_swing">
+
+	<div class="entry-title entry-info">
+			<h2>Songs that make you swing</h2>
+		</div>
+
+	<div class="entry-content">
+				<p>Over the last few days, I've been looking at building a song 
+lyric similarity model.&nbsp; The idea is to build a system that can 
+find songs that have similar lyrics to a seed song.&nbsp; This is 
+useful, for instance, when you want to generate playlists that have some
+ cohesive theme.&nbsp; </p><p>This is a pretty simple idea, but it can 
+be difficult to implement.&nbsp; First, you need a search engine that 
+can efficiently determine document similarity for a large number of 
+documents.&nbsp; Second, you need access to lots and lots of 
+lyrics.&nbsp; Now, I am pretty lucky in that I work with the Advanced 
+Search Technologies folks here in Sun Labs.&nbsp; The AST team has 
+developed an <a href="http://research.sun.com/projects/dashboard.php?id=101">incredible search engine</a>
+ that will let me do all sorts of neat things - document similarity 
+being one of them.&nbsp; With this search engine, I can index the lyrics
+ of each song as a document and then make simple queries to find similar
+ documents.&nbsp; It's fast, it is well architected, and it's written in
+ Java.</p><p><a href="http://www.lyricwiki.org/Main_Page" title="LyricWiki"><img src="support_files/lyricwiki_050806.jpg" style="float: left;" align="bottom" border="0" hspace="0" vspace="0"></a>So,
+ I have a search engine that will do the heavy lifting - but without 
+lyric data, the search engine would have nothing to do.&nbsp; So where 
+can I get a whole lot of lyric data?&nbsp; Why <a href="http://www.lyricwiki.org/Main_Page">LyricWiki</a>
+ of course! LyricWiki is a wikipedia-style song lyric site, that (unlike
+ most lyric sites) provides lyrics without a flood of invasive ads. 
+LyricWiki has a nice clean Wiki-style interface, and they provide a soap
+ interface to their data.&nbsp; With the soap interface, I could easily 
+crawl the site to build up a nice database of lyrics. However, it seemed
+ like it might be a bit anti-social to do that, so I contacted Sean 
+Colombo, the creator of LyricWiki. I explained to him the kind of thing I
+ wanted to do, and he graciously offered to give me a dump of his entire
+ database!&nbsp; What a super thing for him to do!</p><p>So armed with a
+ world-class search engine and 300,000 (!) song lyrics, I've been able 
+to build a song lyric similarity engine.&nbsp; It is pretty neat. First 
+of all, it does a great job of finding song covers (duh!).&nbsp; But it 
+also works well at generating themed playlists.&nbsp;&nbsp; For example,
+ I used <b><a href="http://www.lyricwiki.org/Led_Zeppelin:Gallows_Pole" title="Led Zeppelin:Gallows Pole">Led Zeppelin's Gallows Pole</a></b> as a query.&nbsp; Here's the resulting playlist, filled with songs that will make you swing (in the worst sense of swing).<br></p><ul><li><b><a href="http://www.lyricwiki.org/Peter%2C_Paul_%26_Mary:Hangman" title="Peter, Paul &amp; Mary:Hangman">Peter, Paul &amp; Mary:Hangman</a></b></li><li> <b><a href="http://www.lyricwiki.org/Robert_Plant:Hey_Joe" title="Robert Plant:Hey Joe">Robert Plant: Hey Joe</a></b></li><li> <b><a href="http://www.lyricwiki.org/Dust_For_Life:The_End" title="Dust For Life:The End">Dust for life: The End</a></b></li><li> <b><a href="http://www.lyricwiki.org/The_Walkabouts:Hang_Man" title="The Walkabouts:Hang Man">The Walkabouts: Hang_Man</a></b></li><li><b><a href="http://www.lyricwiki.org/Smog:Hangman_Blues">Smog: Hangman blues</a></b> </li><li><b><a href="http://www.lyricwiki.org/Bay_Laurel:We_Lost">Bay Laurel: We Lost</a></b></li><li><b><a href="http://www.lyricwiki.org/Samael:Worship_Him">Samael: Worship him</a></b></li></ul>This is fun stuff - I'd love to figure out how to make this available for people to play with. Perhaps I'll create a <a href="http://www.xspf.org/">XSPF</a>-generating
+ web site and web service that will give you these playlists.&nbsp; Let 
+me know if you are interested in such a thing.&nbsp;&nbsp; <i><font size="2">Much thanks to Steve and Jeff for help with the search engine, and to Sean for all of the lyrics.</font></i><br>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Mar 02, 2007</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: music</p>
+	<p class="entry-links">
+		<a href="songs_that_make_you_swing.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1172911528000" id="comment-1172911528000"></a>
+            <div class="comment odd" id="comment1">
+
+                "Let me know if you are interested in such a thing."
+
+yes please
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://juniorbonner.net/blog/"><b>juniorbonner</b></a>
+                
+                on March 03, 2007 at 03:45 AM EST
+
+                <a href="https://kiserai.net/DukeListens/songs_that_make_you_swing#comment-1172911528000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1172942084000" id="comment-1172942084000"></a>
+            <div class="comment even" id="comment2">
+
+                Paul this is fantastic. I'd love to hook this into our 
+Second Life xspf parser and player. Could make for some real social fun 
+on the metaverse grid.
+
+Also, can you pipe the output to your playlist resolver?
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://blog.cruxy.com/blog"><b>nathan</b></a>
+                
+                on March 03, 2007 at 12:14 PM EST
+
+                <a href="https://kiserai.net/DukeListens/songs_that_make_you_swing#comment-1172942084000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Songs that make you swing</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="450_million_for_last_fm.html">450 million for...</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="recommender_systems_2007.html">Recommender Systems...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>

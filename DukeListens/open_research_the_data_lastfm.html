@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Open Research - the Data: Lastfm-ArtistTags2007 - Duke Listens!</title>
+           <!-- a reliable way to detect ie in javascript -->
+<script type="text/javascript">lteie6=lteie7=false;</script>
+<!--[if lte IE 6]><script type="text/javascript">lteie6=true;</script><![endif]-->
+<!--[if lte IE 7]><script type="text/javascript">lteie7=true;</script><![endif]-->
+
+
+        
+
+    
+    
+<script type="text/javascript" src="support_files/dom-utils.js"></script>
+<script type="text/javascript" src="support_files/custom.js"></script>
+<link rel="stylesheet" type="text/css" href="support_files/rainforest-custom.css">
+    </head><body class="permalink">
+<div id="pagewrap">
+<div id="innerpagewrap">
+
+<div id="header">
+<div id="innerheader">
+<h1 class="has-subhead"><a href="page0.html">Duke Listens!</a><span class="colon">:</span> <span class="subhead">Visit my main blog at <a href="http://musicmachinery.com/">MusicMachinery.com</a></span>  </h1>
+<p class="skip">Skip to <a href="open_research_the_data_lastfm.html#content">content</a>, <a href="open_research_the_data_lastfm.html#nav">navigation</a>.</p>
+</div><!-- end #innerheader -->
+</div><!-- end #header -->
+
+<div id="content">
+<div id="innercontent">
+
+
+                <div class="day">
+
+
+	<div class="entry" id="open_research_the_data_lastfm">
+
+	<div class="entry-title entry-info">
+			<h2>Open Research - the Data: Lastfm-ArtistTags2007</h2>
+		</div>
+
+	<div class="entry-content">
+				For this Open Research experiment, I shall be working with a set of 
+social tag collected from Last.fm via Audioscrobbler web services.  
+Since it might be handy for anyone following along to have access to the
+ same data set, I am making this data set available directly for any 
+researcher who wants to use it.  
+<p>
+The dataset is available for download here: <a href="http://mediacast.sun.com/users/lamere/media/Lastfm-ArtistTags2007">Lastfm-ArtistTags2007</a>
+</p><p>
+Here are the details as told in  the README file:
+
+</p><pre><strong>The LastFM-ArtistTags2007 Data set
+</strong>Version 1.0
+June 2008
+
+<strong>What is this?
+</strong>
+    This is a set of artist tag data collected from Last.fm using
+    the <a href="http://www.audioscrobbler.net/data/webservices/">Audioscrobbler webservice</a> during the spring of 2007.
+
+    The data consists of the raw tag counts for the 100 most
+    frequently occuring tags that Last.fm listeners have applied
+    to over 20,000 artists.
+
+    An undocumented (and deprecated) option of the audioscrobbler
+    web service was used to bypass the Last.fm normalization of tag
+    counts.  This data set provides raw tag counts.
+
+<strong>Data Format:
+</strong>
+  The data is formatted one entry per line as follows:
+
+  musicbrainz-artist-id&lt;sep&gt;artist-name&lt;sep&gt;tag-name&lt;sep&gt;raw-tag-count
+
+<strong>Example:
+</strong>
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;american&lt;sep&gt;14
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;animals&lt;sep&gt;5
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;art punk&lt;sep&gt;21
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;art rock&lt;sep&gt;18
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;atmospheric&lt;sep&gt;4
+    11eabe0c-2638-4808-92f9-1dbd9c453429&lt;sep&gt;Deerhoof&lt;sep&gt;avantgarde&lt;sep&gt;3
+
+
+<strong>Data Statistics:
+</strong>
+    Total Lines:      952810
+    Unique Artists:    20907
+    Unique Tags:      100784
+    Total Tags:      7178442
+
+<strong>Filtering:
+</strong>
+    Some minor filtering has been applied to the tag data.  Last.fm will
+    report tag with counts of zero or less on occasion. These tags have
+    been removed.
+
+    Artists with no tags have not been included in this data set.
+    Of the nearly quarter million artists that were inspected, 20,907
+    artists had 1 or more tags.
+
+<strong>Files</strong>:
+
+    ArtistTags.dat  - the tag data
+    README.txt      - this file
+    artists.txt     - artists ordered by tag count
+    tags.txt        - tags ordered by tag count
+
+<strong>License</strong>:
+
+    The data in LastFM-ArtistTags2007 is distributed with permission of
+    Last.fm.  The data is made available for non-commercial use only under
+    the Creative Commons Attribution-NonCommercial-ShareAlike UK License.
+    Those interested in using the data or web services in a commercial
+    context should contact partners at last dot fm. For more information
+    see <a href="http://www.audioscrobbler.net/data/">http://www.audioscrobbler.net/data/</a>
+
+<strong>Acknowledgements</strong>:
+
+    Thanks to Last.fm for providing the access to this tag data via their
+    web services
+
+<strong>Contact</strong>:
+
+    This data was collected, filtered and by Paul Lamere of Sun Labs. Send
+    questions or comments to <a href="../cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="5d0d3c283173113c30382f381d2e2833733e3230">[email&#160;protected]</a></pre>
+<p>
+<b> What's all this then?</b>
+<em>This is an experiment in 'open research' - I'm going to blog my research on a particular topic.  Suggestions are welcome</em>
+</p><h2> Table of Contents</h2>
+<ul>
+  <li> <a href="open_research.html">Open Research</a>
+  </li><li> <a href="open_research_research_goals.html">Research Goals</a>
+  </li><li> <a href="open_research_background_reading.html">Background Reading</a>
+</li><li> <a href="open_research_the_data_lastfm.html">The Data</a> 
+</li></ul>
+		</div>
+	
+	<div class="entry-footer entry-info">
+	<p class="entry-date">Posted on: Jun 10, 2008</p>
+	<p class="entry-author">Posted by: plamere</p>
+	<p class="entry-category">Category: tagging-research</p>
+	<p class="entry-links">
+		<a href="open_research_the_data_lastfm.html">Permanent link to this entry</a>
+					</p>
+	</div>
+
+		</div>
+
+</div>
+    
+<!-- End SiteCatalyst code version: G.5. -->
+
+    <a name="comments"></a>
+    <div class="comments" id="comments">
+
+            <div class="comments-head">Comments:</div>
+            
+    <br>
+                        <a name="comment-1213091618000" id="comment-1213091618000"></a>
+            <div class="comment odd" id="comment1">
+
+                
+<p>Hello Paul!<br>
+Thanks for that - that's really useful! I will try to add support for the tag web service on <a href="http://dbtune.org/last-fm/," rel="nofollow">http://dbtune.org/last-fm/,</a> one of these days. </p>
+
+
+<p>It looks like the &lt;sep&gt; in your examples get thrown out by my 
+feed reader - I was wondering whether the band in the example was 
+Deerhoof or Deerhoo. In the latter case, it would have been a really 
+weird set of tags :-)</p>
+
+
+<p>Cheers!<br>
+y</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="http://blog.dbtune.org/"><b>Yves</b></a>
+                
+                on June 10, 2008 at 05:53 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_the_data_lastfm#comment-1213091618000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                                <a name="comment-1213092076000" id="comment-1213092076000"></a>
+            <div class="comment even" id="comment2">
+
+                
+<p>Thanks Yves, I've fixed the &lt;sep&gt; issue.</p>
+
+
+
+                <p class="comment-details">
+                Posted by
+                                    <a rel="nofollow" href="page0.html"><b>Paul</b></a>
+                
+                on June 10, 2008 at 06:01 AM EDT
+
+                <a href="https://kiserai.net/DukeListens/open_research_the_data_lastfm#comment-1213092076000.html" class="entrypermalink" title="comment permalink">#</a>
+                </p>
+
+            </div>
+
+                </div>
+
+    <div class="comments-form">
+    <div class="comments-head">Post a Comment:</div>
+    <a name="comment-form"></a>
+
+    <span class="status">Comments are closed for this entry.</span>
+
+    </div>
+
+<div id="boilerplate">
+<div id="innerboilerplate">
+<p>This blog copyright 2010 by plamere</p>
+</div>
+</div>
+
+</div><!-- end #innercontent -->
+</div><!-- end #content -->
+
+           <div id="sidebars">
+<div id="innersidebars">
+
+<div class="sidebar sidebar-a" id="nav">
+<div class="innersidebar">
+
+
+
+<!-- about me -->
+
+<div class="aboutme sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>About this weblog</h2>
+</div>
+<div class="sidebar-sect-content">
+  <!-- weblog about setting -->
+<p><i>(This is an archive of most of Paul Lamere's weblog from blogs.sun.com/plamere/  <br />
+This is not the original.  Some links do not work.  <br />
+An <a href="entry_index.html">entry index</a> is available.)</i></p>
+  <p>I am a researcher in Sun Labs where I explore new ways to organize, search for, and discover music. Read more on the <a href="http://research.sun.com/projects/dashboard.php?id=153">Search Inside the Music project page </a>.
+</p>
+</div>
+</div>
+
+
+
+<!-- paging -->
+
+<div class="paging sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Your Current Location</h2>
+</div>
+<div class="sidebar-sect-content">
+           
+	<p class="location">
+			You are viewing the entry <em>Open Research - the Data: Lastfm-ArtistTags2007</em>
+		</p>
+
+	<p class="prev-next">
+	                            « <a href="last_fm_in_a_box.html">Last.fm in a Box</a> |  
+                <a href="page0.html">Main</a>
+                | <a href="a_first_peek_at_the.html">A first peek at the...</a> »
+    	</p>
+
+    </div>
+</div>
+<h2>What I am listening to</h2>
+<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>
+<h2>What I am reading</h2>
+<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>
+<!-- recent entries -->
+
+<div class="recent sidebar-sect default-expanded">
+<div class="sidebar-sect-title">
+<h2>Up to 10 Recent Entries</h2>
+</div>
+<div class="sidebar-sect-content">
+  <ul>
+      <li><a href="last_post.html">Last Post</a></li>
+      <li><a href="the_best_job_in_the.html">The best job in the world</a></li>
+      <li><a href="music_gone_viral.html">Music gone viral?</a></li>
+      <li><a href="music_recommendation_and_the_long.html">Music Recommendation and the Long Tail</a></li>
+      <li><a href="sxsw_artist_catalog_updated.html">SXSW Artist Catalog updated</a></li>
+      <li><a href="most_overused_animals_of_indie.html">Most overused animals of indie rock?</a></li>
+      <li><a href="blip_fm_api.html">Blip.fm API</a></li>
+      <li><a href="new_release_of_sphinx_4.html">New release of Sphinx-4</a></li>
+      <li><a href="styling_the_sxsw_artist_catalog.html">Styling the SXSW Artist Catalog</a></li>
+      <li><a href="getting_the_most_space_on.html">Getting the most space on the marquee</a></li>
+    </ul>
+</div>
+</div>
+
+
+
+<!-- feeds not available in this archive, sorry -->
+<div class="categories sidebar-sect">
+   <div class="sidebar-sect-title">
+   <h2>Categories</h2>
+   <i>(Original blog had several other categories)</i>
+   </div>
+   <div class="sidebar-sect-content">
+       <ul class="rCategory">
+           <li><a href="category-freakomendations-page0.html">freakomendations</a></li>
+       </ul>
+   </div>
+</div>
+<!-- weblog menu not available in this archive, sorry -->
+<!-- search not available in this archive, sorry -->
+</form>
+<script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript">prepareSearchForm();</script>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-a -->
+
+<div class="sidebar sidebar-b">
+<div class="innersidebar">
+
+
+
+<!-- bookmarks -->
+
+<div class="links sidebar-sect">
+<div class="sidebar-sect-title">
+<h2>Bookmarks</h2>
+</div>
+<div class="sidebar-sect-content">
+<ul class="rFolder">
+                    <li class="rFolderItem">
+                                <a href="http://www.mediaor.com/" title="Aggregation of music blogs" class="rBookmark0">Me*dia*or</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://mobblog.cs.ucl.ac.uk/" title="Research: Trust, Reputation, Recommendations and Mobility" class="rBookmark0">MobBlog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="offices_of_music_2_013.html" title="Photos of Music 2.0 Offices" class="rBookmark0">Offices</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://research.sun.com/projects/dashboard.php?id=153" title="The search inside the music project page" class="rBookmark0">SITM</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="https://savetherobot.wordpress.com/" title="Chris Dahlen's work blog" class="rBookmark0">Save the robot</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://blogs.sun.com/searchguy/" title="" class="rBookmark0">Search Guy</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://thetasteblog.com/" title="An aggregation of recommender blogs" class="rBookmark0">The Taste Blog</a>
+                </li>
+            <li class="rFolderItem">
+                                <a href="http://musicmachinery.com/feed/"><img class="smrssbadge" src="support_files/smrssbadge.gif" alt="URL of site''s RSS feed"></a>
+                        <a href="http://musicmachinery.com/" title="a blog about music technology" class="rBookmark10">Music Machinery</a>
+                </li>
+                    </ul>
+</div>
+</div>
+
+
+
+</div><!-- end .innersidebar -->
+</div><!-- end .sidebar-b -->
+
+</div><!-- end #innersidebars -->
+</div><!-- end #sidebars -->
+    
+</div><!-- end #innerpagewrap -->
+</div><!-- end #pagewrap -->
+
+</body></html>
