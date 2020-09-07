@@ -1,0 +1,2 @@
+rm -rf dummy
+cp -r DukeListens dummy
