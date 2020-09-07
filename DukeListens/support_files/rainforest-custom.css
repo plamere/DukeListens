@@ -120,7 +120,7 @@ div#content {
     margin-right: 220px;
     position: relative;
     z-index: 1500;
-    background: #fafaf0 url(http://blogs.sun.com/plamere/resource/rainforest/content-tl.gif) no-repeat top left
+    background: #fafaf0 
 }
 
 * html div#content {
@@ -128,7 +128,7 @@ div#content {
 }
 
 div#innercontent {
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-tr.gif) no-repeat top right;
+    background: transparent ;
     padding: 10px 22px 0
 }
 
@@ -273,16 +273,15 @@ div.comments-form p.input input[type=text] {
 
 div#boilerplate {
     color: #7c8400;
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-br.gif) no-repeat bottom right;
+    background: transparent ;
     margin: 0 -22px
 }
 
 div.shorter div#boilerplate {
-    background-image: url(http://blogs.sun.com/plamere/resource/rainforest/content-br-dark.gif)
 }
 
 div#innerboilerplate {
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-bl.gif) no-repeat bottom left;
+    background: transparent ;
     padding: 10px 20px
 }
 
@@ -291,7 +290,7 @@ div#sidebars {
     position: absolute;
     top: 70px;
     right: 0;
-    background: #fff url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-vert.gif) repeat-y 100% 0%;
+    background: #fff ;
     z-index: 1000;
     border-bottom: 20px solid #e5e8b1
 }
@@ -301,7 +300,7 @@ div#sidebars {
 }
 
 div#innersidebars {
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-top.gif) no-repeat top right
+    background: transparent ;
 }
 
 div.sidebar {
@@ -313,7 +312,7 @@ div.sidebar {
 }
 
 div.sidebar-b {
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-bottom.gif) no-repeat bottom right
+    background: transparent ;
 }
 
 div#sidebars h1,
@@ -369,7 +368,7 @@ div#sidebars ul {
 div#sidebars li {
     list-style: none;
     display: block;
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/bullet.gif) no-repeat 0 5px;
+    background: transparent ;
     padding-left: 9px;
     margin: 3px 0
 }
@@ -390,7 +389,7 @@ div.paging p.prev-next {
 }
 
 div#sidebars div.feeds li {
-    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/feed-12x.gif) no-repeat 0 4px;
+    background: transparent ;
     padding-left: 17px;
     padding-top: 3px;
     border-top: 1px dotted #7c8400;
