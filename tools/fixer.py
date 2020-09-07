@@ -122,6 +122,7 @@ replacements = [
     ("""<object><embed src="support_files/user_profile_embed.swf" type="application/x-shockwave-flash" wmode="transparent" height="200" width="200"></object>""", ""),
     ("""<h2>What I am reading</h2>""", ""),
     ("""<div class="f"><a href="https://www.google.com/reader/shared/user/07268145224739680674/state/com.google/broadcast">Google Reader »</a></div>""", ""),
+    ("https://kiserai.net/DukeListens/", "./"),
     (bm, ""),
     (feeds, ""),
     (recent, ""),
