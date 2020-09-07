@@ -1,1 +1,429 @@
-body{background:#e5e8b1;color:#000;margin:0;padding:0 0 50px;font-family:arial,helvetica,sans-serif;font-size:13px}h1,h2,h3,h4,h5,h6,p,ol,ul,dl,blockquote,pre{margin-top:10px;margin-bottom:10px}form{margin:0}a:link,a:visited,a[href]:hover,a[href]:active{color:#0733a0;text-decoration:none}* html a:link,* html a:visited,* html a:hover,* html a:active{color:#0733a0;text-decoration:none}img{border:none}html>body img{vertical-align:middle}li{margin:0;padding:0}p.null{color:#999;font-style:italic}div#pagewrap{max-width:900px;min-width:560px;padding:0 10px;margin:auto}div#innerpagewrap{position:relative;padding-top:1px}div#header{font-family:arial,helvetica,sans-serif;margin-bottom:15px;padding-right:250px;padding-left:10px}div#header h1{font-size:23px}div#header a:link,div#header a:visited,div#header a[href]:hover,div#header a[href]:active{color:#7c8400;text-decoration:none}* html div#header a:link,* html div#header a:visited,* html div#header a:hover,* html div#header a:active{color:#7c8400;text-decoration:none}div#header h1 span.colon{display:none}div#header h1 span.subhead{display:block;font-size:13px;margin:3px 0}div#header p#currentdate,div#header p.skip{position:absolute;top:-1000px}div#content{margin-right:220px;position:relative;z-index:1500;background:#fafaf0 url(http://blogs.sun.com/plamere/resource/rainforest/content-tl.gif) no-repeat top left}* html div#content{margin-right:260px}div#innercontent{background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-tr.gif) no-repeat top right;padding:10px 22px 0}div.day-title h2{font-size:11px;font-weight:400;color:#f68d31;font-family:arial,helvetica,sans-serif;margin-bottom:-9px;text-transform:uppercase}div.entry{margin-bottom:40px}div.entry-title h2,div.entry-title h3{font-size:22px;color:#073360}div.entry-content{line-height:150%;margin:10px 0}div.entry-content blockquote{margin-right:0;padding-right:30px;border-left:10px solid #ddd;margin-left:0;padding-left:15px;color:#444;font-size:12px}div.entry-content pre{overflow:auto}div.entry-content img{max-width:450px}div.entry-content img[align=left]{float:left;margin:0 10px 5px 0}div.entry-content img[align=right]{float:right;margin:0 0 5px 10px}div.entry-info{font-family:arial,helvetica,sans-serif;margin:10px 0;color:#7c8400;font-size:11px}div.entry-footer p{margin:1px 0}div.entry-footer p.entry-links{margin:5px 0}div#comments{}div.comments-head{font-size:18px;font-weight:700}div.comment{border-left:10px solid #d3da7d;background:#eff1d0;padding:12px 12px 1px;margin:8px 0;font-family:arial,helvetica,sans-serif;font-size:12px}div.comment{line-height:140%;color:#444}html>body div.comment{overflow:auto}* html div.comment{height:1px}p.comment-details{}div.comments-form{-moz-border-radius:0 0 10px 10px;background:#d3da7d;color:#5d6300;padding:12px 12px 1px;margin:8px 0;font-family:arial,helvetica,sans-serif;font-size:12px}div.comments-form ul,div.comments-form li{list-style:none;margin:12px 0;padding:0;display:block}div.comments-form label{font-weight:700;display:block;margin:5px 0}div.comments-form label.choice{display:inline;margin:0}div.comments-form input[type=text]{width:60%}div.comments-form textarea{width:90%}div.comments-form p.input input[type=text]{width:380px}div#boilerplate{color:#7c8400;background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-br.gif) no-repeat bottom right;margin:0 -22px}div.shorter div#boilerplate{background-image:url(http://blogs.sun.com/plamere/resource/rainforest/content-br-dark.gif)}div#innerboilerplate{background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-bl.gif) no-repeat bottom left;padding:10px 20px}div#sidebars{width:250px;position:absolute;top:40px;right:0;background:#fff url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-vert.gif) repeat-y 100% 0%;z-index:1000;border-bottom:20px solid #e5e8b1}* html div#sidebars{right:10px}div#innersidebars{background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-top.gif) no-repeat top right}div.sidebar{padding:1px 20px 1px 45px}* html div.sidebar{padding-left:15px}div.sidebar-b{background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-bottom.gif) no-repeat bottom right}div#sidebars h1,div#sidebars h2,div#sidebars h3,div#sidebars h4,div#sidebars h5,div#sidebars h6,div#sidebars p,div#sidebars ol,div#sidebars ul,div#sidebars dl,div#sidebars blockquote,div#sidebars pre{margin-top:6px;margin-bottom:6px}div#sidebars p{line-height:130%;color:#444}div#sidebars p#custompic{text-align:center;margin:16px -5px}p#custompic img{max-width:188px}* html p#custompic img{width:218px}div#sidebars h2{font-size:13px;color:#7c8400;text-transform:uppercase}div.sidebar-sect{margin-bottom:20px}div#sidebars ul{margin-left:0;padding-left:0;list-style:none}div#sidebars li{list-style:none;display:block;background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/bullet.gif) no-repeat 0 5px;padding-left:9px;margin:3px 0}div#sidebars li.current{font-weight:700}div.paging p.prev-next{position:absolute;top:-30px;right:0;text-align:right;width:350px;color:#7c8400;text-transform:lowercase;white-space:nowrap}div#sidebars div.feeds li{background:transparent url(http://blogs.sun.com/plamere/resource/rainforest/feed-12x.gif) no-repeat 0 4px;padding-left:17px;padding-top:3px;border-top:1px dotted #7c8400;margin:3px 0}div#sidebars div.feeds img.sect-icon{float:right;border-left:10px solid #d3da7d}div.search label{position:absolute;top:-99999px}div.search p{display:inline}div.search input{vertical-align:middle;margin-right:5px}div.search input[type=text]{width:100px}span.status{color:green;font-weight:700;font-size:18px;margin:15px;padding:1px}
+body {
+    background: #e5e8b1;
+    color: #000;
+    margin: 0;
+    padding: 0 0 50px;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 13px
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+dl,
+blockquote,
+pre {
+    margin-top: 10px;
+    margin-bottom: 10px
+}
+
+form {
+    margin: 0
+}
+
+a:link,
+a:visited,
+a[href]:hover,
+a[href]:active {
+    color: #0733a0;
+    text-decoration: none
+}
+
+* html a:link,
+* html a:visited,
+* html a:hover,
+* html a:active {
+    color: #0733a0;
+    text-decoration: none
+}
+
+img {
+    border: none
+}
+
+html>body img {
+    vertical-align: middle
+}
+
+li {
+    margin: 0;
+    padding: 0
+}
+
+p.null {
+    color: #999;
+    font-style: italic
+}
+
+div#pagewrap {
+    max-width: 900px;
+    min-width: 560px;
+    padding: 0 10px;
+    margin: auto
+}
+
+div#innerpagewrap {
+    position: relative;
+    padding-top: 1px
+}
+
+div#header {
+    font-family: arial, helvetica, sans-serif;
+    margin-bottom: 15px;
+    padding-right: 250px;
+    padding-left: 10px
+}
+
+div#header h1 {
+    font-size: 23px
+}
+
+div#header a:link,
+div#header a:visited,
+div#header a[href]:hover,
+div#header a[href]:active {
+    color: #7c8400;
+    text-decoration: none
+}
+
+* html div#header a:link,
+* html div#header a:visited,
+* html div#header a:hover,
+* html div#header a:active {
+    color: #7c8400;
+    text-decoration: none
+}
+
+div#header h1 span.colon {
+    display: none
+}
+
+div#header h1 span.subhead {
+    display: block;
+    font-size: 13px;
+    margin: 3px 0
+}
+
+div#header p#currentdate,
+div#header p.skip {
+    position: absolute;
+    top: -1000px
+}
+
+div#content {
+    margin-right: 220px;
+    position: relative;
+    z-index: 1500;
+    background: #fafaf0 url(http://blogs.sun.com/plamere/resource/rainforest/content-tl.gif) no-repeat top left
+}
+
+* html div#content {
+    margin-right: 260px
+}
+
+div#innercontent {
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-tr.gif) no-repeat top right;
+    padding: 10px 22px 0
+}
+
+div.day-title h2 {
+    font-size: 11px;
+    font-weight: 400;
+    color: #f68d31;
+    font-family: arial, helvetica, sans-serif;
+    margin-bottom: -9px;
+    text-transform: uppercase
+}
+
+div.entry {
+    margin-bottom: 40px
+}
+
+div.entry-title h2,
+div.entry-title h3 {
+    font-size: 22px;
+    color: #073360
+}
+
+div.entry-content {
+    line-height: 150%;
+    margin: 10px 0
+}
+
+div.entry-content blockquote {
+    margin-right: 0;
+    padding-right: 30px;
+    border-left: 10px solid #ddd;
+    margin-left: 0;
+    padding-left: 15px;
+    color: #444;
+    font-size: 12px
+}
+
+div.entry-content pre {
+    overflow: auto
+}
+
+div.entry-content img {
+    max-width: 450px
+}
+
+div.entry-content img[align=left] {
+    float: left;
+    margin: 0 10px 5px 0
+}
+
+div.entry-content img[align=right] {
+    float: right;
+    margin: 0 0 5px 10px
+}
+
+div.entry-info {
+    font-family: arial, helvetica, sans-serif;
+    margin: 10px 0;
+    color: #7c8400;
+    font-size: 11px
+}
+
+div.entry-footer p {
+    margin: 1px 0
+}
+
+div.entry-footer p.entry-links {
+    margin: 5px 0
+}
+
+div#comments {}
+
+div.comments-head {
+    font-size: 18px;
+    font-weight: 700
+}
+
+div.comment {
+    border-left: 10px solid #d3da7d;
+    background: #eff1d0;
+    padding: 12px 12px 1px;
+    margin: 8px 0;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px
+}
+
+div.comment {
+    line-height: 140%;
+    color: #444
+}
+
+html>body div.comment {
+    overflow: auto
+}
+
+* html div.comment {
+    height: 1px
+}
+
+p.comment-details {}
+
+div.comments-form {
+    -moz-border-radius: 0 0 10px 10px;
+    background: #d3da7d;
+    color: #5d6300;
+    padding: 12px 12px 1px;
+    margin: 8px 0;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px
+}
+
+div.comments-form ul,
+div.comments-form li {
+    list-style: none;
+    margin: 12px 0;
+    padding: 0;
+    display: block
+}
+
+div.comments-form label {
+    font-weight: 700;
+    display: block;
+    margin: 5px 0
+}
+
+div.comments-form label.choice {
+    display: inline;
+    margin: 0
+}
+
+div.comments-form input[type=text] {
+    width: 60%
+}
+
+div.comments-form textarea {
+    width: 90%
+}
+
+div.comments-form p.input input[type=text] {
+    width: 380px
+}
+
+div#boilerplate {
+    color: #7c8400;
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-br.gif) no-repeat bottom right;
+    margin: 0 -22px
+}
+
+div.shorter div#boilerplate {
+    background-image: url(http://blogs.sun.com/plamere/resource/rainforest/content-br-dark.gif)
+}
+
+div#innerboilerplate {
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/content-bl.gif) no-repeat bottom left;
+    padding: 10px 20px
+}
+
+div#sidebars {
+    width: 250px;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #fff url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-vert.gif) repeat-y 100% 0%;
+    z-index: 1000;
+    border-bottom: 20px solid #e5e8b1
+}
+
+* html div#sidebars {
+    right: 0px
+}
+
+div#innersidebars {
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-top.gif) no-repeat top right
+}
+
+div.sidebar {
+    padding: 1px 20px 1px 45px
+}
+
+* html div.sidebar {
+    padding-left: 15px
+}
+
+div.sidebar-b {
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/sidebar-bottom.gif) no-repeat bottom right
+}
+
+div#sidebars h1,
+div#sidebars h2,
+div#sidebars h3,
+div#sidebars h4,
+div#sidebars h5,
+div#sidebars h6,
+div#sidebars p,
+div#sidebars ol,
+div#sidebars ul,
+div#sidebars dl,
+div#sidebars blockquote,
+div#sidebars pre {
+    margin-top: 6px;
+    margin-bottom: 6px
+}
+
+div#sidebars p {
+    line-height: 130%;
+    color: #444
+}
+
+div#sidebars p#custompic {
+    text-align: center;
+    margin: 16px -5px
+}
+
+p#custompic img {
+    max-width: 188px
+}
+
+* html p#custompic img {
+    width: 218px
+}
+
+div#sidebars h2 {
+    font-size: 13px;
+    color: #7c8400;
+    text-transform: uppercase
+}
+
+div.sidebar-sect {
+    margin-bottom: 20px
+}
+
+div#sidebars ul {
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none
+}
+
+div#sidebars li {
+    list-style: none;
+    display: block;
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/bullet.gif) no-repeat 0 5px;
+    padding-left: 9px;
+    margin: 3px 0
+}
+
+div#sidebars li.current {
+    font-weight: 700
+}
+
+div.paging p.prev-next {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    text-align: right;
+    width: 350px;
+    color: #7c8400;
+    text-transform: lowercase;
+    white-space: nowrap
+}
+
+div#sidebars div.feeds li {
+    background: transparent url(http://blogs.sun.com/plamere/resource/rainforest/feed-12x.gif) no-repeat 0 4px;
+    padding-left: 17px;
+    padding-top: 3px;
+    border-top: 1px dotted #7c8400;
+    margin: 3px 0
+}
+
+div#sidebars div.feeds img.sect-icon {
+    float: right;
+    border-left: 10px solid #d3da7d
+}
+
+div.search label {
+    position: absolute;
+    top: -99999px
+}
+
+div.search p {
+    display: inline
+}
+
+div.search input {
+    vertical-align: middle;
+    margin-right: 5px
+}
+
+div.search input[type=text] {
+    width: 100px
+}
+
+span.status {
+    color: green;
+    font-weight: 700;
+    font-size: 18px;
+    margin: 15px;
+    padding: 1px
+}
